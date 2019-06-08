@@ -1,4 +1,6 @@
-
+import sys
+sys.path.insert(0, '/home/ema/Documentos/InfoPlaces/connection')
+import db_connection
 
 
 class User:
@@ -86,4 +88,6 @@ class Schedule:
 		self.turn = ""
 		self.opening = ""
 		self.closing = ""
+
+x = RegisteredUser()
 

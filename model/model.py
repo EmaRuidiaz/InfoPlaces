@@ -8,6 +8,9 @@ class User:
 	def register(self):
 		pass
 
+	def search(self):
+		pass
+
 
 
 class RegisteredUser(User):
@@ -60,9 +63,6 @@ class Shop:
 		self.phone = ""
 		self.streetname = ""
 		self.streetnumber = ""
-
-	def search(self):
-		pass
 
 class Commet:
 	def __init__(self):

@@ -109,11 +109,10 @@ def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbr
 
 class ventanas:
 	def __init__(self):
-		self.op = ""
 		v = ventana1()
-		if v.Ui_Ventana_Principal.op == "2":
+		if v.op == "2":
 			print("adelante")
-		elif v.Ui_Ventana_Principal.op == "3":
+		elif v.op == "3":
 			print("atras")
 
 x = ventanas()

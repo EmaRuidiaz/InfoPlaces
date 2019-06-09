@@ -8,9 +8,12 @@ class UserController:
 	def __init__(self):
 		op = menu(self)
 		while op != "5":
-			if op == "1":
-				print("Presionaste la opcion 1")
-
+			if op == "1":  ##
+				print("Presionaste en buscar")
+				llamoafuncionbuscar()
+			elif op == "2":
+				print("Presionaste un tag")
+				llamoafunciontag()
 			clear()
 			op = menu(self)
 

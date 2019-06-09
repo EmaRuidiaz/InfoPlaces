@@ -55,13 +55,13 @@ class Ui_Ventana_Principal(object):
 
 
 class ventana1():
-    def __init__(self):
-        self.op = ""
+
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()
     ui = Ui_Ventana_Principal()
     ui.setupUi(Ventana_Principal)
     Ventana_Principal.show()
+
     sys.exit(app.exec_())
 

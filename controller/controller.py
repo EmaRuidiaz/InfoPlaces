@@ -109,7 +109,12 @@ def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbr
 
 class ventanas:
 	def __init__(self):
-		v1 = ventana1()
+		v = ventana1()
+		if v == "2":
+			v2 = ventana2()
+		elif v == "3":
+			v3 = ventana3()
+
 
 x = ventanas()
 

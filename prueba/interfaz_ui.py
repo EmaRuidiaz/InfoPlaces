@@ -42,9 +42,9 @@ class Ui_Ventana_Principal(object):
         QtCore.QMetaObject.connectSlotsByName(Ventana_Principal)
 
     def adelante(self):
-        return "2"
+        self.op = "2"
     def atras(self):
-        return "3"
+        self.op = "3"
 
     def retranslateUi(self, Ventana_Principal):
         _translate = QtCore.QCoreApplication.translate

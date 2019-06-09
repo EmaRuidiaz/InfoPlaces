@@ -37,9 +37,14 @@ class Ui_Ventana_Principal(object):
         Ventana_Principal.setStatusBar(self.statusbar)
 
         self.retranslateUi(Ventana_Principal)
-        self.pushButton.clicked.connect(self.pushButton.setFocus)
-        self.pushButton_2.clicked.connect(self.pushButton_2.setFocus)
+        return self.pushButton.clicked.connect(self.adelante)
+        return self.pushButton_2.clicked.connect(self.atras)
         QtCore.QMetaObject.connectSlotsByName(Ventana_Principal)
+
+    def adelante(self):
+        return "2"
+    def atras(self):
+        return "3"
 
     def retranslateUi(self, Ventana_Principal):
         _translate = QtCore.QCoreApplication.translate

@@ -1,9 +1,7 @@
 import sys
 sys.path.insert(0, '/home/ema/Documentos/InfoPlaces/connection')
-sys.path.insert(0, 'C:/Users/Usuario/Desktop/InfoPlaces/Prueba')
-import ventana1
-import ventana2
-import ventana3
+sys.path.insert(0, 'C:/Users/Apagu/Desktop/InfoPlaces/prueba')
+import interfaz_ui
 import db_connection
 
 import os

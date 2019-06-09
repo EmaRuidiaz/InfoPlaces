@@ -111,9 +111,9 @@ class ventanas:
 	def __init__(self):
 		self.op = ""
 		v = ventana1()
-		if v.op == "2":
+		if v.Ui_Ventana_Principal.op == "2":
 			print("adelante")
-		elif v.op == "3":
+		elif v.Ui_Ventana_Principal.op == "3":
 			print("atras")
 
 x = ventanas()

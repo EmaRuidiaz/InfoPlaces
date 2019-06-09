@@ -1,6 +1,11 @@
 import sys
 sys.path.insert(0, '/home/ema/Documentos/InfoPlaces/connection')
+sys.path.insert(0, 'C:/Users/Usuario/Desktop/InfoPlaces/Prueba')
+import ventana1
+import ventana2
+import ventana3
 import db_connection
+
 import os
 
 
@@ -104,5 +109,9 @@ def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbr
     elif os.name == ("ce", "nt", "dos"):
         os.system ("cls")
 
-x = UserController()
+class ventanas:
+	def __init__(self):
+		v1 = ventana1()
+
+x = ventanas()
 

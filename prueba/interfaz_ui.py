@@ -149,7 +149,7 @@ class Ui_Ventana_3(object):
         self.pushButton_2.setText(_translate("Ventana_Principal", "<"))
         self.label.setText(_translate("Ventana_Principal", "3"))
 
-class ventana1()
+class ventana1():
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()
@@ -158,7 +158,7 @@ class ventana1()
     Ventana_1.show()
     sys.exit(app.exec_())
 
-class ventana2()
+class ventana2():
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()
@@ -167,7 +167,7 @@ class ventana2()
     Ventana_2.show()
     sys.exit(app.exec_())
     
-class ventana3()
+class ventana3():
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()

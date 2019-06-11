@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0, '/home/ema/Documentos/InfoPlaces/connection')
-sys.path.insert(0, 'C:/Users/Apagu/Desktop/InfoPlaces/prueba')
+sys.path.insert(0, '../connection')
+sys.path.insert(0, '../prueba')
 import interfaz_ui
 import db_connection
 
@@ -114,6 +114,9 @@ class ventanas:
 			print("adelante")
 		elif v.op == "3":
 			print("atras")
+
+		def imprimir(self):
+			print("Hola")
 
 x = ventanas()
 

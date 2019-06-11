@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+import sys
+import interfaz_ui
 
 # Form implementation generated from reading ui file 'interfaz.ui'
 #
@@ -10,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Ventana_1(object):
     def setupUi(self, Ventana_1):
+        self.ventana = ventanas()
         Ventana_1.setObjectName("Ventana_1")
         Ventana_1.resize(314, 287)
         self.centralwidget = QtWidgets.QWidget(Ventana_1)
@@ -37,7 +39,7 @@ class Ui_Ventana_1(object):
         Ventana_1.setStatusBar(self.statusbar)
 
         self.retranslateUi(Ventana_1)
-        self.pushButton.clicked.connect(self.pushButton.setFocus)
+        self.pushButton.clicked.connect(self.ventana.imprimir)
         self.pushButton_2.clicked.connect(self.pushButton_2.setFocus)
         QtCore.QMetaObject.connectSlotsByName(Ventana_1)
 
@@ -86,7 +88,7 @@ class Ui_Ventana_2(object):
         Ventana_2.setStatusBar(self.statusbar)
 
         self.retranslateUi(Ventana_2)
-        self.pushButton.clicked.connect(self.pushButton.setFocus)
+        self.pushButton.clicked.connect(self.v.imprimir)
         self.pushButton_2.clicked.connect(self.pushButton_2.setFocus)
         QtCore.QMetaObject.connectSlotsByName(Ventana_2)
 

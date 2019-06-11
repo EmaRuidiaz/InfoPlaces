@@ -1,5 +1,5 @@
 import sys
-import interfaz_ui
+
 
 # Form implementation generated from reading ui file 'interfaz.ui'
 #
@@ -9,10 +9,12 @@ import interfaz_ui
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Ventana_1(object):
-    def setupUi(self, Ventana_1):
-        self.ventana = ventanas()
-        Ventana_1.setObjectName("Ventana_1")
+class IniciarSesionView(object):
+
+
+    def __init__(self, Ventana_1):
+        #self.controlador = Controller()
+        Ventana_1.setObjectName("Iniciar Sesion")
         Ventana_1.resize(314, 287)
         self.centralwidget = QtWidgets.QWidget(Ventana_1)
         self.centralwidget.setObjectName("centralwidget")
@@ -37,9 +39,12 @@ class Ui_Ventana_1(object):
         self.statusbar = QtWidgets.QStatusBar(Ventana_1)
         self.statusbar.setObjectName("statusbar")
         Ventana_1.setStatusBar(self.statusbar)
+        Ventana_1.show()
+        print("Holaaaaaa")
+        
 
         self.retranslateUi(Ventana_1)
-        self.pushButton.clicked.connect(self.ventana.imprimir)
+        #self.pushButton.clicked.connect(self.ventana.imprimir)
         self.pushButton_2.clicked.connect(self.pushButton_2.setFocus)
         QtCore.QMetaObject.connectSlotsByName(Ventana_1)
 
@@ -151,13 +156,14 @@ class Ui_Ventana_3(object):
         self.pushButton_2.setText(_translate("Ventana_Principal", "<"))
         self.label.setText(_translate("Ventana_Principal", "3"))
 
-class ventana1():
+class IniciarSesion():
     import sys
+    print("IniciarSesion")
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()
-    ui = Ui_Ventana_1()
-    ui.setupUi(Ventana_1)
-    Ventana_1.show()
+    ISV = IniciarSesionView(Ventana_Principal)
+    #ui.setupUi(Ventana_1)
+    #Ventana_1.show()
     sys.exit(app.exec_())
 
 class ventana2():
@@ -173,7 +179,6 @@ class ventana3():
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Ventana_Principal = QtWidgets.QMainWindow()
-    ui = Ui_Ventana_3()
-    ui.setupUi(Ventana_3)
+    IniciarSesionView = IniciarSesionView()
     Ventana_3.show()
     sys.exit(app.exec_())

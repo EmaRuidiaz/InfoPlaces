@@ -1,6 +1,4 @@
 import sys
-
-
 # Form implementation generated from reading ui file 'interfaz.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
@@ -9,10 +7,11 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class IniciarSesionView(object):
 
 
-    def __init__(self, Ventana_1):
+    def __init__(self,Ventana_1):
         #self.controlador = Controller()
         Ventana_1.setObjectName("Iniciar Sesion")
         Ventana_1.resize(314, 287)
@@ -40,16 +39,27 @@ class IniciarSesionView(object):
         self.statusbar.setObjectName("statusbar")
         Ventana_1.setStatusBar(self.statusbar)
         Ventana_1.show()
-        print("Holaaaaaa")
+        print("Holaaaaaa desde UI")
         
 
         self.retranslateUi(Ventana_1)
-        #self.pushButton.clicked.connect(self.ventana.imprimir)
-        self.pushButton_2.clicked.connect(self.pushButton_2.setFocus)
+        #self.pushButton.clicked.connect(self.adelante)
+        self.valor=0
+        #self.pushButton_2.clicked.connect(lambda: self.adelante2())
+        #self.pushButton_2.clicked.connect(lambda: self.mostrar(self.valor))
         QtCore.QMetaObject.connectSlotsByName(Ventana_1)
 
+    def adelante2(self):
+        print ("testeo1 entre")
+        self.valor = "33423432"
+        return self.valor
+
+
+
     def adelante(self):
-        return "2"
+        self.op = "2"
+        return self.op
+
 
     def atras(self):
         return "3"
@@ -144,6 +154,7 @@ class Ui_Ventana_3(object):
         QtCore.QMetaObject.connectSlotsByName(Ventana_3)
 
     def adelante(self):
+
         return "1"
 
     def atras(self):
@@ -155,30 +166,3 @@ class Ui_Ventana_3(object):
         self.pushButton.setText(_translate("Ventana_Principal", ">"))
         self.pushButton_2.setText(_translate("Ventana_Principal", "<"))
         self.label.setText(_translate("Ventana_Principal", "3"))
-
-class IniciarSesion():
-    import sys
-    print("IniciarSesion")
-    app = QtWidgets.QApplication(sys.argv)
-    Ventana_Principal = QtWidgets.QMainWindow()
-    ISV = IniciarSesionView(Ventana_Principal)
-    #ui.setupUi(Ventana_1)
-    #Ventana_1.show()
-    sys.exit(app.exec_())
-
-class ventana2():
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Ventana_Principal = QtWidgets.QMainWindow()
-    ui = Ui_Ventana_2()
-    ui.setupUi(Ventana_2)
-    Ventana_2.show()
-    sys.exit(app.exec_())
-    
-class ventana3():
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Ventana_Principal = QtWidgets.QMainWindow()
-    IniciarSesionView = IniciarSesionView()
-    Ventana_3.show()
-    sys.exit(app.exec_())

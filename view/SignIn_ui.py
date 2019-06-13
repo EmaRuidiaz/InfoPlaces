@@ -11,8 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class IniciarSesionView(object):
 
     def __init__(self, MainWindow):
-        self.passwd = ""
-        self.user = ""
+        self.passwd = None
+        self.user = None
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setWindowTitle("Sign In")
@@ -85,9 +85,13 @@ class IniciarSesionView(object):
         MainWindow.show()
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.lineEdit.setClearButtonEnabled(True)
+
 
     def adelante2(self):
-        print("Holaa Baby")
+        #if self.lineEdit.is
+        self.user = self.lineEdit.text()
+        self.passwd = self.lineEdit_2.text()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

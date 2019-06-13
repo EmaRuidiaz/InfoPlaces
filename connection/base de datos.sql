@@ -3,6 +3,7 @@ use InfoPlaces;
 
 create table PERSON (
 id int primary key auto_increment,
+user_name varchar(20) not null,
 `type` int(1) not null,
 first_name varchar(20) not null,
 last_name varchar(20) not null,

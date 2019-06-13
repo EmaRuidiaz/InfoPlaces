@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'SignIn.ui'
+# Form implementation generated from reading ui file 'SignIn222.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -8,12 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class IniciarSesionView(object):
-
-    def __init__(self, MainWindow):
-        self.passwd = None
-        self.user = None
-        self.type = None
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setWindowTitle("Sign In")
@@ -93,33 +89,29 @@ class IniciarSesionView(object):
         self.statusBar.setObjectName("statusBar")
         MainWindow.setStatusBar(self.statusBar)
 
-        MainWindow.show()
         self.retranslateUi(MainWindow)
-        self.lineEdit.setPlaceholderText("  Username or Email")
-        self.lineEdit_2.setPlaceholderText("  Password")
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.lineEdit.setClearButtonEnabled(True)
-        self.lineEdit_2.setClearButtonEnabled(True)
-
-
-    def adelante2(self):
-        #if self.lineEdit.is
-        self.user = self.lineEdit.text()
-        self.passwd = self.lineEdit_2.text()
-        if self.radioButton.isChecked():
-            self.type = 1
-        else:
-            self.type = 2
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt; color:#3f413e;\">InfoPlaces</span></p></body></html>"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt; color:#5500ff;\">InfoPlaces</span></p></body></html>"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "  Username or Email"))
+        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "  Password"))
         self.pushButton.setText(_translate("MainWindow", "Create Account"))
         self.pushButton_2.setText(_translate("MainWindow", "Sign In"))
         self.pushButton_3.setText(_translate("MainWindow", "Anonymous Access"))
         self.radioButton.setText(_translate("MainWindow", "User"))
         self.radioButton_2.setText(_translate("MainWindow", "Owner"))
+        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt; color:#5500ff;\">InfoPlaces</span></p></body></html>"))
 
+import fondo_rc
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
 

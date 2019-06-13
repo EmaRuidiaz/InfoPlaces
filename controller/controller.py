@@ -2,9 +2,9 @@ import sys
 sys.path.append('../connection')
 sys.path.append('../model')
 sys.path.append('../view')
-import model
+from model import RegisteredUser
 from SignIn_ui import IniciarSesionView
-import db_connection
+from db_connection import DBconn
 from PyQt5 import QtCore, QtGui, QtWidgets
 #import fondo_rc
 
@@ -30,20 +30,31 @@ class Controller():
 		#ventana1.adelante2()
 		ventana1.pushButton_2.clicked.connect(lambda: ventana1.adelante2())
 		#ventana1.pushButton_2.clicked.connect(lambda: self.mostrar(ventana1.passwd))
-		ventana1.pushButton_2.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user))
+		ventana1.pushButton_2.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type))
 		
 		ventana1.pushButton.clicked.connect(lambda: self.reset(ventana1.passwd, ventana1.user))
 
 		sys.exit(app.exec_())
 
-	def sign(self, passwd, user):
-		reguser = RegisteredUser()
-		reguser.username = user
-		reguser.
-		if (passwd == None) and (user == None):
-			print("Datos no Ingresados")
+	def sign(self, passwd, user, typeu):
+		self.reguser = RegisteredUser()
+		print(user)
+		print(passwd)
+		print("Tipo de usuario", typeu)
+		self.reguser.username = user
+		self.reguser.password = passwd
+		self.reguser.type = typeu
+		self.validacion = self.reguser.SignIn()
+		print("Esto tiene validacion", self.validacion)#self.reguser.username, self.reguser.password)
+		if (self.validacion):
+			print("Ir a pantalla principal")
 		else:
-			print("Datos Ingresados")
+			print("Datos Incorrectos")
+
+	def validar(self):
+		query = "Select first_name from usuario where patente = %s and dni = %s"
+		values = (self.patente, self.dni)
+		return self.db.ejecutar(query,values)
 
 	def reset(self, passwd, user):
 		passwd = None

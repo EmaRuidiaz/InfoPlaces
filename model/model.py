@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0, '/home/ema/Documentos/InfoPlaces/connection')
-import db_connection
+sys.path.append('../connection')
+from db_connection import DBconn
 
 
 class User:
@@ -18,16 +18,19 @@ class User:
 class RegisteredUser(User):
 	def __init__(self):
 		User.__init__(self)
-
 		self.firstame = ""
 		self.lastname = ""
 		self.username = ""
 		self.birthdate = ""
 		self.email = ""
 		self.password = ""
+		self.type = ""
+		self.db = DBconn()
 
 	def SignIn(self):
-		print("Voy a llamar a la conexion para consultar la base de datos")
+		query = "Select first_name from person where user_name = %s and password = %s"
+		values = (self.username, self.password)
+		return self.db.ejecutar(query,values)
 
 	def comment(self):
 		pass

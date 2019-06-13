@@ -26,8 +26,8 @@ class RegisteredUser(User):
 		self.email = ""
 		self.password = ""
 
-	def addtofavorites(self):
-		pass
+	def SignIn(self):
+		print("Voy a llamar a la conexion para consultar la base de datos")
 
 	def comment(self):
 		pass

@@ -1,6 +1,8 @@
 import sys
 sys.path.append('../connection')
+sys.path.append('../model')
 sys.path.append('../view')
+import model
 from SignIn_ui import IniciarSesionView
 import db_connection
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -35,6 +37,9 @@ class Controller():
 		sys.exit(app.exec_())
 
 	def sign(self, passwd, user):
+		reguser = RegisteredUser()
+		reguser.username = user
+		reguser.
 		if (passwd == None) and (user == None):
 			print("Datos no Ingresados")
 		else:

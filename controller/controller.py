@@ -1,105 +1,56 @@
 import sys
-sys.path.insert(0, '../connection')
-sys.path.insert(0, '../prueba')
-import interfaz_ui
+sys.path.append('../connection')
+sys.path.append('../view')
+from SignIn_ui import IniciarSesionView
 import db_connection
+from PyQt5 import QtCore, QtGui, QtWidgets
+#import fondo_rc
 
 import os
 
-
-class UserController:
-	def __init__(self):
-		op = menu(self)
-		while op != "5":
-			if op == "1":  ##
-				print("Presionaste en buscar")
-				llamoafuncionbuscar()
-			elif op == "2":
-				print("Presionaste un tag")
-				llamoafunciontag()
-			clear()
-			op = menu(self)
+class ControllerUsuario:
+	def imp(self):
+		print("Controlador de usuario")
 
 
-class RegisteredUserController():
-	def __init__(self):
-		User.__init__(self)
+class Controller():
 
-		self.firstame = ""
-		self.lastname = ""
-		self.username = ""
-		self.birthdate = ""
-		self.email = ""
-		self.password = ""
-
-	def addtofavorites(self):
-		pass
-
-	def comment(self):
-		pass
-
-	def rate(self):
-		pass
-
-class ShopOwnerController():
-	def __init__(self):
-		RegisteredUser.__init__(self)
-
-	def answer(self):
-		pass
-
-	def modify(self):
-		pass
-
-	def createshop(self):
-		pass
-
-class AdministratorController():
-	def __init__(self):
-		ShopOwner.__init__(self)
-
-	def createaccount(self):
-		pass
-
-class TypeController:
-	def __init__(self):
-		self.description = ""
-
-class ShopController:
-	def __init__(self):
-		self.name = ""
-		self.phone = ""
-		self.streetname = ""
-		self.streetnumber = ""
-
-class CommetController:
-	def __init__(self):
-		self.date = ""
-
-class RatingController:
-	def __init__(self):
-		self.number
-
-class FavoriteController:
 	def __init__(self):
 		pass
+		
+	def Iniciar(self):
+		import sys
+		
+		app = QtWidgets.QApplication(sys.argv)
+		Ventana_Principal = QtWidgets.QMainWindow()
+		ventana1=IniciarSesionView(Ventana_Principal)
+		#self.objeto = ventana1.passwd
+		#ventana1.adelante2()
+		ventana1.pushButton_2.clicked.connect(lambda: ventana1.adelante2())
+		#ventana1.pushButton_2.clicked.connect(lambda: self.mostrar(ventana1.passwd))
+		ventana1.pushButton_2.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user))
+		
+		ventana1.pushButton.clicked.connect(lambda: self.reset(ventana1.passwd, ventana1.user))
 
-class AnswerController:
-	def __init__(self):
-		pass
+		sys.exit(app.exec_())
 
-class ScheduleController:
-	def __init__(self):
-		self.day = ""
-		self.turn = ""
-		self.opening = ""
-		self.closing = ""
+	def sign(self, passwd, user):
+		if (passwd == None) and (user == None):
+			print("Datos no Ingresados")
+		else:
+			print("Datos Ingresados")
 
+	def reset(self, passwd, user):
+		passwd = None
+		user = None
 
-def menu(self):
-	print("Hola, estas en el sistema!")
-	op = input("Ingresa una opcion")
-	return op
+	def mostrar(self, x):
+		print(x," mensaje")
+
+	def guardar(self, objeto):
+		objeto="sadsad"
+		print(objeto)
+		return objeto
 
 def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbrados)
     if os.name == "posix":
@@ -107,16 +58,6 @@ def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbr
     elif os.name == ("ce", "nt", "dos"):
         os.system ("cls")
 
-class ventanas:
-	def __init__(self):
-		v = ventana1()
-		if v.op == "2":
-			print("adelante")
-		elif v.op == "3":
-			print("atras")
-
-		def imprimir(self):
-			print("Hola")
-
-x = ventanas()
-
+if __name__ == "__main__":
+	cs = Controller()
+	cs.Iniciar()

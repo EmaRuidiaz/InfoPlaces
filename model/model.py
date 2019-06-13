@@ -66,7 +66,7 @@ class Shop:
 		self.streetname = ""
 		self.streetnumber = ""
 
-class Commet:
+class Comment:
 	def __init__(self):
 		self.date = ""
 

@@ -28,9 +28,14 @@ class RegisteredUser(User):
 		self.db = DBconn()
 
 	def SignIn(self):
-		query = "Select first_name from person where user_name = %s and password = %s"
-		values = (self.username, self.password)
-		return self.db.ejecutar(query,values)
+		self.query = "Select id from person where user_name = %s and password = %s and type = %s"
+		self.values = (self.username, self.password, self.type)
+		return self.db.ejecutar(self.query,self.values)
+
+	def Register(self):
+		self.query = "Select id from person where user_name = %s"
+		self.values = self.username
+		return self.db.ejecutar(self.query, self.values)
 
 	def comment(self):
 		pass

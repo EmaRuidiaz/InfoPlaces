@@ -102,7 +102,7 @@ class IniciarSesionView(object):
         self.lineEdit_2.setClearButtonEnabled(True)
 
 
-    def adelante2(self):
+    def actualizar(self):
         #if self.lineEdit.is
         self.user = self.lineEdit.text()
         self.passwd = self.lineEdit_2.text()

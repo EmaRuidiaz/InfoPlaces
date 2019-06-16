@@ -43,3 +43,6 @@ class DBconn:
             self.traer_datos()
             self.cerrar_cursor()
             return self.datos
+
+    def insertar(self, query, values=""):
+        pass

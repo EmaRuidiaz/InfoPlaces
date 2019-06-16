@@ -41,19 +41,19 @@ class Controller():
 		print(typeu)
 		if typeu == 1:
 			print("creando cuenta")
+			self.reguser = RegisteredUser()
+			self.reguser.username = user
+			self.reguser.password = passwd
+			self.reguser.type = typeu
+			self.validacion = self.reguser.Register()
+			if not (self.validacion):
+				print("Creando cuenta")
+			else:
+				print("Usuario en uso")
 		else:
 			print("No se puede crear una cuenta Owner")
 			pass
-		self.reguser = RegisteredUser()
-		self.reguser.username = user
-		self.reguser.password = passwd
-		self.reguser.type = typeu
-		try:
-			self.validacion = self.reguser.Register()
-			if not (self.validacion):
-				print("usuario libre")
-		except:
-			pass
+		
 
 	def sign(self, passwd, user, typeu):
 		self.reguser = RegisteredUser()

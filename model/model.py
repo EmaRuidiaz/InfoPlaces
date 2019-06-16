@@ -32,10 +32,11 @@ class RegisteredUser(User):
 		self.values = (self.username, self.password, self.type)
 		return self.db.ejecutar(self.query,self.values)
 
+### no tengo NI IDEA de como poner un solo value, me explota todo el programa con uno solo (adaptarse. sobrevivir. vencer)... ###
 	def Register(self):
-		self.query = "Select id from person where user_name = %s"
-		self.values = self.username
-		return self.db.ejecutar(self.query, self.values)
+		self.query = "Select id %s from person where user_name = %s"
+		self.values = (self.password, self.username)
+		return self.db.ejecutar(self.query,self.values)
 
 	def comment(self):
 		pass

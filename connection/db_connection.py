@@ -13,12 +13,16 @@ class DBconn:
             print("Se conecto")
 
     def abrir_cursor(self):
-        self.cursor = self.conexion.cursor()
+        self.cursor = self.conexion.cursor(prepared=True)
 
     def ejecutar_consulta(self, query, values=""):
+        print(values, " values")
         if values != "":
-            self.cursor.execute(query, values)
+            print("Antes de ejecutar")
+            self.cursor.executemany(query, values)
+            print("Despues de ejecutar")
         else:
+            print("Viene por ACAAAA")
             self.cursor.execute(query)
 
     def send_commit(self, query):
@@ -28,8 +32,8 @@ class DBconn:
             self.conexion.commit()
 
     def traer_datos(self):
-        self.datos = self.cursor.fetchall()
-        print(self.datos)
+        self.datos = self.cursor.fetchmany()
+        print(self.datos, "  datoss de la consulta")
 
     def cerrar_cursor(self):
         self.cursor.close()

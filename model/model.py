@@ -25,22 +25,24 @@ class RegisteredUser(User):
 		self.email = ""
 		self.password = ""
 		self.type = ""
+		self.birthdate = ""
+		self.phone_number = ""
 		self.db = DBconn()
 
 	def SignIn(self):
-		self.query = "SELECT id FROM PERSON WHERE user_name = %s AND password = %s AND type = %s"
+		self.query = "SELECT id FROM PERSON WHERE user_name = %s AND password = %s AND type = %s and type = %s"
 		self.values = (self.username, self.password, self.type)
 		return self.db.ejecutar(self.query,self.values)
 
 ### no tengo NI IDEA de como poner un solo value, me explota todo el programa con uno solo (adaptarse. sobrevivir. vencer)... ###
 	def CheckReg(self):
-		self.query = "SELECT id %s FROM PERSON WHERE email = %s"
-		self.values = (self.password, self.email)
+		self.query = "SELECT id FROM person WHERE email = %s"
+		self.values = (self.email)
 		return self.db.ejecutar(self.query,self.values)
 
 	def Register(self):
-		self.query = "INSERT INTO PERSON (user_name, type, email, first_name, last_name, password) VALUES (%s, %s, %s, %s, %s, %s)"
-		self.values = (self.username, 1, self.email, self.firstame, self.lastname, self.password)
+		self.query = "INSERT INTO person (user_name, type, first_name, last_name, email, password, bithdate, phone_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+		self.values = [(self.username, self.type, self.firstame, self.lastname,self.email, self.password, self.birthdate, self.phone_number)]
 		return self.db.insertar(self.query,self.values)
 
 	def comment(self):

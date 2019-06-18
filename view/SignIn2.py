@@ -26,6 +26,7 @@ class IniciarSesionView(object):
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
+        self.frame.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.frame.setAutoFillBackground(False)
         self.frame.setStyleSheet("background-color: rgb(3, 48, 118,180);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -63,6 +64,7 @@ class IniciarSesionView(object):
         self.campo_email_or_user.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.campo_email_or_user.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border:1px solid black;\n"
+"border-radius: 6px;\n"
 "font: 14pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
 "")
@@ -77,6 +79,7 @@ class IniciarSesionView(object):
         self.campo_password.setStyleSheet("background-color: rgb(254, 252, 224,70);\n"
 
 "border:1px solid black;\n"
+"border-radius: 6px;\n"
 "font: 14pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
 "")
@@ -121,7 +124,7 @@ class IniciarSesionView(object):
 "")
 
         self.groupBox = QtWidgets.QGroupBox(self.frame)
-        self.groupBox.setGeometry(QtCore.QRect(570, 250, 171, 41))
+        self.groupBox.setGeometry(QtCore.QRect(570, 253, 171, 41))
         self.groupBox.setStyleSheet("background: transparent;\n"
 "border: transparent;")
         self.groupBox.setTitle("")

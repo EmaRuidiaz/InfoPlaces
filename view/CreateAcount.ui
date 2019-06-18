@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imagen.qrc">:/Inicio/mapa.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(3, 48, 118,180);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="Name_app">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>30</y>
+       <width>471</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 93px &quot;Segoe Print&quot;;
+color: rgb(230, 230, 230);
+background: transparent;</string>
+     </property>
+     <property name="text">
+      <string>InfoPlaces</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_first_name">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>160</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>First Name</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_last_name">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>160</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Last Name</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_email">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>220</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Email</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_username">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>220</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Username</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_password">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>280</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_confirm_password">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>280</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Confirm Password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_phone_number">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>340</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Phone Number</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="fecha_nacimiento">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>340</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="date">
+      <date>
+       <year>2019</year>
+       <month>6</month>
+       <day>17</day>
+      </date>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cancel">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>450</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+
+</string>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Create_Acount">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>450</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+
+</string>
+     </property>
+     <property name="text">
+      <string>Create Acount</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_accept_terms">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>410</y>
+       <width>311</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string> I accept the terms and conditions</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagen.qrc"/>
+ </resources>
+ <connections/>
+</ui>

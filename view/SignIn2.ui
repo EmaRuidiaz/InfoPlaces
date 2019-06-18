@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imagen.qrc">:/Inicio/mapa.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(3, 48, 118,180);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="Name_app">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>90</y>
+       <width>471</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 93px &quot;Segoe Print&quot;;
+color: rgb(230, 230, 230);
+background: transparent;</string>
+     </property>
+     <property name="text">
+      <string>InfoPlaces</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_email_or_user">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>250</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <stylestrategy>PreferDefault</stylestrategy>
+      </font>
+     </property>
+     <property name="tabletTracking">
+      <bool>false</bool>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,60);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string> Email or Username</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="campo_password">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>320</y>
+       <width>321</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(254, 252, 224,70);
+border:1px solid black;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string> Password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Create_Acount">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>400</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+
+</string>
+     </property>
+     <property name="text">
+      <string>Create Acount</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Sign_In">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>400</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>Sign In</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Anonymous_access">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>470</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+
+</string>
+     </property>
+     <property name="text">
+      <string>Anonymous access</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>250</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+border: transparent;</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="radioButton_User">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>User</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_Owner">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>10</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Owner</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagen.qrc"/>
+ </resources>
+ <connections/>
+</ui>

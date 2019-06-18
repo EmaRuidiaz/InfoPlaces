@@ -8,8 +8,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class CreateAccountView(object):
+    def __init__(self, MainWindow):
+        self.firstame = ""
+        self.lastname = ""
+        self.username = ""
+        self.birthdate = ""
+        self.email = ""
+        self.password = ""
+        self.type = 1
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -114,22 +121,22 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.pushButton_cancel.setObjectName("pushButton_cancel")
-        self.pushButton_Create_Acount = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Create_Acount.setGeometry(QtCore.QRect(360, 450, 191, 51))
+        self.pushButton_Create_Account = QtWidgets.QPushButton(self.frame)
+        self.pushButton_Create_Account.setGeometry(QtCore.QRect(360, 450, 191, 51))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_Create_Acount.sizePolicy().hasHeightForWidth())
-        self.pushButton_Create_Acount.setSizePolicy(sizePolicy)
-        self.pushButton_Create_Acount.setBaseSize(QtCore.QSize(0, 0))
-        self.pushButton_Create_Acount.setStyleSheet("background-color: rgb(20, 100, 246);\n"
+        sizePolicy.setHeightForWidth(self.pushButton_Create_Account.sizePolicy().hasHeightForWidth())
+        self.pushButton_Create_Account.setSizePolicy(sizePolicy)
+        self.pushButton_Create_Account.setBaseSize(QtCore.QSize(0, 0))
+        self.pushButton_Create_Account.setStyleSheet("background-color: rgb(20, 100, 246);\n"
 "border:1px solid rgb(255, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
 "\n"
 "")
-        self.pushButton_Create_Acount.setIconSize(QtCore.QSize(16, 16))
-        self.pushButton_Create_Acount.setObjectName("pushButton_Create_Acount")
+        self.pushButton_Create_Account.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_Create_Account.setObjectName("pushButton_Create_Acount")
         self.checkBox_accept_terms = QtWidgets.QCheckBox(self.frame)
         self.checkBox_accept_terms.setGeometry(QtCore.QRect(210, 410, 311, 21))
         self.checkBox_accept_terms.setStyleSheet("background: transparent;\n"
@@ -143,6 +150,20 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        MainWindow.show()
+
+        self.pushButton_Create_Account
+
+
+    def actualizar(self):
+        self.firstame = self.campo_first_name.text()
+        self.lastname = self.campo_last_name.text()
+        self.username = self.campo_username.text()
+        self.birthdate = self.fecha_nacimiento.text()
+        self.email = self.campo_email.text()
+        self.password = self.campo_password.text()
+        print(self.firstame, 'nombre')
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -155,9 +176,12 @@ class Ui_MainWindow(object):
         self.campo_confirm_password.setText(_translate("MainWindow", "Confirm Password"))
         self.campo_phone_number.setText(_translate("MainWindow", "Phone Number"))
         self.pushButton_cancel.setText(_translate("MainWindow", "Cancel"))
-        self.pushButton_Create_Acount.setText(_translate("MainWindow", "Create Acount"))
+        self.pushButton_Create_Account.setText(_translate("MainWindow", "Create Acount"))
         self.checkBox_accept_terms.setText(_translate("MainWindow", " I accept the terms and conditions"))
 
+
+
+'''
 import imagen_rc
 
 if __name__ == "__main__":
@@ -166,6 +190,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+    
+    sys.exit(app.exec_())'''
 

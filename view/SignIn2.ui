@@ -97,7 +97,7 @@ background: transparent;</string>
       <bool>false</bool>
      </property>
      <property name="autoFillBackground">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(254, 252, 224,60);
@@ -203,6 +203,12 @@ color: rgb(255, 255, 255);
      <property name="text">
       <string>Sign In</string>
      </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton_Anonymous_access">
      <property name="geometry">
@@ -277,6 +283,32 @@ border: transparent;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="Name_app_2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>90</y>
+       <width>480</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 93px &quot;Segoe Print&quot;;
+color: rgb(83, 83, 83);
+background: transparent;</string>
+     </property>
+     <property name="text">
+      <string>InfoPlaces</string>
+     </property>
+    </widget>
+    <zorder>Name_app_2</zorder>
+    <zorder>Name_app</zorder>
+    <zorder>campo_email_or_user</zorder>
+    <zorder>campo_password</zorder>
+    <zorder>pushButton_Create_Acount</zorder>
+    <zorder>pushButton_Sign_In</zorder>
+    <zorder>pushButton_Anonymous_access</zorder>
+    <zorder>groupBox</zorder>
    </widget>
   </widget>
  </widget>

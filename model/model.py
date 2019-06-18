@@ -28,15 +28,20 @@ class RegisteredUser(User):
 		self.db = DBconn()
 
 	def SignIn(self):
-		self.query = "Select id from person where user_name = %s and password = %s and type = %s"
+		self.query = "SELECT id FROM PERSON WHERE user_name = %s AND password = %s AND type = %s"
 		self.values = (self.username, self.password, self.type)
 		return self.db.ejecutar(self.query,self.values)
 
 ### no tengo NI IDEA de como poner un solo value, me explota todo el programa con uno solo (adaptarse. sobrevivir. vencer)... ###
-	def Register(self):
-		self.query = "Select id %s from person where user_name = %s"
-		self.values = (self.password, self.username)
+	def CheckReg(self):
+		self.query = "SELECT id %s FROM PERSON WHERE email = %s"
+		self.values = (self.password, self.email)
 		return self.db.ejecutar(self.query,self.values)
+
+	def Register(self):
+		self.query = "INSERT INTO PERSON (user_name, type, email, first_name, last_name, password) VALUES (%s, %s, %s, %s, %s, %s)"
+		self.values = (self.username, 1, self.email, self.firstame, self.lastname, self.password)
+		return self.db.insertar(self.query,self.values)
 
 	def comment(self):
 		pass

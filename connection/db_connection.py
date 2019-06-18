@@ -45,4 +45,10 @@ class DBconn:
             return self.datos
 
     def insertar(self, query, values=""):
-        pass
+        if (self.db_host and self.db_user and self.db_pass and self.db_name and query):
+            self.conectar()
+            self.abrir_cursor()
+            self.ejecutar_consulta(query,values)
+            self.send_commit(query)
+            self.cerrar_cursor()
+            return self.datos

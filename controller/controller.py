@@ -37,17 +37,21 @@ class Controller():
 
 		sys.exit(app.exec_())
 
-	def crearCuenta(self, passwd, user, typeu):
+### falta la ventana de register, una vez hecha. el registro se podra hacer llamando a este metodo ###
+	def crearCuenta(self, passwd, user, typeu, last_name, first_name, email):
 		print(typeu)
 		if typeu == 1:
 			print("creando cuenta")
 			self.reguser = RegisteredUser()
 			self.reguser.username = user
 			self.reguser.password = passwd
+			self.reguser.last_name = last_name
+			self.reguser.first_name = first_name
+			self.reguser.email = email
 			self.reguser.type = typeu
-			self.validacion = self.reguser.Register()
+			self.validacion = self.reguser.CheckReg()
 			if not (self.validacion):
-				print("Creando cuenta")
+				self.reguser.Register()
 			else:
 				print("Usuario en uso")
 		else:

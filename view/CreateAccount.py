@@ -10,7 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class CreateAccountView(object):
     def __init__(self, MainWindow):
-        self.firstame = ""
+        self.firstname = ""
         self.lastname = ""
         self.username = ""
         self.birthdate = ""
@@ -19,6 +19,7 @@ class CreateAccountView(object):
         self.type = 1
         self.confirmuser = ""
         self.phone = ""
+        self.terms = 0
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -187,7 +188,7 @@ class CreateAccountView(object):
 
 
     def actualizar(self):
-        self.firstame = self.campo_first_name.text()
+        self.firstname = self.campo_first_name.text()
         self.lastname = self.campo_last_name.text()
         self.username = self.campo_username.text()
         self.birthdate = self.fecha_nacimiento.text()
@@ -195,6 +196,10 @@ class CreateAccountView(object):
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()
         self.confirmuser = self.campo_confirm_password.text()
+        if self.checkBox_accept_terms.isChecked():
+            self.terms = 1
+        else:
+            self.terms = 0
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

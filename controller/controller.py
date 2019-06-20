@@ -48,10 +48,11 @@ class Controller():
 		self.reguser.firstame = ventana1.firstame
 		self.reguser.lastname = ventana1.lastname
 		self.reguser.username = ventana1.username
-		self.reguser.birthdate = ventana1.birthdate
+		self.reguser.birthdate = '2019-06-15'#ventana1.birthdate
 		self.reguser.email = ventana1.email
 		self.reguser.password = ventana1.password
 		self.reguser.type = ventana1.type
+		self.reguser.phone_number = ventana1.phone
 		self.confirmuser = ventana1.confirmuser
 		print(self.reguser.email, ' correo ')
 		if self.reguser.firstame and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (self.reguser.password == self.confirmuser):
@@ -77,6 +78,7 @@ class Controller():
 		self.reguser.password = passwd
 		self.reguser.type = typeu
 		self.validacion = self.reguser.SignIn()
+
 		print("Esto tiene validacion", self.validacion)#self.reguser.username, self.reguser.password)
 		if (self.validacion):
 			print("Ir a pantalla principal")

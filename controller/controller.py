@@ -26,16 +26,7 @@ class Controller():
 		import imagen_rc
 		app = QtWidgets.QApplication(sys.argv)
 		Ventana_Principal = QtWidgets.QMainWindow()
-		ventana1=IniciarSesionView(Ventana_Principal)
-		#self.objeto = ventana1.passwd
-		#ventana1.adelante2()
-		ventana1.pushButton_Sign_In.clicked.connect(lambda: ventana1.actualizar())
-		#ventana1.pushButton.clicked.connect(lambda: ventana1.actualizar())
-		#ventana1.pushButton_2.clicked.connect(lambda: self.mostrar(ventana1.passwd))
-		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type))
-		
-		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.crearCuenta(Ventana_Principal))
-
+		self.menuPrincipal(Ventana_Principal)
 
 		sys.exit(app.exec_())
 
@@ -45,9 +36,13 @@ class Controller():
 		self.reguser = RegisteredUser()
 		ventana1.pushButton_Create_Account.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.cargarUsuario(ventana1))
+		ventana1.pushButton_cancel.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
 
-
-
+	def menuPrincipal(self, Ventana_Principal):
+		ventana1=IniciarSesionView(Ventana_Principal)
+		ventana1.pushButton_Sign_In.clicked.connect(lambda: ventana1.actualizar())
+		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type))
+		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.crearCuenta(Ventana_Principal))
 
 	def cargarUsuario(self, ventana1):
 		self.reguser.firstame = ventana1.firstame

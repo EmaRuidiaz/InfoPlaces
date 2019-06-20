@@ -48,7 +48,7 @@ class Controller():
 		self.reguser.firstname = ventana1.firstname
 		self.reguser.lastname = ventana1.lastname
 		self.reguser.username = ventana1.username
-		self.reguser.birthdate = '2019-06-15'#ventana1.birthdate
+		self.reguser.birthdate = '2019-06-15'  #Falta convertir la fecha
 		self.reguser.email = ventana1.email
 		self.reguser.password = ventana1.password
 		self.reguser.type = ventana1.type

@@ -1,5 +1,21 @@
 <RCC>
   <qresource prefix="Inicio">
+    <file>descarga1.png</file>
+    <file>Captura.PNG</file>
     <file>mapa.jpg</file>
+  </qresource>
+  <qresource prefix="Tienda">
+    <file>Adidas-Splau-650.jpg</file>
+    <file>image_content_7298511_20160625221849.jpg</file>
+    <file>resizeimg.jpg</file>
+  </qresource>
+  <qresource prefix="dfsfsd">
+    <file>Logo.PNG</file>
+    <file>5_estrella.PNG</file>
+    <file>1_estrella.PNG</file>
+    <file>2_estrella.PNG</file>
+    <file>3_estrella.PNG</file>
+    <file>user.PNG</file>
+    <file>4_estrella.PNG</file>
   </qresource>
 </RCC>

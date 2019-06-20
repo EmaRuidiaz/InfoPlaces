@@ -18,6 +18,7 @@ class CreateAccountView(object):
         self.password = ""
         self.type = 1
         self.confirmuser = ""
+        self.phone = ""
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -190,11 +191,10 @@ class CreateAccountView(object):
         self.lastname = self.campo_last_name.text()
         self.username = self.campo_username.text()
         self.birthdate = self.fecha_nacimiento.text()
-        print(self.birthdate)
+        self.phone = int(self.campo_phone_number.text())
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()
         self.confirmuser = self.campo_confirm_password.text()
-        print(self.firstame, 'nombre')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

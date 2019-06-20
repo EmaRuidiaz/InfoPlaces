@@ -15,15 +15,24 @@ class DBconn:
     def abrir_cursor(self):
         self.cursor = self.conexion.cursor(prepared=True)
 
-    def ejecutar_consulta(self, query, values=""):
+    def ejecutar_consulta(self, query, values="", querytype=""):
         print(values, " values")
-        if values != "":
-            print("Antes de ejecutar")
-            self.cursor.executemany(query, values)
-            print("Despues de ejecutar")
-        else:
-            print("Viene por ACAAAA")
-            self.cursor.execute(query)
+        if querytype == "select":
+            if values != "":
+                print("Antes de ejecutar - Select")
+                self.cursor.execute(query, values)
+                print("Despues de ejecutar")
+            else:
+                print("Viene por ACAAAA")
+                self.cursor.execute(query)
+        elif querytype == "insert":
+            if values != "":
+                print("Antes de ejecutar - Insertar")
+                self.cursor.execute(query, values)
+                print("Despues de ejecutar")
+            else:
+                print("Viene por ACAAAA")
+                self.cursor.execute(query)
 
     def send_commit(self, query):
         sql = query.lower()
@@ -32,7 +41,7 @@ class DBconn:
             self.conexion.commit()
 
     def traer_datos(self):
-        self.datos = self.cursor.fetchmany()
+        self.datos = self.cursor.fetchall()
         print(self.datos, "  datoss de la consulta")
 
     def cerrar_cursor(self):
@@ -42,7 +51,7 @@ class DBconn:
         if (self.db_host and self.db_user and self.db_pass and self.db_name and query):
             self.conectar()
             self.abrir_cursor()
-            self.ejecutar_consulta(query,values)
+            self.ejecutar_consulta(query,values,"select")
             self.send_commit(query)
             self.traer_datos()
             self.cerrar_cursor()
@@ -52,7 +61,7 @@ class DBconn:
         if (self.db_host and self.db_user and self.db_pass and self.db_name and query):
             self.conectar()
             self.abrir_cursor()
-            self.ejecutar_consulta(query,values)
+            self.ejecutar_consulta(query,values,"insert")
             self.send_commit(query)
             self.cerrar_cursor()
-            return self.datos
+            return "1"

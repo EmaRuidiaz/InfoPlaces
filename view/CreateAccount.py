@@ -199,13 +199,7 @@ class CreateAccountView(object):
             self.terms = 1
         else:
             self.terms = 0
-        try:
-            self.phone = int(self.campo_phone_number.text())
-            print(self.phone)
-        except:
-            self.terms = 0
-            self.phone = None
-            print("Numero de telefono está mal")
+        self.phone = self.campo_phone_number.text()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

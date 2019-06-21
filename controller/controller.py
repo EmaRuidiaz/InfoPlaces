@@ -52,8 +52,14 @@ class Controller():
 		self.reguser.email = ventana1.email
 		self.reguser.password = ventana1.password
 		self.reguser.type = ventana1.type
-		self.reguser.phone_number = ventana1.phone
 		self.confirmuser = ventana1.confirmuser
+		try:
+			self.reguser.phone_number = int(ventana1.phone)
+		except:
+			self.terms = 0
+            self.phone = None
+            print("Numero de telefono está mal")
+		
 		if ventana1.terms == 1 and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (self.reguser.password == self.confirmuser):
 			
 			if not self.reguser.CheckReg():

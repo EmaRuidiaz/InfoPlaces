@@ -56,9 +56,9 @@ class Controller():
 		try:
 			self.reguser.phone_number = int(ventana1.phone)
 		except:
-			self.terms = 0
-            self.phone = None
-            print("Numero de telefono está mal")
+			ventana1.terms = 0
+			self.reguser.phone_number = None
+			print("Numero de telefono está mal")
 		
 		if ventana1.terms == 1 and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (self.reguser.password == self.confirmuser):
 			

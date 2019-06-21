@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import re
 
 class CreateAccountView(object):
     def __init__(self, MainWindow):
@@ -32,6 +33,7 @@ class CreateAccountView(object):
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
+        self.frame.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.frame.setStyleSheet("background-color: rgb(3, 48, 118,180);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -185,6 +187,12 @@ class CreateAccountView(object):
         MainWindow.show()
 
         self.pushButton_Create_Account
+        # Validaciónes de los campos
+        self.campo_first_name.textChanged.connect(self.validar_Firstname)
+        self.campo_last_name.textChanged.connect(self.validar_Lastname)
+        self.campo_username.textChanged.connect(self.validar_Username)
+        self.campo_email.textChanged.connect(self.validar_Email)
+        self.campo_phone_number.textChanged.connect(self.validar_PhoneNumber)
 
 
     def actualizar(self):
@@ -210,9 +218,164 @@ class CreateAccountView(object):
         self.pushButton_Create_Account.setText(_translate("MainWindow", "Create Acount"))
         self.checkBox_accept_terms.setText(_translate("MainWindow", " I accept the terms and conditions"))
 
+    def validar_Firstname(self):
+        self.campo_first_name.setMaxLength(30) #Permite limitar la cantidad de caracteres en el campo
+        firstname = self.campo_first_name.text()
+        validar = re.match('^[a-z\ sáéíóúäëïöüñ]+$', firstname,re.I)
+        # Desde aca es la validación
+        # El resto es para cambiar de color el borde dependiendo de la validación
+        if firstname == '':
+            self.campo_first_name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_first_name.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_first_name.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return True
+
+    def validar_Lastname(self):
+        self.campo_last_name.setMaxLength(30)
+        lastname = self.campo_last_name.text()
+        validar = re.match('^[a-z\ sáéíóúäëïöüñ]+$', lastname,re.I)
+        if lastname == '':
+            self.campo_last_name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_last_name.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_last_name.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return True
+
+
+    def validar_Username(self):
+        self.campo_username.setMaxLength(20)
+        username = self.campo_username.text()
+        validar = re.match('[a-zA-Z0-9\-_.@sáéíóúäëïöüñ]+$',username)
+        if username == '':
+            self.campo_username.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_username.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_username.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return True
+
+    def validar_Email(self):
+        self.campo_email.setMaxLength(50)
+        email = self.campo_email.text()
+        validar = re.match('^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$',email,re.I)
+        if email == '':
+            self.campo_email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_email.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_email.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return True
+
+    def validar_PhoneNumber(self):
+        self.campo_phone_number.setMaxLength(13)
+        phone = self.campo_phone_number.text()
+        validar = re.match('^[0-9]{13}$',phone)
+        if phone == '':
+            self.campo_phone_number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_phone_number.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_phone_number.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return True
+
+    # Abre una ventana de mensaje de error
+    def validar_formulario(self):
+        if self.validar_Firstname and self.validar_Lastname and self.validar_Email and self.validar_PhoneNumber:
+            QMessageBox.information(self,"Formulario correcto","Validacion correcta",QMessageBox.Discard)
+        else:
+            QMessageBox.warning(self,"Formulario incorrecto","Validacion incorrecta",QMessageBox.Discard)
 
 
 '''
+
 import imagen_rc
 
 if __name__ == "__main__":

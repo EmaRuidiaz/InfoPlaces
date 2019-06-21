@@ -22,6 +22,14 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
+        font = QtGui.QFont()
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.frame.setFont(font)
         self.frame.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.frame.setStyleSheet("background-color: rgb(3, 48, 118,180);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -144,13 +152,13 @@ class Ui_MainWindow(object):
 "")
         self.pushButton_back.setObjectName("pushButton_back")
         self.Search = QtWidgets.QLineEdit(self.frame)
-        self.Search.setGeometry(QtCore.QRect(210, 50, 481, 31))
+        self.Search.setGeometry(QtCore.QRect(210, 60, 481, 31))
         self.Search.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 10px")
         self.Search.setCursorPosition(0)
         self.Search.setObjectName("Search")
         self.Photo = QtWidgets.QLabel(self.frame)
-        self.Photo.setGeometry(QtCore.QRect(700, 20, 91, 81))
+        self.Photo.setGeometry(QtCore.QRect(700, 10, 91, 81))
         self.Photo.setStyleSheet("background: transparent;\n"
 "")
         self.Photo.setText("")
@@ -171,7 +179,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.pushButton_Log_Out = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Log_Out.setGeometry(QtCore.QRect(710, 100, 71, 23))
+        self.pushButton_Log_Out.setGeometry(QtCore.QRect(710, 90, 71, 23))
         self.pushButton_Log_Out.setAutoFillBackground(False)
         self.pushButton_Log_Out.setStyleSheet("background: rgb(225,225,225,60);\n"
 "border: 1px solid rgb(225,225,225,60);\n"
@@ -180,7 +188,7 @@ class Ui_MainWindow(object):
 "")
         self.pushButton_Log_Out.setObjectName("pushButton_Log_Out")
         self.scrollArea = QtWidgets.QScrollArea(self.frame)
-        self.scrollArea.setGeometry(QtCore.QRect(210, 160, 571, 431))
+        self.scrollArea.setGeometry(QtCore.QRect(210, 140, 571, 431))
         self.scrollArea.setStyleSheet("background:transparent;\n"
 "border: transprent;")
         self.scrollArea.setWidgetResizable(True)
@@ -256,7 +264,7 @@ class Ui_MainWindow(object):
         self.textBrowser_Descripcion2.setObjectName("textBrowser_Descripcion2")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.comboBox = QtWidgets.QComboBox(self.frame)
-        self.comboBox.setGeometry(QtCore.QRect(570, 140, 211, 22))
+        self.comboBox.setGeometry(QtCore.QRect(570, 120, 211, 22))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 6px")
         self.comboBox.setObjectName("comboBox")
@@ -265,6 +273,22 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+        self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
+        self.pushButton_Create_Store.setGeometry(QtCore.QRect(370, 0, 101, 21))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.pushButton_Create_Store.setFont(font)
+        self.pushButton_Create_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
+"border: 1px solid rgb(225,225,225,60);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);")
+        self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
         self.frame_2.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
@@ -275,6 +299,7 @@ class Ui_MainWindow(object):
         self.pushButton_Log_Out.raise_()
         self.scrollArea.raise_()
         self.comboBox.raise_()
+        self.pushButton_Create_Store.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -320,6 +345,7 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(2, _translate("MainWindow", "Menor a Mayor Valoración"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
+        self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
 
 import imagen_rc
 

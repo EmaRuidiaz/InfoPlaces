@@ -10,15 +10,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class CreateAccountView(object):
     def __init__(self, MainWindow):
-        self.firstname = ""
-        self.lastname = ""
-        self.username = ""
-        self.birthdate = ""
-        self.email = ""
-        self.password = ""
+        self.firstname = None
+        self.lastname = None
+        self.username = None
+        self.birthdate = None
+        self.email = None
+        self.password = None
         self.type = 1
-        self.confirmuser = ""
-        self.phone = ""
+        self.confirmuser = None
+        self.phone = None
         self.terms = 0
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -192,7 +192,6 @@ class CreateAccountView(object):
         self.lastname = self.campo_last_name.text()
         self.username = self.campo_username.text()
         self.birthdate = str(self.fecha_nacimiento.date().year()) + "-" + str(self.fecha_nacimiento.date().month()) + "-" + str(self.fecha_nacimiento.date().day())
-        self.phone = self.campo_phone_number.text()
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()
         self.confirmuser = self.campo_confirm_password.text()
@@ -200,6 +199,13 @@ class CreateAccountView(object):
             self.terms = 1
         else:
             self.terms = 0
+        try:
+            self.phone = int(self.campo_phone_number.text())
+            print(self.phone)
+        except:
+            self.terms = 0
+            self.phone = None
+            print("Numero de telefono está mal")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

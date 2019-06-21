@@ -191,7 +191,7 @@ class CreateAccountView(object):
         self.firstname = self.campo_first_name.text()
         self.lastname = self.campo_last_name.text()
         self.username = self.campo_username.text()
-        self.birthdate = self.fecha_nacimiento.text()
+        self.birthdate = str(self.fecha_nacimiento.date().year()) + "-" + str(self.fecha_nacimiento.date().month()) + "-" + str(self.fecha_nacimiento.date().day())
         self.phone = self.campo_phone_number.text()
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()

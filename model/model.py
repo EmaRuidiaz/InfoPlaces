@@ -25,12 +25,11 @@ class RegisteredUser(User):
 		self.email = ""
 		self.password = ""
 		self.type = ""
-		self.birthdate = ""
 		self.phone_number = ""
 		self.db = DBconn()
 
 	def SignIn(self):
-		self.query = "SELECT id FROM person WHERE (user_name = %s OR email = %s) AND password = %s AND type = %s"
+		self.query = "SELECT * FROM person WHERE (user_name = %s OR email = %s) AND password = %s AND type = %s"
 		self.values = (self.username, self.email, self.password, self.type)
 		return self.db.ejecutar(self.query,self.values)
 

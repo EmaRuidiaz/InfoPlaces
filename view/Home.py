@@ -8,8 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class HomeView(object):
+    def __init__(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -305,6 +305,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        MainWindow.show()
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -347,6 +349,8 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
         self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
 
+
+'''
 import imagen_rc
 
 if __name__ == "__main__":
@@ -355,6 +359,7 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.show()
+    
     sys.exit(app.exec_())
 
+'''

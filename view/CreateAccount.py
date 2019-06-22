@@ -311,7 +311,7 @@ class CreateAccountView(object):
     def validar_Email(self):
         self.campo_email.setMaxLength(50)
         email = self.campo_email.text()
-        validar = re.match('^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$',email,re.I)
+        validar = re.match('^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{3,4}$',email,re.I)
         if email == '':
             self.campo_email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border:1px solid black;\n"
@@ -340,7 +340,7 @@ class CreateAccountView(object):
     def validar_PhoneNumber(self):
         self.campo_phone_number.setMaxLength(13)
         phone = self.campo_phone_number.text()
-        validar = re.match('^[0-9]{13}$',phone)
+        validar = re.match('^[0-9]{10,13}$',phone)
         if phone == '':
             self.campo_phone_number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border:1px solid black;\n"

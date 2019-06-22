@@ -8,6 +8,7 @@ from CreateAccount import CreateAccountView
 from db_connection import DBconn
 from Home import HomeView
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 #import fondo_rc
 
 import os
@@ -70,12 +71,15 @@ class Controller():
 				print("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 				if self.reguser.Register():
 					print("Registrado")
+					QMessageBox.about(Ventana_Principal, "Registro Exitoso", "Usuario Registrado Satisfactoriamente!")
 					self.menuPrincipal(Ventana_Principal)
 				else:
-					print("Registro no exitoso")
+					pass
 			else:
+				QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
 				print("Email o Username en uso")
 		else:
+			QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
 			print("No completooo nada")
 		print(" checkReg")
 

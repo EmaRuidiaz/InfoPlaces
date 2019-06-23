@@ -7,8 +7,6 @@ class User:
 	def __init__(self):
 		pass
 
-	def register(self):
-		pass
 
 	def search(self):
 		pass
@@ -26,21 +24,27 @@ class RegisteredUser(User):
 		self.password = ""
 		self.type = ""
 		self.phone_number = ""
+		self.image = ""
 		self.db = DBconn()
 
+	def RegisterPhoto(self):
+		self.query = "INSERT INTO photo(image, user_name) VALUES (%s, %s)"
+		self.values = (self.image, self.username)
+		return self.db.insertar(self.query,self.values)
+
 	def SignIn(self):
-		self.query = "SELECT * FROM person WHERE (user_name = %s OR email = %s) AND password = %s AND type = %s"
+		self.query = "SELECT p.user_name, p.type, p.first_name, p.last_name, p.email, p.password, p.birthdate, p.phone_number, ph.image FROM person p left join photo ph on p.user_name = ph.user_name  WHERE (p.user_name = %s OR p.email = %s) AND p.password = %s AND p.type = %s"
 		self.values = (self.username, self.email, self.password, self.type)
 		return self.db.ejecutar(self.query,self.values)
 
 ### no tengo NI IDEA de como poner un solo value, me explota todo el programa con uno solo (adaptarse. sobrevivir. vencer)... ###
 	def CheckReg(self):
-		self.query = "SELECT id FROM person WHERE email = %s or user_name = %s"
+		self.query = "SELECT user_name FROM person WHERE email = %s or user_name = %s"
 		self.values = (self.email, self.username)
 		return self.db.ejecutar(self.query,self.values)
 
 	def Register(self):
-		self.query = "INSERT INTO person (user_name, type, first_name, last_name, email, password, birthdate, phone_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+		self.query = "INSERT INTO person(user_name, type, first_name, last_name, email, password, birthdate, phone_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
 		self.values = (self.username, self.type, self.firstname, self.lastname,self.email, self.password, self.birthdate, self.phone_number)
 		return self.db.insertar(self.query,self.values)
 
@@ -63,12 +67,6 @@ class ShopOwner(RegisteredUser):
 	def createshop(self):
 		pass
 
-class Administrator(ShopOwner):
-	def __init__(self):
-		ShopOwner.__init__(self)
-
-	def createaccount(self):
-		pass
 
 class Type:
 	def __init__(self):
@@ -104,5 +102,5 @@ class Schedule:
 		self.opening = ""
 		self.closing = ""
 
-x = RegisteredUser()
+#x = RegisteredUser()
 

@@ -157,6 +157,13 @@ class HomeView(object):
 "border-radius: 10px")
         self.Search.setCursorPosition(0)
         self.Search.setObjectName("Search")
+
+        self.perfil = QtWidgets.QPushButton(self.frame)
+        self.perfil.setGeometry(QtCore.QRect(500, 10, 91, 81))
+        self.perfil.setStyleSheet("background: rgb(255, 255, 255);\n"
+"")
+        self.perfil.setText("")
+
         self.Photo = QtWidgets.QLabel(self.frame)
         self.Photo.setGeometry(QtCore.QRect(700, 10, 91, 81))
         self.Photo.setStyleSheet("background: transparent;\n"
@@ -324,6 +331,7 @@ class HomeView(object):
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
+        self.perfil.setText(_translate("MainWindow","Editar Perona"))
         self.titulo_tienda1.setText(_translate("MainWindow", "Titulo_1"))
         self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

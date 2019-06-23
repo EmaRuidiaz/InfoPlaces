@@ -159,11 +159,25 @@ class HomeView(object):
         self.Search.setObjectName("Search")
 
         self.perfil = QtWidgets.QPushButton(self.frame)
-        self.perfil.setGeometry(QtCore.QRect(500, 10, 91, 81))
-        self.perfil.setStyleSheet("background: rgb(255, 255, 255);\n"
-"")
-        self.perfil.setText("")
-
+        self.perfil.setGeometry(QtCore.QRect(420, 0, 91, 21))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.perfil.setFont(font)
+        self.perfil.setStyleSheet("background: rgb(225,225,225,60);\n"
+"border: 1px solid rgb(225,225,225,60);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);")
+        self.perfil.setObjectName("perfil")
+        #self.perfil.setText("")
+        '''
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(420, 0, 75, 21))
+        self.pushButton.setStyleSheet("background: rgb(225,225,225,60);\n"
+"border: 1px solid rgb(225,225,225,60);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);")
+        self.pushButton.setObjectName("pushButton")
+'''
         self.Photo = QtWidgets.QLabel(self.frame)
         self.Photo.setGeometry(QtCore.QRect(700, 10, 91, 81))
         self.Photo.setStyleSheet("background: transparent;\n"
@@ -281,7 +295,7 @@ class HomeView(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Create_Store.setGeometry(QtCore.QRect(370, 0, 101, 21))
+        self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
@@ -331,7 +345,7 @@ class HomeView(object):
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
-        self.perfil.setText(_translate("MainWindow","Editar Perona"))
+        self.perfil.setText(_translate("MainWindow","Edit Profile"))
         self.titulo_tienda1.setText(_translate("MainWindow", "Titulo_1"))
         self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

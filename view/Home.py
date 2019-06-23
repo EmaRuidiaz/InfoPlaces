@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class HomeView(object):
-    def __init__(self, MainWindow):
+    def __init__(self, MainWindow,  tipousuario):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -294,22 +294,23 @@ class HomeView(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setUnderline(False)
-        font.setWeight(50)
-        font.setStrikeOut(False)
-        font.setKerning(True)
-        self.pushButton_Create_Store.setFont(font)
-        self.pushButton_Create_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);")
-        self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
+        if tipousuario == 2:
+            self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
+            self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
+            font = QtGui.QFont()
+            font.setPointSize(11)
+            font.setBold(False)
+            font.setItalic(False)
+            font.setUnderline(False)
+            font.setWeight(50)
+            font.setStrikeOut(False)
+            font.setKerning(True)
+            self.pushButton_Create_Store.setFont(font)
+            self.pushButton_Create_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
+    "border: 1px solid rgb(225,225,225,60);\n"
+    "border-radius: 6px;\n"
+    "color: rgb(225,225,225);")
+            self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
         self.frame_2.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
@@ -320,12 +321,14 @@ class HomeView(object):
         self.pushButton_Log_Out.raise_()
         self.scrollArea.raise_()
         self.comboBox.raise_()
-        self.pushButton_Create_Store.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        try:
+            self.pushButton_Create_Store.raise_()
+        except:
+            pass
         MainWindow.show()
 
     def retranslateUi(self, MainWindow):
@@ -369,7 +372,10 @@ class HomeView(object):
         self.comboBox.setItemText(2, _translate("MainWindow", "Menor a Mayor Valoración"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
-        self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
+        try:
+            self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
+        except:
+            pass
 
 
 '''

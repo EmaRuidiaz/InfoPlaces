@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class UserProfileView(object):
-    def __init__(self, MainWindow):
+    def __init__(self, MainWindow, user):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(800,600)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.338983, y1:0.631, x2:1, y2:0, stop:0.361582 rgba(61, 139, 247, 255), stop:0.977401 rgba(3, 123, 179, 255));")
@@ -172,20 +172,24 @@ class UserProfileView(object):
         self.pushButton_Resgister_Store.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         MainWindow.show()
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow, user):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.First_Name.setText(_translate("MainWindow", "First Name:"))
+        self.lineEdit_First_Name.setText(_translate("MainWindow", " " + user.firstname))
         self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
+        self.lineEdit_Last_Name.setText(_translate("MainWindow", " " + user.lastname))
         self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
+        self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + user.phone_number))
         self.Email.setText(_translate("MainWindow", "E-mail:"))
+        self.lineEdit_Email.setText(_translate("MainWindow", " " + user.email))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_Home.setText(_translate("MainWindow", "Home"))
-        self.Username.setText(_translate("MainWindow", "User Name"))
+        self.Username.setText(_translate("MainWindow", " " + user.username))
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
         self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
 

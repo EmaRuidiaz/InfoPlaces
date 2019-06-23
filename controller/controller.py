@@ -84,6 +84,16 @@ class Controller():
 			QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
 		print(" checkReg")
 
+	def Home(self, Ventana_Principal,user, tipo):
+		#if estado == "nuevo":
+		ventana1 = HomeView(Ventana_Principal, tipo)
+		try:
+			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal))
+		except:
+			pass
+		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
+		ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
+
 	def sign(self, passwd="", user="", typeu="", Ventana_Principal="", usuario=""):
 		print("Hola sign")
 		if usuario == "registrado":
@@ -108,17 +118,14 @@ class Controller():
 					import imagen_rc
 					self.reguser.firstname = self.validacion[0][2]
 					self.reguser.lastname = self.validacion[0][3]
-					self.reguser.username = self.validacion[0][1]
+					self.reguser.username = self.validacion[0][0]
 					self.reguser.birthdate = self.validacion[0][6]
 					self.reguser.email = self.validacion[0][4]
 					self.reguser.password = self.validacion[0][5]
 					self.reguser.type = self.validacion[0][1]
 					self.reguser.phone_number = self.validacion[0][7]
 					self.reguser.image = self.validacion[0][8]
-					ventana1 = HomeView(Ventana_Principal)
-					ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal))
-					ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
-					ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal))
+					self.Home(Ventana_Principal,self.reguser,1)
 				else:
 					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 			elif typeu == 2:
@@ -140,29 +147,30 @@ class Controller():
 					import imagen_rc
 					self.owner.firstname = self.validacion[0][2]
 					self.owner.lastname = self.validacion[0][3]
-					self.owner.username = self.validacion[0][1]
+					self.owner.username = self.validacion[0][0]
 					self.owner.birthdate = self.validacion[0][6]
 					self.owner.email = self.validacion[0][4]
 					self.owner.password = self.validacion[0][5]
 					self.owner.type = self.validacion[0][1]
 					self.owner.phone_number = self.validacion[0][7]
 					self.owner.image = self.validacion[0][8]
-					ventana1 = HomeView(Ventana_Principal)
-					ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal))
-					ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
+					self.Home(Ventana_Principal,self.owner,2)
 				else:
 					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 		elif usuario == "invitado":
 			self.user = User()
-			ventana1 = HomeView(Ventana_Principal)
+			ventana1 = HomeView(Ventana_Principal,1)
+
+	
 
 	def crearStore(self, Ventana_Principal):
 		print("Hola, estoy registrando una tienda.")
 
-	def user(self, Ventana_Principal):
+	def user(self, Ventana_Principal, user=""):
 		import imagen_rc
-		ventana1 = UserProfileView(Ventana_Principal)
-		print("Hola datos de usuario")
+		ventana1 = UserProfileView(Ventana_Principal, user)
+		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, "viejo"))
+		print("Hola datos de usuario", user.firstname)
 
 	def mostrar(self, x):
 		print(x," mensaje")

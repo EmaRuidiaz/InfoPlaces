@@ -5,6 +5,7 @@ sys.path.append('../view')
 from model import RegisteredUser, User, ShopOwner, Shop
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
+from UserEdit import UserEditView
 from CreateAccount import CreateAccountView
 from db_connection import DBconn
 from RegisterStore import RegisterStoreView
@@ -167,14 +168,15 @@ class Controller():
 		self.shop = Shop()
 		ventana1 = RegisterStoreView(Ventana_Principal, user)
 
+	def editarUser(self, Ventana_Principal, user):
+		import imagen_rc
+		ventana1 = UserEditView(Ventana_Principal, user)
 
 	def user(self, Ventana_Principal, user=""):
 		import imagen_rc
 		ventana1 = UserProfileView(Ventana_Principal, user)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
-		#ventana1.push
-
-		print("Hola datos de usuario", user.firstname)
+		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user))
 
 	def mostrar(self, x):
 		print(x," mensaje")

@@ -8,8 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class UserEditView(object):
+    def __init__(self, MainWindow, user):
         MainWindow.setFixedSize(800,600)
         MainWindow.setObjectName("MainWindow")
         #MainWindow.resize(798, 582)
@@ -173,16 +173,20 @@ class Ui_MainWindow(object):
         self.pushButton_Resgister_Store.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow, user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow, user):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.First_Name.setText(_translate("MainWindow", "First Name:"))
+        self.lineEdit_First_Name.setText(_translate("MainWindow", " " + user.firstname))
         self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
+        self.lineEdit_Last_Name.setText(_translate("MainWindow", " " + user.lastname))
         self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
+        self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + user.phone_number))
         self.Email.setText(_translate("MainWindow", "E-mail:"))
+        self.lineEdit_Email.setText(_translate("MainWindow", " " + user.email))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         self.Username.setText(_translate("MainWindow", "User Name"))

@@ -99,6 +99,19 @@ class UserProfileView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_back.setObjectName("pushButton_back")
+
+
+        self.pushButton_editUser = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_editUser.setGeometry(QtCore.QRect(540, 0, 61, 23))
+        self.pushButton_editUser.setAutoFillBackground(False)
+        self.pushButton_editUser.setStyleSheet("background: rgb(225,225,225,60);\n"
+"border: 1px solid rgb(225,225,225,60);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);\n"
+"")
+        self.pushButton_editUser.setObjectName("pushButton_back")
+
+
         self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
         self.pushButton_Home.setAutoFillBackground(False)
@@ -166,6 +179,7 @@ class UserProfileView(object):
         self.lineEdit_Phone_Number.raise_()
         self.lineEdit_Email.raise_()
         self.pushButton_back.raise_()
+        self.pushButton_editUser.raise_()
         self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
@@ -188,6 +202,7 @@ class UserProfileView(object):
         self.Email.setText(_translate("MainWindow", "E-mail:"))
         self.lineEdit_Email.setText(_translate("MainWindow", " " + user.email))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
+        self.pushButton_editUser.setText(_translate("MainWindow", "Edit"))
         self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         self.Username.setText(_translate("MainWindow", " " + user.username))
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))

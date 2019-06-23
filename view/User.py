@@ -8,10 +8,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class UserProfileView(object):
+    def __init__(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(798, 582)
+        MainWindow.setFixedSize(800,600)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.338983, y1:0.631, x2:1, y2:0, stop:0.361582 rgba(61, 139, 247, 255), stop:0.977401 rgba(3, 123, 179, 255));")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.Email.setStyleSheet("background: transparent;\n"
 "color: rgb(255, 255, 255)")
         self.Email.setObjectName("Email")
-        self.lineEdit_First_Name = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_First_Name = QtWidgets.QLabel(self.centralwidget)
         self.lineEdit_First_Name.setGeometry(QtCore.QRect(370, 130, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -63,7 +63,7 @@ class Ui_MainWindow(object):
 "border: transparent;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_First_Name.setObjectName("lineEdit_First_Name")
-        self.lineEdit_Last_Name = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_Last_Name = QtWidgets.QLabel(self.centralwidget)
         self.lineEdit_Last_Name.setGeometry(QtCore.QRect(430, 190, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
 "border: transparent;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_Last_Name.setObjectName("lineEdit_Last_Name")
-        self.lineEdit_Phone_Number = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_Phone_Number = QtWidgets.QLabel(self.centralwidget)
         self.lineEdit_Phone_Number.setGeometry(QtCore.QRect(480, 260, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
 "border: transparent;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_Phone_Number.setObjectName("lineEdit_Phone_Number")
-        self.lineEdit_Email = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_Email = QtWidgets.QLabel(self.centralwidget)
         self.lineEdit_Email.setGeometry(QtCore.QRect(390, 330, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_Home.setObjectName("pushButton_Home")
-        self.Username = QtWidgets.QLineEdit(self.centralwidget)
+        self.Username = QtWidgets.QLabel(self.centralwidget)
         self.Username.setGeometry(QtCore.QRect(90, 390, 141, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -175,6 +175,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        MainWindow.show()
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -188,7 +189,7 @@ class Ui_MainWindow(object):
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
         self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
 
-import imagen_rc
+'''import imagen_rc
 
 if __name__ == "__main__":
     import sys
@@ -196,6 +197,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+    
+    sys.exit(app.exec_())'''
 

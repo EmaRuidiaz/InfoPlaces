@@ -15,7 +15,7 @@ class IniciarSesionView(object):
         self.user = None
         self.type = None
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.setFixedSize(800,600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -153,14 +153,13 @@ class IniciarSesionView(object):
 
     def actualizar(self):
         #if self.lineEdit.is
+        print("Hola actualizar")
         self.user = self.campo_email_or_user.text()
         self.passwd = self.campo_password.text()
         if self.radioButton_User.isChecked():
             self.type = 1
-            print("Hola")
         else:
             self.type = 2
-            print("Hola")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

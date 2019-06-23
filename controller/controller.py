@@ -2,7 +2,7 @@ import sys
 sys.path.append('../connection')
 sys.path.append('../model')
 sys.path.append('../view')
-from model import RegisteredUser, User, ShopOwner
+from model import RegisteredUser, User, ShopOwner, Shop
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
 from CreateAccount import CreateAccountView
@@ -88,7 +88,7 @@ class Controller():
 		#if estado == "nuevo":
 		ventana1 = HomeView(Ventana_Principal, tipo)
 		try:
-			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal))
+			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
@@ -163,13 +163,17 @@ class Controller():
 
 	
 
-	def crearStore(self, Ventana_Principal):
-		print("Hola, estoy registrando una tienda.")
+	def crearStore(self, Ventana_Principal, user):
+		self.shop = Shop()
+		ventana1 = RegisterStoreView(Ventana_Principal, user)
+
 
 	def user(self, Ventana_Principal, user=""):
 		import imagen_rc
 		ventana1 = UserProfileView(Ventana_Principal, user)
-		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, "viejo"))
+		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
+		#ventana1.push
+
 		print("Hola datos de usuario", user.firstname)
 
 	def mostrar(self, x):

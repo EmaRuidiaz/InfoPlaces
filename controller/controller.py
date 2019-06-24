@@ -170,30 +170,56 @@ class Controller():
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):
 		import imagen_rc
+		self.userresguardo = user
 		ventana1 = UserEditView(Ventana_Principal, user)
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: ventana1.actualizar())
-		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.UpdateUserEdit(user,userresguardo,ventana1, Ventana_Principal))
+		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.UpdateUserEdit(user,self.userresguardo,ventana1, Ventana_Principal))
 		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.user(Ventana_Principal, user))
 		
 
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
+		print("User: ", user.username)
+		print("UserResguardo: ", userresguardo.username)
+		self.usernameresguardo = user.username
+		self.emailresguardo = user.email
+
 		user.firstname = ventana1.firstname
 		user.lastname = ventana1.lastname
 		user.username = ventana1.username
 		user.email = ventana1.email
 		user.phone_number = ventana1.phone
-		if user.UpdateInfo(userresguardo):
-			user.UpdatePhoto(userresguardo)
-			QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
+		print("User: ", user.username)
+		print("UserResguardo: ", userresguardo.username)
+		if user.firstname and user.lastname and user.email:
+			self.var = user.CheckReg()
+			print("Var: ", self.var)
+			if self.var[0][0] == self.usernameresguardo:
+				print("EL PROBLEMA ES CON OTRA COSA")
+				user.UpdateInfo(self.usernameresguardo)
+				print("EL PROBLEMA ES CON LA FOTO")
+				user.UpdatePhoto(self.usernameresguardo)
+				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
+			else:
+				QMessageBox.about(Ventana_Principal, "Error", "El username, el email ya está en uso")
+				print("User antes de asignar: ", user.username)
+				print("UserResguardo: ", userresguardo.username)
+				user = userresguardo
+				user.username = self.usernameresguardo
+				user.email = self.emailresguardo
+				print("User: ", user.username)
+				print("UserResguardo: ", userresguardo.username)
+				self.editarUser(Ventana_Principal, user, userresguardo)
 		else:
-			print("Algo anda mal!")
+			QMessageBox.about(Ventana_Principal, "Error", "Datos Incompletos")
+			user = userresguardo
+			self.editarUser(Ventana_Principal, user, userresguardo)
 
 	def user(self, Ventana_Principal, user=""):
 		import imagen_rc
 		ventana1 = UserProfileView(Ventana_Principal, user)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
-		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user, user.username))
+		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user, user))
 
 	def mostrar(self, x):
 		print(x," mensaje")

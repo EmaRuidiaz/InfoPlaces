@@ -43,7 +43,7 @@ class RegisterStoreView(object):
         self.Name_app_3.setGeometry(QtCore.QRect(50, 90, 311, 71))
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)

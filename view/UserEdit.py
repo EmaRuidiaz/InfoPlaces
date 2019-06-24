@@ -7,6 +7,9 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication,QPushButton, QVBoxLayout, QFileDialog , QLabel, QTextEdit
+from PyQt5.QtGui import QPixmap
+from windowsphoto import WindowPhoto
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
@@ -164,6 +167,20 @@ class UserEditView(object):
         self.Editar.setPixmap(QtGui.QPixmap(":/Inicio/descarga1.png"))
         self.Editar.setScaledContents(True)
         self.Editar.setObjectName("Editar")
+
+
+        
+        self.Cargar_imagen = QtWidgets.QPushButton(self.frame)
+        self.Cargar_imagen.setGeometry(QtCore.QRect(470, 0, 75, 23))
+        self.Cargar_imagen.setStyleSheet("background: rgb(225,225,225,60);\n"
+                        "border: 1px solid rgb(225,225,225,60);\n"
+                        "border-radius: 6px;\n"
+                        "color: rgb(225,225,225);\n"
+                        "")
+        self.Cargar_imagen.setObjectName("Cargar_imagen")
+        #self.Cargar_imagen.clicked.connect(self.getImage)
+                        
+        self.Cargar_imagen.raise_()
         self.frame.raise_()
         self.Potho.raise_()
         self.First_Name.raise_()
@@ -179,6 +196,7 @@ class UserEditView(object):
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
         self.pushButton_GuardarCambios.raise_()
+
         MainWindow.setCentralWidget(self.centralwidget)
         MainWindow.show()
 
@@ -192,22 +210,31 @@ class UserEditView(object):
        self.email = self.lineEdit_Email.text()
        self.phone = self.lineEdit_Phone_Number.text()
 
+    #def getImage(self):
+    #    import sys
+    #    Appp = QApplication(sys.argv)
+    #    PhotoWindow = QtWidgets.QMainWindow()
+    #    WinPhoto = WindowPhoto()
+    #    WinPhoto.InitWindow(PhotoWindow)
+    #    sys.exit(Appp.exec())
+
     def retranslateUi(self, MainWindow, user):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.First_Name.setText(_translate("MainWindow", "First Name:"))
-        self.lineEdit_First_Name.setText(_translate("MainWindow", user.firstname))
-        self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
-        self.lineEdit_Last_Name.setText(_translate("MainWindow", user.lastname))
-        self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
-        self.lineEdit_Phone_Number.setText(_translate("MainWindow", user.phone_number))
-        self.Email.setText(_translate("MainWindow", "E-mail:"))
-        self.lineEdit_Email.setText(_translate("MainWindow", user.email))
-        self.pushButton_back.setText(_translate("MainWindow", "Back"))
-        self.pushButton_Home.setText(_translate("MainWindow", "Home"))
-        self.Username.setText(_translate("MainWindow", user.username))
-        self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
-        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Guardar Cambios"))
+       _translate = QtCore.QCoreApplication.translate
+       MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+       self.First_Name.setText(_translate("MainWindow", "First Name:"))
+       self.lineEdit_First_Name.setText(_translate("MainWindow", user.firstname))
+       self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
+       self.lineEdit_Last_Name.setText(_translate("MainWindow", user.lastname))
+       self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
+       self.lineEdit_Phone_Number.setText(_translate("MainWindow", user.phone_number))
+       self.Email.setText(_translate("MainWindow", "E-mail:"))
+       self.lineEdit_Email.setText(_translate("MainWindow", user.email))
+       self.pushButton_back.setText(_translate("MainWindow", "Back"))
+       self.pushButton_Home.setText(_translate("MainWindow", "Home"))
+       self.Username.setText(_translate("MainWindow", user.username))
+       self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
+       self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Guardar Cambios"))
+       self.Cargar_imagen.setText(_translate("MainWindow", "Cargar Imagen"))
 
 '''import imagen_rc
 

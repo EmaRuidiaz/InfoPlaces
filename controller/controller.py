@@ -2,7 +2,7 @@ import sys
 sys.path.append('../connection')
 sys.path.append('../model')
 sys.path.append('../view')
-from model import RegisteredUser, User, ShopOwner, Shop
+from model import RegisteredUser, User, ShopOwner, Shop, Schedule
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
 from UserEdit import UserEditView
@@ -69,7 +69,7 @@ class Controller():
 			else:
 				pass
 		
-		if ventana1.terms == 1 and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 8) and (self.reguser.password == self.confirmuser):
+		if ventana1.terms == 1 and (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 8) and (self.reguser.password == self.confirmuser):
 			
 			if not self.reguser.CheckReg():
 				if self.reguser.Register():
@@ -166,7 +166,19 @@ class Controller():
 
 	def crearStore(self, Ventana_Principal, user):
 		self.shop = Shop()
+		self.schedule = Schedule()
 		ventana1 = RegisterStoreView(Ventana_Principal, user)
+		ventana1.pushButton_Create_Store.connect(lambda: ventana1.actualizar())
+		ventana1.pushButton_Create_Store.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
+
+	def AddStore(self, shop, user, ventana1, schedule):
+		shop.name = ventana1.name
+		shop.address = ventana1.address
+		shop.number = ventana1.number
+		shop.description = ventana1.description
+
+		#if shop.name and shop.address and shop.number and shop.description:
+
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):
 		import imagen_rc

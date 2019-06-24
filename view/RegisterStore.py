@@ -10,6 +10,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class RegisterStoreView(object):
     def __init__(self, MainWindow, user):
+        self.name = ""
+        self.address = ""
+        self.number = ""
+        self.description = ""
+        self.streetname = ""
+        self.streetnumber = ""
+        self.schedule = []
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -369,6 +376,19 @@ class RegisterStoreView(object):
         self.retranslateUi(MainWindow)
         self.toolBox.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def actualizar(self):
+        self.name = self.lineEdit.text()
+        self.address = self.lineEdit2.text()
+        self.number = self.lineEdit3.text()
+        self.description = self.textEdit.text()
+        self.schedule = []
+
+        '''if self.checkBox_accept_terms.isChecked():
+                                    self.terms = 1
+                                else:
+                                    self.terms = 0
+                                self.phone = self.campo_phone_number.text()'''
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

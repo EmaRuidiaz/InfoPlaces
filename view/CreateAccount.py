@@ -21,6 +21,7 @@ class CreateAccountView(object):
         self.confirmuser = None
         self.phone = None
         self.terms = 0
+        self.fechacontrol = 0
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(800,600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -200,6 +201,7 @@ class CreateAccountView(object):
         self.lastname = self.campo_last_name.text()
         self.username = self.campo_username.text()
         self.birthdate = str(self.fecha_nacimiento.date().year()) + "-" + str(self.fecha_nacimiento.date().month()) + "-" + str(self.fecha_nacimiento.date().day())
+        self.fechacontrol = self.fecha_nacimiento.date().year()
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()
         self.confirmuser = self.campo_confirm_password.text()

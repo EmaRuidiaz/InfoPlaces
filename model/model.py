@@ -85,9 +85,14 @@ class Type:
 class Shop:
 	def __init__(self):
 		self.name = ""
-		self.phone = ""
-		self.streetname = ""
-		self.streetnumber = ""
+		self.address = ""
+		self.number = ""
+		self.description = ""
+
+	def registrar(self, user):
+		self.query = "INSERT INTO shop(name, street_name, street_num, person) VALUES (%s, %s, %s, %s)"
+		self.values = (self.name, self.address, self.number, user.username)
+		return self.db.insertar(self.query,self.values)
 
 class Comment:
 	def __init__(self):

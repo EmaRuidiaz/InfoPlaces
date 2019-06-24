@@ -168,15 +168,32 @@ class Controller():
 		self.shop = Shop()
 		ventana1 = RegisterStoreView(Ventana_Principal, user)
 
-	def editarUser(self, Ventana_Principal, user):
+	def editarUser(self, Ventana_Principal, user, userresguardo):
 		import imagen_rc
 		ventana1 = UserEditView(Ventana_Principal, user)
+		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: ventana1.actualizar())
+		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.UpdateUserEdit(user,userresguardo,ventana1, Ventana_Principal))
+		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
+		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.user(Ventana_Principal, user))
+		
+
+	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
+		user.firstname = ventana1.firstname
+		user.lastname = ventana1.lastname
+		user.username = ventana1.username
+		user.email = ventana1.email
+		user.phone_number = ventana1.phone
+		if user.UpdateInfo(userresguardo):
+			user.UpdatePhoto(userresguardo)
+			QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
+		else:
+			print("Algo anda mal!")
 
 	def user(self, Ventana_Principal, user=""):
 		import imagen_rc
 		ventana1 = UserProfileView(Ventana_Principal, user)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
-		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user))
+		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user, user.username))
 
 	def mostrar(self, x):
 		print(x," mensaje")

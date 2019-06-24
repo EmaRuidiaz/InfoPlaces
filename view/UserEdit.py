@@ -10,6 +10,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
+        self.firstname = None
+        self.lastname = None
+        self.username = None
+        self.birthdate = None
+        self.email = None
+        self.password = None
+        self.confirmuser = None
+        self.phone = None
         MainWindow.setFixedSize(800,600)
         MainWindow.setObjectName("MainWindow")
         #MainWindow.resize(798, 582)
@@ -131,18 +139,18 @@ class UserEditView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_back_Change_Password.setObjectName("pushButton_back_Change_Password")
-        self.pushButton_Resgister_Store = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Resgister_Store.setGeometry(QtCore.QRect(480, 390, 171, 31))
+        self.pushButton_GuardarCambios = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_GuardarCambios.setGeometry(QtCore.QRect(480, 390, 171, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.pushButton_Resgister_Store.setFont(font)
-        self.pushButton_Resgister_Store.setAutoFillBackground(False)
-        self.pushButton_Resgister_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
+        self.pushButton_GuardarCambios.setFont(font)
+        self.pushButton_GuardarCambios.setAutoFillBackground(False)
+        self.pushButton_GuardarCambios.setStyleSheet("background: rgb(225,225,225,60);\n"
 "border: 1px solid rgb(225,225,225,60);\n"
 "border-radius: 6px;\n"
 "color: rgb(225,225,225);\n"
 "")
-        self.pushButton_Resgister_Store.setObjectName("pushButton_Resgister_Store")
+        self.pushButton_GuardarCambios.setObjectName("pushButton_Resgister_Store")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
         self.frame.setFocusPolicy(QtCore.Qt.ClickFocus)
@@ -170,30 +178,38 @@ class UserEditView(object):
         self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
-        self.pushButton_Resgister_Store.raise_()
+        self.pushButton_GuardarCambios.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
+        MainWindow.show()
 
         self.retranslateUi(MainWindow, user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def actualizar(self):
+       self.firstname = self.lineEdit_First_Name.text()
+       self.lastname = self.lineEdit_Last_Name.text()
+       self.username = self.Username.text()
+       self.email = self.lineEdit_Email.text()
+       self.phone = self.lineEdit_Phone_Number.text()
 
     def retranslateUi(self, MainWindow, user):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.First_Name.setText(_translate("MainWindow", "First Name:"))
-        self.lineEdit_First_Name.setText(_translate("MainWindow", " " + user.firstname))
+        self.lineEdit_First_Name.setText(_translate("MainWindow", user.firstname))
         self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
-        self.lineEdit_Last_Name.setText(_translate("MainWindow", " " + user.lastname))
+        self.lineEdit_Last_Name.setText(_translate("MainWindow", user.lastname))
         self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
-        self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + user.phone_number))
+        self.lineEdit_Phone_Number.setText(_translate("MainWindow", user.phone_number))
         self.Email.setText(_translate("MainWindow", "E-mail:"))
-        self.lineEdit_Email.setText(_translate("MainWindow", " " + user.email))
+        self.lineEdit_Email.setText(_translate("MainWindow", user.email))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_Home.setText(_translate("MainWindow", "Home"))
-        self.Username.setText(_translate("MainWindow", "User Name"))
+        self.Username.setText(_translate("MainWindow", user.username))
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
-        self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
+        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Guardar Cambios"))
 
-import imagen_rc
+'''import imagen_rc
 
 if __name__ == "__main__":
     import sys
@@ -201,6 +217,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+    
+    sys.exit(app.exec_())'''
 

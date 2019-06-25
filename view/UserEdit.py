@@ -130,7 +130,7 @@ class UserEditView(object):
 "color: rgb(225,225,225)")
         self.Username.setAlignment(QtCore.Qt.AlignCenter)
         self.Username.setObjectName("Username")
-        self.pushButton_back_Change_Password = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_back_Change_Password = QtWidgets.QLabel(self.centralwidget)
         self.pushButton_back_Change_Password.setGeometry(QtCore.QRect(290, 390, 171, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -219,7 +219,7 @@ class UserEditView(object):
        self.firstname = self.lineEdit_First_Name.text()
        self.lastname = self.lineEdit_Last_Name.text()
        self.username = self.Username.text()
-       self.email = self.lineEdit_Email.text()
+       self.password = self.lineEdit_Email.text()
        self.phone = self.lineEdit_Phone_Number.text()
        #self.fileName = 
 
@@ -241,12 +241,12 @@ class UserEditView(object):
        self.lineEdit_Last_Name.setText(_translate("MainWindow", user.lastname))
        self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
        self.lineEdit_Phone_Number.setText(_translate("MainWindow", user.phone_number))
-       self.Email.setText(_translate("MainWindow", "E-mail:"))
-       self.lineEdit_Email.setText(_translate("MainWindow", user.email))
+       self.Email.setText(_translate("MainWindow", "Password:"))
+       self.lineEdit_Email.setText(_translate("MainWindow", user.password))
        self.pushButton_back.setText(_translate("MainWindow", "Back"))
        self.pushButton_Home.setText(_translate("MainWindow", "Home"))
        self.Username.setText(_translate("MainWindow", user.username))
-       self.pushButton_back_Change_Password.setText(_translate("MainWindow", "Change Password"))
+       self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Guardar Cambios"))
        self.Cargar_imagen.setText(_translate("MainWindow", "Cargar Imagen"))
 

@@ -200,15 +200,15 @@ class Controller():
 		user.firstname = ventana1.firstname
 		user.lastname = ventana1.lastname
 		user.username = ventana1.username
-		user.email = ventana1.email
+		user.password = ventana1.password
 		user.phone_number = ventana1.phone
 		user.image = ventana1.fileName
 		print("User: ", user.username)
 		print("UserResguardo: ", userresguardo.username)
-		if user.firstname and user.lastname and user.email:
+		if user.firstname and user.lastname and user.password:
 			self.var = user.CheckReg()
 			print("Var: ", self.var)
-			if self.var[0][0] == self.usernameresguardo:
+			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
 				user.UpdateInfo(self.usernameresguardo)
 				user.UpdatePhoto(self.usernameresguardo)
 				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")

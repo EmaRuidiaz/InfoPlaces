@@ -47,7 +47,7 @@ class Controller():
 		ventana1=IniciarSesionView(Ventana_Principal)
 		ventana1.pushButton_Sign_In.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "registrado"))
-		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal "invitado"))
+		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "invitado"))
 		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.crearCuenta(Ventana_Principal))
 
 	def cargarUsuario(self, ventana1, Ventana_Principal):

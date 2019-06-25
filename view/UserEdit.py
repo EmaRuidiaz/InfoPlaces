@@ -9,7 +9,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication,QPushButton, QVBoxLayout, QFileDialog , QLabel, QTextEdit
 from PyQt5.QtGui import QPixmap
-from windowsphoto import WindowPhoto
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
@@ -21,6 +20,7 @@ class UserEditView(object):
         self.password = None
         self.confirmuser = None
         self.phone = None
+        self.fileName = user.image
         MainWindow.setFixedSize(800,600)
         MainWindow.setObjectName("MainWindow")
         #MainWindow.resize(798, 582)
@@ -31,7 +31,7 @@ class UserEditView(object):
         self.Potho.setGeometry(QtCore.QRect(30, 160, 271, 231))
         self.Potho.setStyleSheet("background: transparent;")
         self.Potho.setText("")
-        self.Potho.setPixmap(QtGui.QPixmap(":/dfsfsd/user.PNG"))
+        self.Potho.setPixmap(QtGui.QPixmap(self.fileName))
         self.Potho.setScaledContents(True)
         self.Potho.setObjectName("Potho")
         self.First_Name = QtWidgets.QLabel(self.centralwidget)
@@ -178,7 +178,7 @@ class UserEditView(object):
                         "color: rgb(225,225,225);\n"
                         "")
         self.Cargar_imagen.setObjectName("Cargar_imagen")
-        #self.Cargar_imagen.clicked.connect(self.getImage)
+        self.Cargar_imagen.clicked.connect(lambda: self.getImage(MainWindow))
                         
         self.Cargar_imagen.raise_()
         self.frame.raise_()
@@ -203,14 +203,28 @@ class UserEditView(object):
         self.retranslateUi(MainWindow, user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def openFileNameDialog(self, MainWindow):
+        print("set icon clicked")
+        #options = QFileDialog.Options()
+        #options |= QFileDialog.DontUseNativeDialog
+        self.fileName, _= QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
+        if self.fileName:
+            print(self.fileName)
+            pixmap = QtGui.QPixmap(self.fileName)
+            self.Potho.setPixmap(QtGui.QPixmap(self.fileName))
+            return pixmap
+        
+
     def actualizar(self):
        self.firstname = self.lineEdit_First_Name.text()
        self.lastname = self.lineEdit_Last_Name.text()
        self.username = self.Username.text()
        self.email = self.lineEdit_Email.text()
        self.phone = self.lineEdit_Phone_Number.text()
+       #self.fileName = 
 
-    #def getImage(self):
+    def getImage(self, MainWindow):
+        self.photo = self.openFileNameDialog(MainWindow)
     #    import sys
     #    Appp = QApplication(sys.argv)
     #    PhotoWindow = QtWidgets.QMainWindow()

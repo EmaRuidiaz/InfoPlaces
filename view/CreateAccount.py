@@ -182,6 +182,8 @@ class CreateAccountView(object):
         self.checkBox_accept_terms.setObjectName("checkBox_accept_terms")
         MainWindow.setCentralWidget(self.centralwidget)
 
+        self.image = "C:/Users/ema_r/Documents/InfoPlaces/view/user.PNG"
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -205,6 +207,7 @@ class CreateAccountView(object):
         self.email = self.campo_email.text()
         self.password = self.campo_password.text()
         self.confirmuser = self.campo_confirm_password.text()
+        
         if self.checkBox_accept_terms.isChecked():
             self.terms = 1
         else:

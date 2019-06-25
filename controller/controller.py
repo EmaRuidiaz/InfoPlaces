@@ -58,6 +58,7 @@ class Controller():
 		self.reguser.email = ventana1.email
 		self.reguser.password = ventana1.password
 		self.reguser.type = ventana1.type
+		self.reguser.image = ventana1.image
 		self.confirmuser = ventana1.confirmuser
 		try:
 			self.reguser.phone_number = int(ventana1.phone)
@@ -87,7 +88,7 @@ class Controller():
 
 	def Home(self, Ventana_Principal,user, tipo):
 		#if estado == "nuevo":
-		ventana1 = HomeView(Ventana_Principal, tipo)
+		ventana1 = HomeView(Ventana_Principal, tipo, user)
 		try:
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
@@ -201,15 +202,14 @@ class Controller():
 		user.username = ventana1.username
 		user.email = ventana1.email
 		user.phone_number = ventana1.phone
+		user.image = ventana1.fileName
 		print("User: ", user.username)
 		print("UserResguardo: ", userresguardo.username)
 		if user.firstname and user.lastname and user.email:
 			self.var = user.CheckReg()
 			print("Var: ", self.var)
 			if self.var[0][0] == self.usernameresguardo:
-				print("EL PROBLEMA ES CON OTRA COSA")
 				user.UpdateInfo(self.usernameresguardo)
-				print("EL PROBLEMA ES CON LA FOTO")
 				user.UpdatePhoto(self.usernameresguardo)
 				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
 			else:

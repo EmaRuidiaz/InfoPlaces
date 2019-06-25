@@ -33,8 +33,8 @@ class RegisteredUser(User):
 		return self.db.insertar(self.query, self.values)
 
 	def UpdatePhoto(self, userresguardo):
-		self.query = "UPDATE photo SET user_name = %s WHERE user_name = %s"
-		self.values = (self.username, userresguardo)
+		self.query = "UPDATE photo SET user_name = %s, image = %s WHERE user_name = %s"
+		self.values = (self.username, self.image, userresguardo)
 		return self.db.insertar(self.query, self.values)
 
 	def RegisterPhoto(self):

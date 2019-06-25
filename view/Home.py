@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class HomeView(object):
-    def __init__(self, MainWindow,  tipousuario):
+    def __init__(self, MainWindow,  tipousuario, user):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -183,7 +183,7 @@ class HomeView(object):
         self.Photo.setStyleSheet("background: transparent;\n"
 "")
         self.Photo.setText("")
-        self.Photo.setPixmap(QtGui.QPixmap(":/dfsfsd/user.PNG"))
+        self.Photo.setPixmap(QtGui.QPixmap(user.image))
         self.Photo.setScaledContents(True)
         self.Photo.setObjectName("Photo")
         self.label_7 = QtWidgets.QLabel(self.frame)

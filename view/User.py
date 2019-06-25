@@ -19,7 +19,7 @@ class UserProfileView(object):
         self.Potho.setGeometry(QtCore.QRect(30, 160, 271, 231))
         self.Potho.setStyleSheet("background: transparent;")
         self.Potho.setText("")
-        self.Potho.setPixmap(QtGui.QPixmap(":/dfsfsd/user.PNG"))
+        self.Potho.setPixmap(QtGui.QPixmap(user.image))
         self.Potho.setScaledContents(True)
         self.Potho.setObjectName("Potho")
         self.First_Name = QtWidgets.QLabel(self.centralwidget)

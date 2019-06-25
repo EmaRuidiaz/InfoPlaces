@@ -196,6 +196,8 @@ class CreateAccountView(object):
         self.campo_username.textChanged.connect(self.validar_Username)
         self.campo_email.textChanged.connect(self.validar_Email)
         self.campo_phone_number.textChanged.connect(self.validar_PhoneNumber)
+        self.campo_password.textChanged.connect(self.validar_Password)
+        self.campo_confirm_password.textChanged.connect(self.validar_Confirm_Password)
 
 
     def actualizar(self):
@@ -370,6 +372,60 @@ class CreateAccountView(object):
                 "color: rgb(255, 255, 255);\n"
 "")
             return True
+
+    def validar_Password(self):
+        password = self.campo_password.text()
+        validar = re.match('^[a-zA-Z0-9]{8}',password)
+        if password == '':
+            self.campo_password.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_password.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_password.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+
+    def validar_Confirm_Password(self):
+        confirm_password = self.campo_confirm_password.text()
+        validar = re.match('^[a-zA-Z0-9]{8}',confirm_password)
+        if confirm_password == '':
+            self.campo_confirm_password.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+            return False
+        elif not validar:
+            self.campo_confirm_password.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid red;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
+            return False
+        else:
+            self.campo_confirm_password.setStyleSheet("Background-color: rgb(254,252,224,60);\n"
+                "Border: 1px solid green;\n"
+                "border-radius: 6px;\n"
+                "font: 14pt \"MS Shell Dlg 2\";\n"
+                "color: rgb(255, 255, 255);\n"
+"")
 
     # Abre una ventana de mensaje de error
     def validar_formulario(self):

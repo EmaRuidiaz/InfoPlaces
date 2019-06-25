@@ -47,7 +47,7 @@ class Controller():
 		ventana1=IniciarSesionView(Ventana_Principal)
 		ventana1.pushButton_Sign_In.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "registrado"))
-		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "invitado"))
+		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal "invitado"))
 		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.crearCuenta(Ventana_Principal))
 
 	def cargarUsuario(self, ventana1, Ventana_Principal):
@@ -70,7 +70,7 @@ class Controller():
 			else:
 				pass
 		
-		if ventana1.terms == 1 and (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 8) and (self.reguser.password == self.confirmuser):
+		if ventana1.terms == 1 and (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 7) and (self.reguser.password == self.confirmuser):
 			
 			if not self.reguser.CheckReg():
 				if self.reguser.Register():

@@ -163,6 +163,7 @@ class Controller():
 			self.user = User()
 			self.user.image = "../../InfoPlaces/view/user.PNG"
 			ventana1 = HomeView(Ventana_Principal,1, self.user)
+			ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
 
 	
 

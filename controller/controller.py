@@ -161,7 +161,8 @@ class Controller():
 					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 		elif usuario == "invitado":
 			self.user = User()
-			ventana1 = HomeView(Ventana_Principal,1)
+			self.user.image = "../../InfoPlaces/view/user.PNG"
+			ventana1 = HomeView(Ventana_Principal,1, self.user)
 
 	
 

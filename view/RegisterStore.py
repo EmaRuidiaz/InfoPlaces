@@ -397,7 +397,7 @@ class RegisterStoreView(object):
         self.Name_app_2.setText(_translate("MainWindow", "InfoPlaces"))
         self.Name_app_3.setText(_translate("MainWindow", "Register Store"))
         self.Name_app_4.setText(_translate("MainWindow", "Register Store"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Name Store"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Store Name"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Address"))
         self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Number"))
         self.label_2.setText(_translate("MainWindow", "Description:"))

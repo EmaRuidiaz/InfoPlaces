@@ -374,9 +374,9 @@ class CreateAccountView(object):
     # Abre una ventana de mensaje de error
     def validar_formulario(self):
         if self.validar_Firstname and self.validar_Lastname and self.validar_Email and self.validar_PhoneNumber:
-            QMessageBox.information(self,"Formulario correcto","Validacion correcta",QMessageBox.Discard)
+            QMessageBox.information(self,"Account Created","Register Sucesfull",QMessageBox.Discard)
         else:
-            QMessageBox.warning(self,"Formulario incorrecto","Validacion incorrecta",QMessageBox.Discard)
+            QMessageBox.warning(self,"Error","Incorrect Information",QMessageBox.Discard)
 
 
 '''

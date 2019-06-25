@@ -349,27 +349,27 @@ class HomeView(object):
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
         self.perfil.setText(_translate("MainWindow","Edit Profile"))
-        self.titulo_tienda1.setText(_translate("MainWindow", "Titulo_1"))
+        self.titulo_tienda1.setText(_translate("MainWindow", "Store_1"))
         self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Descripcion_1</p></body></html>"))
-        self.titulo_tienda3.setText(_translate("MainWindow", "Titulo_3"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_1</p></body></html>"))
+        self.titulo_tienda3.setText(_translate("MainWindow", "Store_3"))
         self.textBrowser_Descripcion3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Descripcion_3</p></body></html>"))
-        self.titulo_tienda2.setText(_translate("MainWindow", "Titulo_2"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_3</p></body></html>"))
+        self.titulo_tienda2.setText(_translate("MainWindow", "Store_2"))
         self.textBrowser_Descripcion2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Descripcion_2</p></body></html>"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "Ordenar"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "Mayor a Menor Valoración"))
-        self.comboBox.setItemText(2, _translate("MainWindow", "Menor a Mayor Valoración"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_2</p></body></html>"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "Sort by"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "Descendent Rate"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
         try:

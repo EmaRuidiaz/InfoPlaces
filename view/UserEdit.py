@@ -247,8 +247,8 @@ class UserEditView(object):
        self.pushButton_Home.setText(_translate("MainWindow", "Home"))
        self.Username.setText(_translate("MainWindow", user.username))
        self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
-       self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Guardar Cambios"))
-       self.Cargar_imagen.setText(_translate("MainWindow", "Cargar Imagen"))
+       self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Save Changes"))
+       self.Cargar_imagen.setText(_translate("MainWindow", "Upload Image"))
 
 '''import imagen_rc
 

@@ -169,8 +169,8 @@ class Controller():
 		self.shop = Shop()
 		self.schedule = Schedule()
 		ventana1 = RegisterStoreView(Ventana_Principal, user)
-		ventana1.pushButton_Create_Store.connect(lambda: ventana1.actualizar())
-		ventana1.pushButton_Create_Store.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
+		ventana1.pushButton_Create_Store.clicked.connect(lambda: ventana1.actualizar())
+		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
 
 	def AddStore(self, shop, user, ventana1, schedule):
 		shop.name = ventana1.name

@@ -2,7 +2,12 @@ import sys
 sys.path.append('../connection')
 sys.path.append('../model')
 sys.path.append('../view')
-from model import RegisteredUser, User, ShopOwner, Shop, Schedule
+#from model import ShopOwner, Shop, Schedule
+from model_RegisteredUser import RegisteredUser
+from model_User import User
+from model_ShopOwner import ShopOwner
+from model_Shop import Shop
+from model_Schedule import Schedule
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
 from UserEdit import UserEditView

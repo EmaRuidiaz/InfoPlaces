@@ -1,17 +1,7 @@
 import sys
 sys.path.append('../connection')
+from model_User import User
 from db_connection import DBconn
-
-
-class User:
-	def __init__(self):
-		pass
-
-
-	def search(self):
-		pass
-
-
 
 class RegisteredUser(User):
 	def __init__(self):
@@ -63,59 +53,3 @@ class RegisteredUser(User):
 
 	def rate(self):
 		pass
-
-class ShopOwner(RegisteredUser):
-	def __init__(self):
-		RegisteredUser.__init__(self)
-
-	def answer(self):
-		pass
-
-	def modify(self):
-		pass
-
-	def createshop(self):
-		pass
-
-
-class Type:
-	def __init__(self):
-		self.description = ""
-
-class Shop:
-	def __init__(self):
-		self.name = ""
-		self.address = ""
-		self.number = ""
-		self.description = ""
-
-	def registrar(self, user):
-		self.query = "INSERT INTO shop(name, street_name, street_num, person) VALUES (%s, %s, %s, %s)"
-		self.values = (self.name, self.address, self.number, user.username)
-		return self.db.insertar(self.query,self.values)
-
-class Comment:
-	def __init__(self):
-		self.date = ""
-
-class Rating:
-	def __init__(self):
-		self.number
-
-class Favorite:
-	def __init__(self):
-		pass
-
-class Answer:
-	def __init__(self):
-		pass
-
-class Schedule:
-	def __init__(self):
-		self.day = ""
-		self.turn = ""
-		self.opening = ""
-		self.closing = ""
-
-#x = RegisteredUser()
-

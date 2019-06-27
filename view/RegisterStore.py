@@ -455,7 +455,7 @@ class RegisterStoreView(object):
         self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
         self.pushButton_Cancel.setText(_translate("MainWindow","Cancel"))
 
-import imagen_rc
+'''import imagen_rc
 
 if __name__ == "__main__":
     import sys
@@ -465,4 +465,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
+'''

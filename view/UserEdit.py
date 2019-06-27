@@ -204,12 +204,10 @@ class UserEditView(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def openFileNameDialog(self, MainWindow):
-        print("set icon clicked")
         #options = QFileDialog.Options()
         #options |= QFileDialog.DontUseNativeDialog
         self.fileName, _= QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
         if self.fileName:
-            print(self.fileName)
             pixmap = QtGui.QPixmap(self.fileName)
             self.Potho.setPixmap(QtGui.QPixmap(self.fileName))
             return pixmap

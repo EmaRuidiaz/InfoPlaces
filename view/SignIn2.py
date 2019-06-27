@@ -153,7 +153,6 @@ class IniciarSesionView(object):
 
     def actualizar(self):
         #if self.lineEdit.is
-        print("Hola actualizar")
         self.user = self.campo_email_or_user.text()
         self.passwd = self.campo_password.text()
         if self.radioButton_User.isChecked():

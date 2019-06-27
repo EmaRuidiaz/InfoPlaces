@@ -9,29 +9,22 @@ class DBconn:
 
     def conectar(self):
         self.conexion = mysql.connector.connect(user=self.db_user, password=self.db_pass, host=self.db_host, database=self.db_name)
-        if self.conexion.is_connected():
-            print("Se conecto")
+        '''if self.conexion.is_connected():
+                                    print("Se conecto")'''
 
     def abrir_cursor(self):
         self.cursor = self.conexion.cursor(prepared=True)
 
     def ejecutar_consulta(self, query, values="", querytype=""):
-        print(values, " values")
         if querytype == "select":
             if values != "":
-                print("Antes de ejecutar - Select")
                 self.cursor.execute(query, values)
-                print("Despues de ejecutar")
             else:
-                print("Viene por ACAAAA")
                 self.cursor.execute(query)
         elif querytype == "insert":
             if values != "":
-                print("Antes de ejecutar - Insertar")
                 self.cursor.execute(query, values)
-                print("Despues de ejecutar")
             else:
-                print("Viene por ACAAAA")
                 self.cursor.execute(query)
 
     def send_commit(self, query):
@@ -42,7 +35,7 @@ class DBconn:
 
     def traer_datos(self):
         self.datos = self.cursor.fetchall()
-        print(self.datos, "  datoss de la consulta")
+        #print(self.datos, "  datoss de la consulta")
 
     def cerrar_cursor(self):
         self.cursor.close()

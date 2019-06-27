@@ -66,7 +66,6 @@ class Controller():
 			if ventana1.phone:
 				ventana1.terms = 0
 				self.reguser.phone_number = None
-				print("Numero de telefono está mal")
 			else:
 				pass
 		
@@ -81,10 +80,8 @@ class Controller():
 					pass
 			else:
 				QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
-				print("Email o Username en uso")
 		else:
 			QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
-		print(" checkReg")
 
 	def Home(self, Ventana_Principal,user, tipo):
 		#if estado == "nuevo":
@@ -97,22 +94,14 @@ class Controller():
 		ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 
 	def sign(self, passwd="", user="", typeu="", Ventana_Principal="", usuario=""):
-		print("Hola sign")
 		if usuario == "registrado":
-			print("Hola registrado")
 			if typeu == 1:
-				print("Hola tipo 1")
 				self.reguser = RegisteredUser()
-				print(user)
-				print(passwd)
-				print("Tipo de usuario", typeu)
 				self.reguser.username = user
 				self.reguser.email = user
 				self.reguser.password = passwd
 				self.reguser.type = typeu
 				self.validacion = self.reguser.SignIn()
-
-				print("Esto tiene validacion", self.validacion)
 
 				#self.reguser.username, self.reguser.password)
 				if (self.validacion):
@@ -132,16 +121,11 @@ class Controller():
 					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 			elif typeu == 2:
 				self.owner = ShopOwner()
-				print(user)
-				print(passwd)
-				print("Tipo de usuario", typeu)
 				self.owner.username = user
 				self.owner.email = user
 				self.owner.password = passwd
 				self.owner.type = typeu
 				self.validacion = self.owner.SignIn()
-
-				print("Esto tiene validacion", self.validacion)
 
 				#self.reguser.username, self.reguser.password)
 				if (self.validacion):
@@ -195,8 +179,6 @@ class Controller():
 		
 
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
-		print("User: ", user.username)
-		print("UserResguardo: ", userresguardo.username)
 		self.usernameresguardo = user.username
 		self.emailresguardo = user.email
 
@@ -206,24 +188,17 @@ class Controller():
 		user.password = ventana1.password
 		user.phone_number = ventana1.phone
 		user.image = ventana1.fileName
-		print("User: ", user.username)
-		print("UserResguardo: ", userresguardo.username)
 		if user.firstname and user.lastname and user.password:
 			self.var = user.CheckReg()
-			print("Var: ", self.var)
 			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
 				user.UpdateInfo(self.usernameresguardo)
 				user.UpdatePhoto(self.usernameresguardo)
 				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
 			else:
 				QMessageBox.about(Ventana_Principal, "Error", "El username, el email ya está en uso")
-				print("User antes de asignar: ", user.username)
-				print("UserResguardo: ", userresguardo.username)
 				user = userresguardo
 				user.username = self.usernameresguardo
 				user.email = self.emailresguardo
-				print("User: ", user.username)
-				print("UserResguardo: ", userresguardo.username)
 				self.editarUser(Ventana_Principal, user, userresguardo)
 		else:
 			QMessageBox.about(Ventana_Principal, "Error", "Datos Incompletos")
@@ -236,19 +211,11 @@ class Controller():
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
 		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user, user))
 
-	def mostrar(self, x):
-		print(x," mensaje")
-
-	def guardar(self, objeto):
-		objeto="sadsad"
-		print(objeto)
-		return objeto
-
-def clear(): #También la podemos llamar cls (depende a lo que estemos acostumbrados)
-    if os.name == "posix":
-        os.system ("clear")
-    elif os.name == ("ce", "nt", "dos"):
-        os.system ("cls")
+def clear():
+	if os.name == "posix":
+		os.system ("clear")
+	elif os.name == ("ce", "nt", "dos"):
+		os.system ("cls")
 
 if __name__ == "__main__":
 	cs = Controller()

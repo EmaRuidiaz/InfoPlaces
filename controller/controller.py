@@ -17,8 +17,6 @@ from RegisterStore import RegisterStoreView
 from Home import HomeView
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-#import fondo_rc
-
 import os
 
 class ControllerUsuario:
@@ -123,7 +121,7 @@ class Controller():
 					self.reguser.image = self.validacion[0][8]
 					self.Home(Ventana_Principal,self.reguser,1)
 				else:
-					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+					QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 			elif typeu == 2:
 				self.owner = ShopOwner()
 				self.owner.username = user
@@ -147,7 +145,7 @@ class Controller():
 					self.owner.image = self.validacion[0][8]
 					self.Home(Ventana_Principal,self.owner,2)
 				else:
-					QMessageBox.about(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+					QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
 		elif usuario == "invitado":
 			self.user = User()
 			self.user.image = "../../InfoPlaces/view/user.PNG"
@@ -200,13 +198,13 @@ class Controller():
 				user.UpdatePhoto(self.usernameresguardo)
 				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
 			else:
-				QMessageBox.about(Ventana_Principal, "Error", "El username, el email ya está en uso")
+				QMessageBox.warning(Ventana_Principal, "Error", "El username, el email ya está en uso")
 				user = userresguardo
 				user.username = self.usernameresguardo
 				user.email = self.emailresguardo
 				self.editarUser(Ventana_Principal, user, userresguardo)
 		else:
-			QMessageBox.about(Ventana_Principal, "Error", "Datos Incompletos")
+			QMessageBox.critical(Ventana_Principal, "Error", "Datos Incompletos")
 			user = userresguardo
 			self.editarUser(Ventana_Principal, user, userresguardo)
 

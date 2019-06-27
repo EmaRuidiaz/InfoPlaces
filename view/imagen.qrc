@@ -11,11 +11,11 @@
   </qresource>
   <qresource prefix="dfsfsd">
     <file>Logo.PNG</file>
-    <file>5_estrella.PNG</file>
+    <file>user.PNG</file>
     <file>1_estrella.PNG</file>
     <file>2_estrella.PNG</file>
     <file>3_estrella.PNG</file>
-    <file>user.PNG</file>
     <file>4_estrella.PNG</file>
+    <file>5_estrella.PNG</file>
   </qresource>
 </RCC>

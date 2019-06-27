@@ -350,7 +350,7 @@ class RegisterStoreView(object):
 "color: rgb(255, 255, 255);")
         self.textEdit.setObjectName("textEdit")
         self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Create_Store.setGeometry(QtCore.QRect(460, 470, 151, 51))
+        self.pushButton_Create_Store.setGeometry(QtCore.QRect(380, 470, 151, 51))
         self.pushButton_Create_Store.setStyleSheet("background-color: rgb(20, 100, 246);\n"
 "border:1px solid rgb(255, 255, 255);\n"
 "border-radius: 6px;\n"
@@ -359,6 +359,19 @@ class RegisterStoreView(object):
 "\n"
 "")
         self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
+
+        self.pushButton_Cancel = QtWidgets.QPushButton(self.frame)
+        self.pushButton_Cancel.setGeometry(QtCore.QRect(550, 470, 151, 51))
+        self.pushButton_Cancel.setStyleSheet("background-color: rgb(164, 164, 164);\n"
+"border:1px solid rgb(255, 255, 255);\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"\n"
+"")
+        self.pushButton_Cancel.setObjectName("pushButton_Create_Store")
+
+
         self.Name_app_4.raise_()
         self.Name_app_2.raise_()
         self.Name_app.raise_()
@@ -371,6 +384,7 @@ class RegisterStoreView(object):
         self.label_31.raise_()
         self.textEdit.raise_()
         self.pushButton_Create_Store.raise_()
+        self.pushButton_Cancel.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -439,6 +453,7 @@ class RegisterStoreView(object):
         self.label_31.setText(_translate("MainWindow", "Attention day:"))
         self.textEdit.setPlaceholderText(_translate("MainWindow", "Store description"))
         self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
+        self.pushButton_Cancel.setText(_translate("MainWindow","Cancel"))
 
 import imagen_rc
 

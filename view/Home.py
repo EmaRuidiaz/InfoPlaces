@@ -142,15 +142,15 @@ class HomeView(object):
         self.label_6.setPixmap(QtGui.QPixmap(":/dfsfsd/1_estrella.PNG"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
-        self.pushButton_back = QtWidgets.QPushButton(self.frame)
-        self.pushButton_back.setGeometry(QtCore.QRect(0, 0, 61, 23))
-        self.pushButton_back.setAutoFillBackground(False)
-        self.pushButton_back.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);\n"
-"")
-        self.pushButton_back.setObjectName("pushButton_back")
+        '''self.pushButton_back = QtWidgets.QPushButton(self.frame)
+                                self.pushButton_back.setGeometry(QtCore.QRect(0, 0, 61, 23))
+                                self.pushButton_back.setAutoFillBackground(False)
+                                self.pushButton_back.setStyleSheet("background: rgb(225,225,225,60);\n"
+                        "border: 1px solid rgb(225,225,225,60);\n"
+                        "border-radius: 6px;\n"
+                        "color: rgb(225,225,225);\n"
+                        "")
+                                self.pushButton_back.setObjectName("pushButton_back")'''
         self.Search = QtWidgets.QLineEdit(self.frame)
         self.Search.setGeometry(QtCore.QRect(210, 60, 481, 31))
         self.Search.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -314,7 +314,7 @@ class HomeView(object):
         self.frame_2.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
-        self.pushButton_back.raise_()
+        #self.pushButton_back.raise_()
         self.Search.raise_()
         self.Photo.raise_()
         self.label_7.raise_()
@@ -345,7 +345,7 @@ class HomeView(object):
         self.radioButton_Other.setText(_translate("MainWindow", "Other"))
         self.radioButton_All.setText(_translate("MainWindow", "All"))
         self.groupBox_2.setTitle(_translate("MainWindow", "Valoración"))
-        self.pushButton_back.setText(_translate("MainWindow", "Back"))
+        #self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
         self.perfil.setText(_translate("MainWindow","Edit Profile"))

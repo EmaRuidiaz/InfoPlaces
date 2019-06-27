@@ -154,7 +154,8 @@ class HomeView(object):
         self.Search = QtWidgets.QLineEdit(self.frame)
         self.Search.setGeometry(QtCore.QRect(170, 50, 521, 41))
         font = QtGui.QFont()
-        font.setPointSize(font)
+        font.setPointSize(16)
+        self.Search.setFont(font)
         self.Search.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 10px")
         self.Search.setCursorPosition(0)

@@ -157,7 +157,7 @@ class IniciarSesionView(object):
         self.passwd = self.campo_password.text()
         if self.radioButton_User.isChecked():
             self.type = 1
-        else:
+        elif self.radioButton_Owner.isChecked():
             self.type = 2
 
     def retranslateUi(self, MainWindow):

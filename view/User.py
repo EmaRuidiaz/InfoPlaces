@@ -112,15 +112,15 @@ class UserProfileView(object):
         self.pushButton_editUser.setObjectName("pushButton_back")
 
 
-        self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
-        self.pushButton_Home.setAutoFillBackground(False)
-        self.pushButton_Home.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);\n"
-"")
-        self.pushButton_Home.setObjectName("pushButton_Home")
+        '''self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
+                                self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
+                                self.pushButton_Home.setAutoFillBackground(False)
+                                self.pushButton_Home.setStyleSheet("background: rgb(225,225,225,60);\n"
+                        "border: 1px solid rgb(225,225,225,60);\n"
+                        "border-radius: 6px;\n"
+                        "color: rgb(225,225,225);\n"
+                        "")
+                                self.pushButton_Home.setObjectName("pushButton_Home")'''
         self.Username = QtWidgets.QLabel(self.centralwidget)
         self.Username.setGeometry(QtCore.QRect(90, 390, 141, 31))
         font = QtGui.QFont()
@@ -180,7 +180,7 @@ class UserProfileView(object):
         self.lineEdit_Email.raise_()
         self.pushButton_back.raise_()
         self.pushButton_editUser.raise_()
-        self.pushButton_Home.raise_()
+        #self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
         self.pushButton_Resgister_Store.raise_()
@@ -203,7 +203,7 @@ class UserProfileView(object):
         self.lineEdit_Email.setText(_translate("MainWindow", " " + user.password))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_editUser.setText(_translate("MainWindow", "Edit"))
-        self.pushButton_Home.setText(_translate("MainWindow", "Home"))
+        #self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         self.Username.setText(_translate("MainWindow", " " + user.username))
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
         self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))

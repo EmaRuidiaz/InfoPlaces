@@ -111,15 +111,15 @@ class UserEditView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_back.setObjectName("pushButton_back")
-        self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
-        self.pushButton_Home.setAutoFillBackground(False)
-        self.pushButton_Home.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);\n"
-"")
-        self.pushButton_Home.setObjectName("pushButton_Home")
+        '''self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
+                                self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
+                                self.pushButton_Home.setAutoFillBackground(False)
+                                self.pushButton_Home.setStyleSheet("background: rgb(225,225,225,60);\n"
+                        "border: 1px solid rgb(225,225,225,60);\n"
+                        "border-radius: 6px;\n"
+                        "color: rgb(225,225,225);\n"
+                        "")
+                                self.pushButton_Home.setObjectName("pushButton_Home")'''
         self.Username = QtWidgets.QLineEdit(self.centralwidget)
         self.Username.setGeometry(QtCore.QRect(90, 390, 141, 31))
         font = QtGui.QFont()
@@ -178,7 +178,7 @@ class UserEditView(object):
                         "color: rgb(225,225,225);\n"
                         "")
         self.Cargar_imagen.setObjectName("Cargar_imagen")
-        self.Cargar_imagen.clicked.connect(lambda: self.getImage(MainWindow))
+        self.Cargar_imagen.clicked.connect(lambda: self.getImage(MainWindow, user))
                         
         self.Cargar_imagen.raise_()
         self.frame.raise_()
@@ -192,7 +192,7 @@ class UserEditView(object):
         self.lineEdit_Phone_Number.raise_()
         self.lineEdit_Email.raise_()
         self.pushButton_back.raise_()
-        self.pushButton_Home.raise_()
+        #self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
         self.pushButton_GuardarCambios.raise_()
@@ -203,7 +203,7 @@ class UserEditView(object):
         self.retranslateUi(MainWindow, user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def openFileNameDialog(self, MainWindow):
+    def openFileNameDialog(self, MainWindow, user):
         #options = QFileDialog.Options()
         #options |= QFileDialog.DontUseNativeDialog
         self.fileName, _= QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
@@ -211,7 +211,11 @@ class UserEditView(object):
             pixmap = QtGui.QPixmap(self.fileName)
             self.Potho.setPixmap(QtGui.QPixmap(self.fileName))
             return pixmap
-        
+        else:
+            self.fileName = user.image
+            pixmap = QtGui.QPixmap(self.fileName)
+            self.Potho.setPixmap(QtGui.QPixmap(self.fileName))
+            return pixmap
 
     def actualizar(self):
        self.firstname = self.lineEdit_First_Name.text()
@@ -221,8 +225,8 @@ class UserEditView(object):
        self.phone = self.lineEdit_Phone_Number.text()
        #self.fileName = 
 
-    def getImage(self, MainWindow):
-        self.photo = self.openFileNameDialog(MainWindow)
+    def getImage(self, MainWindow, user):
+        self.photo = self.openFileNameDialog(MainWindow, user)
     #    import sys
     #    Appp = QApplication(sys.argv)
     #    PhotoWindow = QtWidgets.QMainWindow()
@@ -242,7 +246,7 @@ class UserEditView(object):
        self.Email.setText(_translate("MainWindow", "Password:"))
        self.lineEdit_Email.setText(_translate("MainWindow", user.password))
        self.pushButton_back.setText(_translate("MainWindow", "Back"))
-       self.pushButton_Home.setText(_translate("MainWindow", "Home"))
+       #self.pushButton_Home.setText(_translate("MainWindow", "Home"))
        self.Username.setText(_translate("MainWindow", user.username))
        self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Save Changes"))

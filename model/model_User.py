@@ -5,7 +5,8 @@ from db_connection import DBconn
 
 class User:
 	def __init__(self):
-		pass
+		self.image = "../../InfoPlaces/view/user.PNG"
+		self.type = 3
 
 
 	def search(self):

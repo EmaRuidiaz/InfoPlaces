@@ -27,16 +27,15 @@ class ControllerUsuario:
 class Controller():
 
 	def __init__(self):
-		pass
-		
-	def Iniciar(self):
 		import sys
 		import imagen_rc
 		app = QtWidgets.QApplication(sys.argv)
 		Ventana_Principal = QtWidgets.QMainWindow()
 		self.menuPrincipal(Ventana_Principal)
-
 		sys.exit(app.exec_())
+		
+	def Iniciar(self, Ventana_Principal):
+		self.menuPrincipal(Ventana_Principal)
 
 ### falta la ventana de register, una vez hecha. el registro se podra hacer llamando a este metodo ###
 	def crearCuenta(self, Ventana_Principal):
@@ -49,8 +48,8 @@ class Controller():
 	def menuPrincipal(self, Ventana_Principal):
 		ventana1=IniciarSesionView(Ventana_Principal)
 		ventana1.pushButton_Sign_In.clicked.connect(lambda: ventana1.actualizar())
-		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "registrado"))
-		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal, "invitado"))
+		ventana1.pushButton_Sign_In.clicked.connect(lambda: self.sign(ventana1.passwd, ventana1.user, ventana1.type,Ventana_Principal))
+		ventana1.pushButton_Anonymous_access.clicked.connect(lambda: self.sign("User", "User", 3, Ventana_Principal))
 		ventana1.pushButton_Create_Account.clicked.connect(lambda: self.crearCuenta(Ventana_Principal))
 
 	def cargarUsuario(self, ventana1, Ventana_Principal):
@@ -86,71 +85,73 @@ class Controller():
 		else:
 			QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
 
-	def Home(self, Ventana_Principal,user, tipo):
-		#if estado == "nuevo":
-		ventana1 = HomeView(Ventana_Principal, tipo, user)
+	def Home(self, Ventana_Principal,user):
+		ventana1 = HomeView(Ventana_Principal, user)
 		try:
+			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass
-		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
-		ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
+		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
 
-	def sign(self, passwd="", user="", typeu="", Ventana_Principal="", usuario=""):
-		if usuario == "registrado":
-			if typeu == 1:
-				self.reguser = RegisteredUser()
-				self.reguser.username = user
-				self.reguser.email = user
-				self.reguser.password = passwd
-				self.reguser.type = typeu
-				self.validacion = self.reguser.SignIn()
+	def logOut(self, Ventana_Principal, user):
+		del user
+		self.menuPrincipal(Ventana_Principal)
+		#self.Iniciar(Ventana_Principal)
 
-				#self.reguser.username, self.reguser.password)
-				if (self.validacion):
-					import sys
-					import imagen_rc
-					self.reguser.firstname = self.validacion[0][2]
-					self.reguser.lastname = self.validacion[0][3]
-					self.reguser.username = self.validacion[0][0]
-					self.reguser.birthdate = self.validacion[0][6]
-					self.reguser.email = self.validacion[0][4]
-					self.reguser.password = self.validacion[0][5]
-					self.reguser.type = self.validacion[0][1]
-					self.reguser.phone_number = self.validacion[0][7]
-					self.reguser.image = self.validacion[0][8]
-					self.Home(Ventana_Principal,self.reguser,1)
-				else:
-					QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
-			elif typeu == 2:
-				self.owner = ShopOwner()
-				self.owner.username = user
-				self.owner.email = user
-				self.owner.password = passwd
-				self.owner.type = typeu
-				self.validacion = self.owner.SignIn()
-
-				#self.reguser.username, self.reguser.password)
-				if (self.validacion):
-					import sys
-					import imagen_rc
-					self.owner.firstname = self.validacion[0][2]
-					self.owner.lastname = self.validacion[0][3]
-					self.owner.username = self.validacion[0][0]
-					self.owner.birthdate = self.validacion[0][6]
-					self.owner.email = self.validacion[0][4]
-					self.owner.password = self.validacion[0][5]
-					self.owner.type = self.validacion[0][1]
-					self.owner.phone_number = self.validacion[0][7]
-					self.owner.image = self.validacion[0][8]
-					self.Home(Ventana_Principal,self.owner,2)
-				else:
-					QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
-		elif usuario == "invitado":
-			self.user = User()
-			self.user.image = "../../InfoPlaces/view/user.PNG"
-			ventana1 = HomeView(Ventana_Principal,1, self.user)
-			ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
+	def sign(self, passwd=None, user=None, typeu=None, Ventana_Principal=None):
+		if typeu == 1:
+			print("Tipo: ", typeu)
+			reguser = RegisteredUser()
+			reguser.username = user
+			reguser.email = user
+			reguser.password = passwd
+			reguser.type = typeu
+			self.validacion = reguser.SignIn()
+			#self.reguser.username, self.reguser.password)
+			if (self.validacion):
+				import sys
+				import imagen_rc
+				reguser.firstname = self.validacion[0][2]
+				reguser.lastname = self.validacion[0][3]
+				reguser.username = self.validacion[0][0]
+				reguser.birthdate = self.validacion[0][6]
+				reguser.email = self.validacion[0][4]
+				reguser.password = self.validacion[0][5]
+				reguser.type = self.validacion[0][1]
+				reguser.phone_number = self.validacion[0][7]
+				reguser.image = self.validacion[0][8]
+				self.Home(Ventana_Principal,reguser)
+			else:
+				msj = QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+		elif typeu == 2:
+			print("Tipo: ", typeu)
+			owner = ShopOwner()
+			owner.username = user
+			owner.email = user
+			owner.password = passwd
+			owner.type = typeu
+			self.validacion = owner.SignIn()
+			#self.reguser.username, self.reguser.password)
+			if (self.validacion):
+				import sys
+				import imagen_rc
+				owner.firstname = self.validacion[0][2]
+				owner.lastname = self.validacion[0][3]
+				owner.username = self.validacion[0][0]
+				owner.birthdate = self.validacion[0][6]
+				owner.email = self.validacion[0][4]
+				owner.password = self.validacion[0][5]
+				owner.type = self.validacion[0][1]
+				owner.phone_number = self.validacion[0][7]
+				owner.image = self.validacion[0][8]
+				self.Home(Ventana_Principal,owner)
+			else:
+				QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+		elif typeu == 3:
+			user = User()
+			self.Home(Ventana_Principal, user)
+			#ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
 
 	
 
@@ -160,7 +161,7 @@ class Controller():
 		ventana1 = RegisterStoreView(Ventana_Principal, user)
 		ventana1.pushButton_Create_Store.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
-		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
+		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 
 	def AddStore(self, shop, user, ventana1, schedule):
 		shop.name = ventana1.name
@@ -208,10 +209,10 @@ class Controller():
 			user = userresguardo
 			self.editarUser(Ventana_Principal, user, userresguardo)
 
-	def user(self, Ventana_Principal, user=""):
+	def user(self, Ventana_Principal, user):
 		import imagen_rc
 		ventana1 = UserProfileView(Ventana_Principal, user)
-		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
+		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		ventana1.pushButton_editUser.clicked.connect(lambda: self.editarUser(Ventana_Principal, user, user))
 
 def clear():

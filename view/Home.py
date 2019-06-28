@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class HomeView(object):
-    def __init__(self, MainWindow,  tipousuario, user):
+    def __init__(self, MainWindow, user):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -93,6 +93,7 @@ class HomeView(object):
         self.checkBox_5estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_5estrella.setGeometry(QtCore.QRect(11, 24, 19, 16))
         self.checkBox_5estrella.setText("")
+        self.checkBox_5estrella.toggle()
         self.checkBox_5estrella.setObjectName("checkBox_5estrella")
         self.checkBox_4estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_4estrella.setGeometry(QtCore.QRect(11, 46, 16, 16))
@@ -154,23 +155,14 @@ class HomeView(object):
         self.Search = QtWidgets.QLineEdit(self.frame)
         self.Search.setGeometry(QtCore.QRect(170, 50, 521, 41))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(14)
         self.Search.setFont(font)
         self.Search.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 10px")
         self.Search.setCursorPosition(0)
         self.Search.setObjectName("Search")
 
-        self.perfil = QtWidgets.QPushButton(self.frame)
-        self.perfil.setGeometry(QtCore.QRect(420, 0, 91, 21))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.perfil.setFont(font)
-        self.perfil.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);")
-        self.perfil.setObjectName("perfil")
+        
         #self.perfil.setText("")
         '''
         self.pushButton = QtWidgets.QPushButton(self.frame)
@@ -290,30 +282,43 @@ class HomeView(object):
         self.comboBox = QtWidgets.QComboBox(self.frame)
         self.comboBox.setGeometry(QtCore.QRect(570, 120, 211, 22))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 6px")
+                                    "border-radius: 6px")
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        if tipousuario == 2:
-            self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
-            self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
+        if user.type != 3:
+            self.perfil = QtWidgets.QPushButton(self.frame)
+            self.perfil.setGeometry(QtCore.QRect(420, 0, 91, 21))
             font = QtGui.QFont()
             font.setPointSize(11)
-            font.setBold(False)
-            font.setItalic(False)
-            font.setUnderline(False)
-            font.setWeight(50)
-            font.setStrikeOut(False)
-            font.setKerning(True)
-            self.pushButton_Create_Store.setFont(font)
-            self.pushButton_Create_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
-    "border: 1px solid rgb(225,225,225,60);\n"
-    "border-radius: 6px;\n"
-    "color: rgb(225,225,225);")
-            self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
+            self.perfil.setFont(font)
+            self.perfil.setStyleSheet("background: rgb(225,225,225,60);\n"
+                                        "border: 1px solid rgb(225,225,225,60);\n"
+                                        "border-radius: 6px;\n"
+                                        "color: rgb(225,225,225);")
+            self.perfil.setObjectName("perfil")
+            self.perfil.raise_()
+            if user.type == 2:
+                self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
+                self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
+                font = QtGui.QFont()
+                font.setPointSize(11)
+                font.setBold(False)
+                font.setItalic(False)
+                font.setUnderline(False)
+                font.setWeight(50)
+                font.setStrikeOut(False)
+                font.setKerning(True)
+                self.pushButton_Create_Store.setFont(font)
+                self.pushButton_Create_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
+                                                        "border: 1px solid rgb(225,225,225,60);\n"
+                                                        "border-radius: 6px;\n"
+                                                        "color: rgb(225,225,225);")
+                self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
+                self.pushButton_Create_Store.raise_()
         self.frame_2.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
@@ -326,15 +331,14 @@ class HomeView(object):
         self.comboBox.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        try:
-            self.pushButton_Create_Store.raise_()
-        except:
-            pass
+        
+
+
         MainWindow.show()
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow,user):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.groupBox.setTitle(_translate("MainWindow", "Type"))
@@ -348,37 +352,35 @@ class HomeView(object):
         self.radioButton_Other.setText(_translate("MainWindow", "Other"))
         self.radioButton_All.setText(_translate("MainWindow", "All"))
         self.groupBox_2.setTitle(_translate("MainWindow", "Valoración"))
-        #self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
-        self.perfil.setText(_translate("MainWindow","Edit Profile"))
         self.titulo_tienda1.setText(_translate("MainWindow", "Store_1"))
         self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_1</p></body></html>"))
+                                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                            "p, li { white-space: pre-wrap; }\n"
+                                                            "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_1</p></body></html>"))
         self.titulo_tienda3.setText(_translate("MainWindow", "Store_3"))
         self.textBrowser_Descripcion3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_3</p></body></html>"))
+                                                        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                        "p, li { white-space: pre-wrap; }\n"
+                                                        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_3</p></body></html>"))
         self.titulo_tienda2.setText(_translate("MainWindow", "Store_2"))
         self.textBrowser_Descripcion2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_2</p></body></html>"))
+                                                    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                    "p, li { white-space: pre-wrap; }\n"
+                                                    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_2</p></body></html>"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Sort by"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Descendent Rate"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
-        try:
-            self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
-        except:
-            pass
+        if user.type != 3:
+            self.perfil.setText(_translate("MainWindow","Edit Profile"))
+            if user.type == 2:
+                self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
 
 
 '''

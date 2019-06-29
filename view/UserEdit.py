@@ -149,7 +149,7 @@ class UserEditView(object):
         self.pushButton_GuardarCambios.setFont(font)
         self.pushButton_GuardarCambios.setAutoFillBackground(False)
         self.pushButton_GuardarCambios.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
+"border: 1px solid rgb(255, 0, 0);\n"
 "border-radius: 6px;\n"
 "color: rgb(225,225,225);\n"
 "")

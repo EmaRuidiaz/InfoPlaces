@@ -173,13 +173,14 @@ class Controller():
 
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):
+		print("Estoy en editar user")
 		import imagen_rc
 		self.userresguardo = user
 		ventana1 = UserEditView(Ventana_Principal, user)
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.UpdateUserEdit(user,self.userresguardo,ventana1, Ventana_Principal))
 		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
-		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.user(Ventana_Principal, user))
+		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.user(Ventana_Principal, user))
 		
 
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
@@ -192,12 +193,13 @@ class Controller():
 		user.password = ventana1.password
 		user.phone_number = ventana1.phone
 		user.image = ventana1.fileName
-		if user.firstname and user.lastname and user.password:
+		if user.firstname and user.lastname and user.password and (len(user.password) > 7):
 			self.var = user.CheckReg()
 			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
 				user.UpdateInfo(self.usernameresguardo)
 				user.UpdatePhoto(self.usernameresguardo)
 				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
+				self.user(Ventana_Principal, user)
 			else:
 				QMessageBox.warning(Ventana_Principal, "Error", "El username, el email ya está en uso")
 				user = userresguardo

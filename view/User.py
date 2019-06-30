@@ -208,14 +208,4 @@ class UserProfileView(object):
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
         self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
 
-'''import imagen_rc
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    
-    sys.exit(app.exec_())'''
 

@@ -7,9 +7,11 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication,QPushButton, QVBoxLayout, QFileDialog , QLabel, QTextEdit
+from PyQt5.QtGui import QPixmap
 
 class RegisterStoreView(object):
-    def __init__(self, MainWindow, shop, schedule):
+    def __init__(self, MainWindow, user, shop, schedule):
         self.name = ""
         self.address = ""
         self.number = ""
@@ -17,11 +19,7 @@ class RegisterStoreView(object):
         self.streetname = ""
         self.streetnumber = ""
         self.schedule = []
-        self.image1 = "user.PNG"
-        self.image2 = "user.PNG"
-        self.image3 = "user.PNG"
-        self.image4 = "user.PNG"
-        self.image5 = "user.PNG"
+        self.images = [[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"]]
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -440,32 +438,37 @@ class RegisterStoreView(object):
         self.label_35.setGeometry(QtCore.QRect(380, 370, 61, 51))
         self.label_35.setStyleSheet("background-color: transparent;")
         self.label_35.setText("")
+        self.label_35.setScaledContents(True)
         self.label_35.setObjectName("label_35")
-        self.label_35.setPixmap(QtGui.QPixmap("../view/5_estrella.PNG")) #LA IMAGEN NO SE PUEDE ACHICAR TANTO
+        self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2])) #LA IMAGEN NO SE PUEDE ACHICAR TANTO
         self.label_36 = QtWidgets.QLabel(self.frame)
         self.label_36.setGeometry(QtCore.QRect(450, 370, 61, 51))
         self.label_36.setStyleSheet("background-color: transparent;")
         self.label_36.setText("")
+        self.label_36.setScaledContents(True)
         self.label_36.setObjectName("label_36")
-        self.label_36.setPixmap(QtGui.QPixmap(self.image2))
+        self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
         self.label_37 = QtWidgets.QLabel(self.frame)
         self.label_37.setGeometry(QtCore.QRect(520, 370, 61, 51))
         self.label_37.setStyleSheet("background-color: transparent;")
         self.label_37.setText("")
         self.label_37.setObjectName("label_37")
-        self.label_37.setPixmap(QtGui.QPixmap(self.image3))
+        self.label_37.setScaledContents(True)
+        self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
         self.label_38 = QtWidgets.QLabel(self.frame)
         self.label_38.setGeometry(QtCore.QRect(590, 370, 61, 51))
         self.label_38.setStyleSheet("background-color: transparent;")
+        self.label_38.setScaledContents(True)
         self.label_38.setText("")
         self.label_38.setObjectName("label_38")
-        self.label_38.setPixmap(QtGui.QPixmap(self.image4))
+        self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
         self.label_39 = QtWidgets.QLabel(self.frame)
         self.label_39.setGeometry(QtCore.QRect(660, 370, 61, 51))
         self.label_39.setStyleSheet("background-color: transparent;")
         self.label_39.setText("")
+        self.label_39.setScaledContents(True)
         self.label_39.setObjectName("label_39")
-        self.label_39.setPixmap(QtGui.QPixmap(self.image5))
+        self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
         self.pushButton = QtWidgets.QPushButton(self.frame)
         self.pushButton.setGeometry(QtCore.QRect(380, 430, 61, 21))
         self.pushButton.setStyleSheet("background-color:rgb(179, 179, 179);")
@@ -512,21 +515,82 @@ class RegisterStoreView(object):
         self.pushButton_5.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
+        self.pushButton.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 1))
+        self.pushButton_2.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 2))
+        self.pushButton_3.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 3))
+        self.pushButton_4.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 4))
+        self.pushButton_5.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 5))
+        self.pushButton_Create_Store.clicked.connect(lambda: self.actualizar(shop))
+
         self.retranslateUi(MainWindow)
         self.toolBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def actualizar(self):
+    def openFileNameDialog(self, MainWindow, shop, i):
+        self.fileName, _ = QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
+        print(self.fileName)
+        if self.fileName:
+            if i == 1:
+                self.images[0][2] = self.fileName
+                self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2]))
+            if i == 2:
+                self.images[1][2] = self.fileName
+                self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
+            if i == 3:
+                self.images[2][2] = self.fileName
+                self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
+            if i == 4:
+                self.images[3][2] = self.fileName
+                self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
+            if i == 5:
+                self.images[4][2] = self.fileName
+                self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
+        else:
+            if i == 1:
+                self.images[0][2] = "../view/image.png"
+                self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2]))
+            if i == 2:
+                self.images[1][2] = "../view/image.png"
+                self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
+            if i == 3:
+                self.images[2][2] = "../view/image.png"
+                self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
+            if i == 4:
+                self.images[3][2] = "../view/image.png"
+                self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
+            if i == 5:
+                self.images[4][2] = "../view/image.png"
+                self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
+
+    def actualizar(self, shop):
         shop.name = self.lineEdit.text()
-        shop.address = self.lineEdit2.text()
-        shop.number = self.lineEdit3.text()
-        shop.description = self.textEdit.text()
+        shop.address = self.lineEdit_2.text()
+        shop.number = self.lineEdit_3.text()
+        shop.description = self.textEdit.toPlainText()
         if self.checkBox_Monday.isChecked():
-            self.schedule.append(["Monday","Morning",self.timeEdit_Open_Monday1,self.timeEdit_Close_Monday1])
-            self.schedule.append(["Monday","Afternoon",self.timeEdit_Open_Monday2,self.timeEdit_Close_Monday2])
+            self.schedule.append(["Monday","Morning",self.timeEdit_Open_Monday1.time().hour() + ":" + self.timeEdit_Open_Monday1.time().minute(),self.timeEdit_Close_Monday1.time().hour() + ":" + self.timeEdit_Close_Monday1.time().minute()])
+            self.schedule.append(["Monday","Afternoon",self.timeEdit_Open_Monday2.time().hour() + ":" + self.timeEdit_Open_Monday2.time().minute(),self.timeEdit_Close_Monday2.time().hour() + ":" + self.timeEdit_Close_Monday2.time().minute()])
         if self.checkBox_Monday_2.isChecked():
-            self.schedule.append(["Tuesday","Morning",self.timeEdit_Open_Tuesday1,self.timeEdit_Close_Tuesday1])
-            self.schedule.append(["Tuesday","Afternoon",self.timeEdit_Open_Tuesday2,self.timeEdit_Close_Tuesday2])
+            self.schedule.append(["Tuesday","Morning",self.timeEdit_Open_Tuesday1.time().hour() + ":" + self.timeEdit_Open_Tuesday1.time().minute(),self.timeEdit_Close_Tuesday1.time().hour() + ":" + self.timeEdit_Close_Tuesday1.time().minute()])
+            self.schedule.append(["Tuesday","Afternoon",self.timeEdit_Open_Tuesday2.time().hour() + ":" + self.timeEdit_Open_Tuesday2.time().minute(),self.timeEdit_Close_Tuesday2.time().hour() + ":" + self.timeEdit_Close_Tuesday2.time().minute()])
+        if self.checkBox_Monday_3.isChecked():
+            self.schedule.append(["Wednesday","Morning",self.timeEdit_Open_Wednesday1.time().hour() + ":" + self.timeEdit_Open_Wednesday1.time().minute(),self.timeEdit_Close_Wednesday1.time().hour() + ":" + self.timeEdit_Close_Wednesday1.time().minute()])
+            self.schedule.append(["Wednesday","Afternoon",self.timeEdit_Open_Wednesday2.time().hour() + ":" + self.timeEdit_Open_Wednesday2.time().minute(),self.timeEdit_Close_Wednesday2.time().hour() + ":" + self.timeEdit_Close_Wednesday2.time().minute()])
+        if self.checkBox_Monday_4.isChecked():
+            self.schedule.append(["Thursday","Morning",self.timeEdit_Open_Thursday1.time().hour() + ":" + self.timeEdit_Open_Thursday1.time().minute(),self.timeEdit_Close_Thursday1.time().hour() + ":" + self.timeEdit_Close_Thursday1.time().minute()])
+            self.schedule.append(["Thursday","Afternoon",self.timeEdit_Open_Thursday2.time().hour() + ":" + self.timeEdit_Open_Thursday2.time().minute(),self.timeEdit_Close_Thursday2.time().hour() + ":" + self.timeEdit_Close_Thursday2.time().minute()])
+        if self.checkBox_Monday_5.isChecked():
+            self.schedule.append(["Friday","Morning",self.timeEdit_Open_Frisday1.time().hour() + ":" + self.timeEdit_Open_Frisday1.time().minute(),self.timeEdit_Close_Frisday1.time().hour() + ":" + self.timeEdit_Close_Frisday1.time().minute()])
+            self.schedule.append(["Friday","Afternoon",self.timeEdit_Open_Frisday2.time().hour() + ":" + self.timeEdit_Open_Frisday2.time().minute(),self.timeEdit_Close_Frisday1.time().hour() + ":" + self.timeEdit_Close_Frisday1.time().minute()])
+        if self.checkBox_Monday_6.isChecked():
+            self.schedule.append(["Saturday","Morning",self.timeEdit_Open_Saturday1.time().hour() + ":" + self.timeEdit_Open_Saturday1.time().minute(),self.timeEdit_Close_Saturday1.time().hour() + ":" + self.timeEdit_Close_Saturday1.time().minute()])
+            self.schedule.append(["Saturday","Afternoon",self.timeEdit_Open_Saturday1Open_Saturday2.time().hour() + ":" + self.timeEdit_Open_Saturday1Open_Saturday2.time().minute(),self.timeEdit_Close_Saturday2.time().hour() + ":" + self.timeEdit_Close_Saturday2.time().minute()])
+        if self.checkBox_Monday_7.isChecked():
+            self.schedule.append(["Sunday","Morning",self.timeEdit_Open_Sunday1.time().hour() + ":" + self.timeEdit_Open_Sunday1.time().minute(),self.timeEdit_Close_Sunday1.time().hour() + ":" + self.timeEdit_Close_Sunday1.time().minute()])
+            self.schedule.append(["Sunday","Afternoon",self.timeEdit_Open_Sunday2.time().hour() + ":" + self.timeEdit_Open_Sunday2.time().minute(),self.timeEdit_Close_Sunday2.time().hour() + ":" + self.timeEdit_Close_Sunday2.time().minute()])
+        print("Schedule:", self.schedule)
+        print(shop.name," ",shop.address," ",shop.number," ",shop.description)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

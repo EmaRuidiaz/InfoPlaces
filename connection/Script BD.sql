@@ -1,5 +1,5 @@
-#create database infoplaces;
-#use infoplaces;
+create database infoplaces;
+use infoplaces;
 
 create table person(
 user_name	varchar(20) primary key,
@@ -18,6 +18,15 @@ street_name varchar(20),
 street_num	varchar(20),
 person	varchar(20),
 foreign key(person) references person(user_name));
+
+create table schedule(
+id int auto_increment primary key,
+shop int(11),
+day	varchar(10),
+turn	varchar(10),
+opening	time,
+closing	time,
+foreign key(shop) references shop(id));
 
 create table comment(
 id	int primary key,

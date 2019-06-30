@@ -8,6 +8,8 @@ class Shop:
 		self.address = ""
 		self.number = ""
 		self.description = ""
+		self.photos = []
+		self.schedule = []
 
 	def registrar(self, user):
 		self.query = "INSERT INTO shop(name, street_name, street_num, person) VALUES (%s, %s, %s, %s)"

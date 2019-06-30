@@ -17,6 +17,11 @@ class RegisterStoreView(object):
         self.streetname = ""
         self.streetnumber = ""
         self.schedule = []
+        self.image1 = "user.PNG"
+        self.image2 = "user.PNG"
+        self.image3 = "user.PNG"
+        self.image4 = "user.PNG"
+        self.image5 = "user.PNG"
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -436,26 +441,31 @@ class RegisterStoreView(object):
         self.label_35.setStyleSheet("background-color: transparent;")
         self.label_35.setText("")
         self.label_35.setObjectName("label_35")
+        self.label_35.setPixmap(QtGui.QPixmap("../view/5_estrella.PNG")) #LA IMAGEN NO SE PUEDE ACHICAR TANTO
         self.label_36 = QtWidgets.QLabel(self.frame)
         self.label_36.setGeometry(QtCore.QRect(450, 370, 61, 51))
         self.label_36.setStyleSheet("background-color: transparent;")
         self.label_36.setText("")
         self.label_36.setObjectName("label_36")
+        self.label_36.setPixmap(QtGui.QPixmap(self.image2))
         self.label_37 = QtWidgets.QLabel(self.frame)
         self.label_37.setGeometry(QtCore.QRect(520, 370, 61, 51))
         self.label_37.setStyleSheet("background-color: transparent;")
         self.label_37.setText("")
         self.label_37.setObjectName("label_37")
+        self.label_37.setPixmap(QtGui.QPixmap(self.image3))
         self.label_38 = QtWidgets.QLabel(self.frame)
         self.label_38.setGeometry(QtCore.QRect(590, 370, 61, 51))
         self.label_38.setStyleSheet("background-color: transparent;")
         self.label_38.setText("")
         self.label_38.setObjectName("label_38")
+        self.label_38.setPixmap(QtGui.QPixmap(self.image4))
         self.label_39 = QtWidgets.QLabel(self.frame)
         self.label_39.setGeometry(QtCore.QRect(660, 370, 61, 51))
         self.label_39.setStyleSheet("background-color: transparent;")
         self.label_39.setText("")
         self.label_39.setObjectName("label_39")
+        self.label_39.setPixmap(QtGui.QPixmap(self.image5))
         self.pushButton = QtWidgets.QPushButton(self.frame)
         self.pushButton.setGeometry(QtCore.QRect(380, 430, 61, 21))
         self.pushButton.setStyleSheet("background-color:rgb(179, 179, 179);")
@@ -507,11 +517,16 @@ class RegisterStoreView(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def actualizar(self):
-        self.name = self.lineEdit.text()
-        self.address = self.lineEdit2.text()
-        self.number = self.lineEdit3.text()
-        self.description = self.textEdit.text()
-        self.schedule = []
+        shop.name = self.lineEdit.text()
+        shop.address = self.lineEdit2.text()
+        shop.number = self.lineEdit3.text()
+        shop.description = self.textEdit.text()
+        if self.checkBox_Monday.isChecked():
+            self.schedule.append(["Monday","Morning",self.timeEdit_Open_Monday1,self.timeEdit_Close_Monday1])
+            self.schedule.append(["Monday","Afternoon",self.timeEdit_Open_Monday2,self.timeEdit_Close_Monday2])
+        if self.checkBox_Monday_2.isChecked():
+            self.schedule.append(["Tuesday","Morning",self.timeEdit_Open_Tuesday1,self.timeEdit_Close_Tuesday1])
+            self.schedule.append(["Tuesday","Afternoon",self.timeEdit_Open_Tuesday2,self.timeEdit_Close_Tuesday2])
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

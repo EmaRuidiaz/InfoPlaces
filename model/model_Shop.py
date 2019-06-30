@@ -10,8 +10,19 @@ class Shop:
 		self.description = ""
 		self.photos = []
 		self.schedule = []
+		self.db = DBconn()
 
-	def registrar(self, user):
+	def register(self, user):
 		self.query = "INSERT INTO shop(name, street_name, street_num, person) VALUES (%s, %s, %s, %s)"
 		self.values = (self.name, self.address, self.number, user.username)
 		return self.db.insertar(self.query,self.values)
+
+	def getID(self):
+		self.query = "SELECT id FROM shop WHERE name = %s"
+		self.values = (self.name,)
+		return self.db.ejecutar(self.query, self.values)
+
+	def registerPhoto(self,idShop):
+		self.query = "INSERT INTO photo(shop, image) VALUES (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)"
+		self.values = (idShop, self.photos[0], idShop, self.photos[1], idShop, self.photos[2], idShop, self.photos[3], idShop, self.photos[4])
+		return self.db.insertar(self.query, self.values)

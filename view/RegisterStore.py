@@ -19,7 +19,8 @@ class RegisterStoreView(object):
         self.streetname = ""
         self.streetnumber = ""
         self.schedule = []
-        self.images = [[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"],[user.username, shop.name,"../view/image.png"]]
+        shop.photos = ["../view/image.png","../view/image.png","../view/image.png","../view/image.png","../view/image.png"]
+        self.flag = False
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -440,35 +441,35 @@ class RegisterStoreView(object):
         self.label_35.setText("")
         self.label_35.setScaledContents(True)
         self.label_35.setObjectName("label_35")
-        self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2])) #LA IMAGEN NO SE PUEDE ACHICAR TANTO
+        self.label_35.setPixmap(QtGui.QPixmap(shop.photos[0])) #LA IMAGEN NO SE PUEDE ACHICAR TANTO
         self.label_36 = QtWidgets.QLabel(self.frame)
         self.label_36.setGeometry(QtCore.QRect(450, 370, 61, 51))
         self.label_36.setStyleSheet("background-color: transparent;")
         self.label_36.setText("")
         self.label_36.setScaledContents(True)
         self.label_36.setObjectName("label_36")
-        self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
+        self.label_36.setPixmap(QtGui.QPixmap(shop.photos[1]))
         self.label_37 = QtWidgets.QLabel(self.frame)
         self.label_37.setGeometry(QtCore.QRect(520, 370, 61, 51))
         self.label_37.setStyleSheet("background-color: transparent;")
         self.label_37.setText("")
         self.label_37.setObjectName("label_37")
         self.label_37.setScaledContents(True)
-        self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
+        self.label_37.setPixmap(QtGui.QPixmap(shop.photos[2]))
         self.label_38 = QtWidgets.QLabel(self.frame)
         self.label_38.setGeometry(QtCore.QRect(590, 370, 61, 51))
         self.label_38.setStyleSheet("background-color: transparent;")
         self.label_38.setScaledContents(True)
         self.label_38.setText("")
         self.label_38.setObjectName("label_38")
-        self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
+        self.label_38.setPixmap(QtGui.QPixmap(shop.photos[3]))
         self.label_39 = QtWidgets.QLabel(self.frame)
         self.label_39.setGeometry(QtCore.QRect(660, 370, 61, 51))
         self.label_39.setStyleSheet("background-color: transparent;")
         self.label_39.setText("")
         self.label_39.setScaledContents(True)
         self.label_39.setObjectName("label_39")
-        self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
+        self.label_39.setPixmap(QtGui.QPixmap(shop.photos[4]))
         self.pushButton = QtWidgets.QPushButton(self.frame)
         self.pushButton.setGeometry(QtCore.QRect(380, 430, 61, 21))
         self.pushButton.setStyleSheet("background-color:rgb(179, 179, 179);")
@@ -530,37 +531,38 @@ class RegisterStoreView(object):
         self.fileName, _ = QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
         print(self.fileName)
         if self.fileName:
+            self.flag = True
             if i == 1:
-                self.images[0][2] = self.fileName
-                self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2]))
+                shop.photos[0] = self.fileName
+                self.label_35.setPixmap(QtGui.QPixmap(shop.photos[0]))
             if i == 2:
-                self.images[1][2] = self.fileName
-                self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
+                shop.photos[1] = self.fileName
+                self.label_36.setPixmap(QtGui.QPixmap(shop.photos[1]))
             if i == 3:
-                self.images[2][2] = self.fileName
-                self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
+                shop.photos[2] = self.fileName
+                self.label_37.setPixmap(QtGui.QPixmap(shop.photos[2]))
             if i == 4:
-                self.images[3][2] = self.fileName
-                self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
+                shop.photos[3] = self.fileName
+                self.label_38.setPixmap(QtGui.QPixmap(shop.photos[3]))
             if i == 5:
-                self.images[4][2] = self.fileName
-                self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
+                shop.photos[4] = self.fileName
+                self.label_39.setPixmap(QtGui.QPixmap(shop.photos[4]))
         else:
             if i == 1:
-                self.images[0][2] = "../view/image.png"
-                self.label_35.setPixmap(QtGui.QPixmap(self.images[0][2]))
+                shop.photos[0] = "../view/image.png"
+                self.label_35.setPixmap(QtGui.QPixmap(shop.photos[0]))
             if i == 2:
-                self.images[1][2] = "../view/image.png"
-                self.label_36.setPixmap(QtGui.QPixmap(self.images[1][2]))
+                shop.photos[1] = "../view/image.png"
+                self.label_36.setPixmap(QtGui.QPixmap(shop.photos[1]))
             if i == 3:
-                self.images[2][2] = "../view/image.png"
-                self.label_37.setPixmap(QtGui.QPixmap(self.images[2][2]))
+                shop.photos[2] = "../view/image.png"
+                self.label_37.setPixmap(QtGui.QPixmap(shop.photos[2]))
             if i == 4:
-                self.images[3][2] = "../view/image.png"
-                self.label_38.setPixmap(QtGui.QPixmap(self.images[3][2]))
+                shop.photos[3] = "../view/image.png"
+                self.label_38.setPixmap(QtGui.QPixmap(shop.photos[3]))
             if i == 5:
-                self.images[4][2] = "../view/image.png"
-                self.label_39.setPixmap(QtGui.QPixmap(self.images[4][2]))
+                shop.photos[4] = "../view/image.png"
+                self.label_39.setPixmap(QtGui.QPixmap(shop.photos[4]))
 
     def actualizar(self, shop):
         shop.name = self.lineEdit.text()
@@ -568,26 +570,26 @@ class RegisterStoreView(object):
         shop.number = self.lineEdit_3.text()
         shop.description = self.textEdit.toPlainText()
         if self.checkBox_Monday.isChecked():
-            self.schedule.append(["Monday","Morning",self.timeEdit_Open_Monday1.time().hour() + ":" + self.timeEdit_Open_Monday1.time().minute(),self.timeEdit_Close_Monday1.time().hour() + ":" + self.timeEdit_Close_Monday1.time().minute()])
-            self.schedule.append(["Monday","Afternoon",self.timeEdit_Open_Monday2.time().hour() + ":" + self.timeEdit_Open_Monday2.time().minute(),self.timeEdit_Close_Monday2.time().hour() + ":" + self.timeEdit_Close_Monday2.time().minute()])
+            self.schedule.append(["Monday","Morning",str(self.timeEdit_Open_Monday1.time().hour()) + ":" + str(self.timeEdit_Open_Monday1.time().minute()),str(self.timeEdit_Close_Monday1.time().hour()) + ":" + str(self.timeEdit_Close_Monday1.time().minute())])
+            self.schedule.append(["Monday","Afternoon",str(self.timeEdit_Open_Monday2.time().hour()) + ":" + str(self.timeEdit_Open_Monday2.time().minute()),str(self.timeEdit_Close_Monday2.time().hour()) + ":" + str(self.timeEdit_Close_Monday2.time().minute())])
         if self.checkBox_Monday_2.isChecked():
-            self.schedule.append(["Tuesday","Morning",self.timeEdit_Open_Tuesday1.time().hour() + ":" + self.timeEdit_Open_Tuesday1.time().minute(),self.timeEdit_Close_Tuesday1.time().hour() + ":" + self.timeEdit_Close_Tuesday1.time().minute()])
-            self.schedule.append(["Tuesday","Afternoon",self.timeEdit_Open_Tuesday2.time().hour() + ":" + self.timeEdit_Open_Tuesday2.time().minute(),self.timeEdit_Close_Tuesday2.time().hour() + ":" + self.timeEdit_Close_Tuesday2.time().minute()])
+            self.schedule.append(["Tuesday","Morning",str(self.timeEdit_Open_Tuesday1.time().hour()) + ":" + str(self.timeEdit_Open_Tuesday1.time().minute()),str(self.timeEdit_Close_Tuesday1.time().hour()) + ":" + str(self.timeEdit_Close_Tuesday1.time().minute())])
+            self.schedule.append(["Tuesday","Afternoon",str(self.timeEdit_Open_Tuesday2.time().hour()) + ":" + str(self.timeEdit_Open_Tuesday2.time().minute()),str(self.timeEdit_Close_Tuesday2.time().hour()) + ":" + str(self.timeEdit_Close_Tuesday2.time().minute())])
         if self.checkBox_Monday_3.isChecked():
-            self.schedule.append(["Wednesday","Morning",self.timeEdit_Open_Wednesday1.time().hour() + ":" + self.timeEdit_Open_Wednesday1.time().minute(),self.timeEdit_Close_Wednesday1.time().hour() + ":" + self.timeEdit_Close_Wednesday1.time().minute()])
-            self.schedule.append(["Wednesday","Afternoon",self.timeEdit_Open_Wednesday2.time().hour() + ":" + self.timeEdit_Open_Wednesday2.time().minute(),self.timeEdit_Close_Wednesday2.time().hour() + ":" + self.timeEdit_Close_Wednesday2.time().minute()])
+            self.schedule.append(["Wednesday","Morning",str(self.timeEdit_Open_Wednesday1.time().hour()) + ":" + str(self.timeEdit_Open_Wednesday1.time().minute()),str(self.timeEdit_Close_Wednesday1.time().hour()) + ":" + str(self.timeEdit_Close_Wednesday1.time().minute())])
+            self.schedule.append(["Wednesday","Afternoon",str(self.timeEdit_Open_Wednesday2.time().hour()) + ":" + str(self.timeEdit_Open_Wednesday2.time().minute()),str(self.timeEdit_Close_Wednesday2.time().hour()) + ":" + str(self.timeEdit_Close_Wednesday2.time().minute())])
         if self.checkBox_Monday_4.isChecked():
-            self.schedule.append(["Thursday","Morning",self.timeEdit_Open_Thursday1.time().hour() + ":" + self.timeEdit_Open_Thursday1.time().minute(),self.timeEdit_Close_Thursday1.time().hour() + ":" + self.timeEdit_Close_Thursday1.time().minute()])
-            self.schedule.append(["Thursday","Afternoon",self.timeEdit_Open_Thursday2.time().hour() + ":" + self.timeEdit_Open_Thursday2.time().minute(),self.timeEdit_Close_Thursday2.time().hour() + ":" + self.timeEdit_Close_Thursday2.time().minute()])
+            self.schedule.append(["Thursday","Morning",str(self.timeEdit_Open_Thursday1.time().hour()) + ":" + str(self.timeEdit_Open_Thursday1.time().minute()),str(self.timeEdit_Close_Thursday1.time().hour()) + ":" + str(self.timeEdit_Close_Thursday1.time().minute())])
+            self.schedule.append(["Thursday","Afternoon",str(self.timeEdit_Open_Thursday2.time().hour()) + ":" + str(self.timeEdit_Open_Thursday2.time().minute()),str(self.timeEdit_Close_Thursday2.time().hour()) + ":" + str(self.timeEdit_Close_Thursday2.time().minute())])
         if self.checkBox_Monday_5.isChecked():
-            self.schedule.append(["Friday","Morning",self.timeEdit_Open_Frisday1.time().hour() + ":" + self.timeEdit_Open_Frisday1.time().minute(),self.timeEdit_Close_Frisday1.time().hour() + ":" + self.timeEdit_Close_Frisday1.time().minute()])
-            self.schedule.append(["Friday","Afternoon",self.timeEdit_Open_Frisday2.time().hour() + ":" + self.timeEdit_Open_Frisday2.time().minute(),self.timeEdit_Close_Frisday1.time().hour() + ":" + self.timeEdit_Close_Frisday1.time().minute()])
+            self.schedule.append(["Friday","Morning",str(self.timeEdit_Open_Frisday1.time().hour()) + ":" + str( self.timeEdit_Open_Frisday1.time().minute()),str(self.timeEdit_Close_Frisday1.time().hour()) + ":" + str(self.timeEdit_Close_Frisday1.time().minute())])
+            self.schedule.append(["Friday","Afternoon",str(self.timeEdit_Open_Frisday2.time().hour()) + ":" + str( self.timeEdit_Open_Frisday2.time().minute()),str(self.timeEdit_Close_Frisday1.time().hour()) + ":" + str(self.timeEdit_Close_Frisday1.time().minute())])
         if self.checkBox_Monday_6.isChecked():
-            self.schedule.append(["Saturday","Morning",self.timeEdit_Open_Saturday1.time().hour() + ":" + self.timeEdit_Open_Saturday1.time().minute(),self.timeEdit_Close_Saturday1.time().hour() + ":" + self.timeEdit_Close_Saturday1.time().minute()])
-            self.schedule.append(["Saturday","Afternoon",self.timeEdit_Open_Saturday1Open_Saturday2.time().hour() + ":" + self.timeEdit_Open_Saturday1Open_Saturday2.time().minute(),self.timeEdit_Close_Saturday2.time().hour() + ":" + self.timeEdit_Close_Saturday2.time().minute()])
+            self.schedule.append(["Saturday","Morning",str(self.timeEdit_Open_Saturday1.time().hour()) + ":" + str(self.timeEdit_Open_Saturday1.time().minute()),str(self.timeEdit_Close_Saturday1.time().hour()) + ":" + str(self.timeEdit_Close_Saturday1.time().minute())])
+            self.schedule.append(["Saturday","Afternoon",str(self.timeEdit_Open_Saturday1Open_Saturday2.time().hour()) + ":" + str(self.timeEdit_Open_Saturday1Open_Saturday2.time().minute()),str(self.timeEdit_Close_Saturday2.time().hour()) + ":" + str(self.timeEdit_Close_Saturday2.time().minute())])
         if self.checkBox_Monday_7.isChecked():
-            self.schedule.append(["Sunday","Morning",self.timeEdit_Open_Sunday1.time().hour() + ":" + self.timeEdit_Open_Sunday1.time().minute(),self.timeEdit_Close_Sunday1.time().hour() + ":" + self.timeEdit_Close_Sunday1.time().minute()])
-            self.schedule.append(["Sunday","Afternoon",self.timeEdit_Open_Sunday2.time().hour() + ":" + self.timeEdit_Open_Sunday2.time().minute(),self.timeEdit_Close_Sunday2.time().hour() + ":" + self.timeEdit_Close_Sunday2.time().minute()])
+            self.schedule.append(["Sunday","Morning",str(self.timeEdit_Open_Sunday1.time().hour()) + ":" + str(self.timeEdit_Open_Sunday1.time().minute()),str(self.timeEdit_Close_Sunday1.time().hour()) + ":" + str(self.timeEdit_Close_Sunday1.time().minute())])
+            self.schedule.append(["Sunday","Afternoon",str(self.timeEdit_Open_Sunday2.time().hour()) + ":" + str(self.timeEdit_Open_Sunday2.time().minute()),str(self.timeEdit_Close_Sunday2.time().hour()) + ":" + str(self.timeEdit_Close_Sunday2.time().minute())])
         print("Schedule:", self.schedule)
         print(shop.name," ",shop.address," ",shop.number," ",shop.description)
 

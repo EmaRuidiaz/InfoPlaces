@@ -160,16 +160,24 @@ class Controller():
 		self.schedule = Schedule()
 		ventana1 = RegisterStoreView(Ventana_Principal, user, self.shop, self.schedule)
 		#ventana1.pushButton_Create_Store.clicked.connect(lambda: ventana1.actualizar())
-		#ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
+		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
 		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 
 	def AddStore(self, shop, user, ventana1, schedule):
-		shop.name = ventana1.name
-		shop.address = ventana1.address
-		shop.number = ventana1.number
-		shop.description = ventana1.description
-
-		#if shop.name and shop.address and shop.number and shop.description:
+		'''shop.name = ventana1.name
+								shop.address = ventana1.address
+								shop.number = ventana1.number
+								shop.description = ventana1.description'''
+		if shop.name and shop.address and shop.number and shop.description and ventana1.flag:
+			shop.register(user)
+			idShop = shop.getID()
+			print("Este es el id de la tienda: ",idShop)
+			shop.registerPhoto(idShop[0][0])
+			print("VENTANA1.SCHEDULE: ",ventana1.schedule)
+			schedule.register(ventana1.schedule, idShop[0][0])
+			print("Registro Exitoso")
+		else:
+			print("Error - No se ha registrado")
 
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):

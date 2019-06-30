@@ -18,8 +18,8 @@ class RegisteredUser(User):
 		self.db = DBconn()
 
 	def UpdateInfo(self, userresguardo):
-		self.query = "UPDATE person SET first_name = %s, last_name = %s, phone_number = %s, user_name = %s, email = %s WHERE user_name = %s"
-		self.values = (self.firstname, self.lastname, self.phone_number, self.username, self.email, userresguardo)
+		self.query = "UPDATE person SET first_name = %s, last_name = %s, phone_number = %s, user_name = %s, password = %s WHERE user_name = %s"
+		self.values = (self.firstname, self.lastname, self.phone_number, self.username, self.password, userresguardo)
 		return self.db.insertar(self.query, self.values)
 
 	def UpdatePhoto(self, userresguardo):

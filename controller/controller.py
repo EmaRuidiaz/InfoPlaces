@@ -158,7 +158,7 @@ class Controller():
 	def crearStore(self, Ventana_Principal, user):
 		self.shop = Shop()
 		self.schedule = Schedule()
-		ventana1 = RegisterStoreView(Ventana_Principal, user)
+		ventana1 = RegisterStoreView(Ventana_Principal, self.shop, self.schedule)
 		ventana1.pushButton_Create_Store.clicked.connect(lambda: ventana1.actualizar())
 		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
 		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user))
@@ -173,7 +173,6 @@ class Controller():
 
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):
-		print("Estoy en editar user")
 		import imagen_rc
 		self.userresguardo = user
 		ventana1 = UserEditView(Ventana_Principal, user)
@@ -186,13 +185,13 @@ class Controller():
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
 		self.usernameresguardo = user.username
 		self.emailresguardo = user.email
-
 		user.firstname = ventana1.firstname
 		user.lastname = ventana1.lastname
 		user.username = ventana1.username
 		user.password = ventana1.password
 		user.phone_number = ventana1.phone
 		user.image = ventana1.fileName
+		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
 		if user.firstname and user.lastname and user.password and (len(user.password) > 7):
 			self.var = user.CheckReg()
 			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:

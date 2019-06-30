@@ -54,49 +54,13 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="Name_app">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>10</y>
-       <width>471</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 93px &quot;Segoe Print&quot;;
-color: rgb(230, 230, 230);
-background: transparent;</string>
-     </property>
-     <property name="text">
-      <string>InfoPlaces</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Name_app_2">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>10</y>
-       <width>480</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 93px &quot;Segoe Print&quot;;
-color: rgb(83, 83, 83);
-background: transparent;</string>
-     </property>
-     <property name="text">
-      <string>InfoPlaces</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="Name_app_3">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>90</y>
-       <width>311</width>
-       <height>71</height>
+       <x>170</x>
+       <y>27</y>
+       <width>521</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="font">
@@ -109,7 +73,7 @@ background: transparent;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 40px &quot;Segoe Print&quot;;
+      <string notr="true">font: 70px &quot;Segoe Print&quot;;
 color: rgb(230, 230, 230);
 background: transparent;</string>
      </property>
@@ -120,14 +84,14 @@ background: transparent;</string>
     <widget class="QLabel" name="Name_app_4">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>93</y>
-       <width>301</width>
-       <height>71</height>
+       <x>170</x>
+       <y>30</y>
+       <width>511</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 40px &quot;Segoe Print&quot;;
+      <string notr="true">font: 70px &quot;Segoe Print&quot;;
 color: rgb(83, 83, 83);
 background: transparent;</string>
      </property>
@@ -210,7 +174,7 @@ color: rgb(255, 255, 255);
       <set>Qt::AlignCenter</set>
      </property>
      <property name="placeholderText">
-      <string>Number</string>
+      <string>N°</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -232,6 +196,9 @@ color: rgb(225,225,225);</string>
      </property>
     </widget>
     <widget class="QToolBox" name="toolBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -255,9 +222,12 @@ color: rgb(255, 255, 255);</string>
       <number>1</number>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Monday">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -266,13 +236,22 @@ color: rgb(255, 255, 255);</string>
         <height>97</height>
        </rect>
       </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
       <attribute name="label">
        <string>Monday</string>
       </attribute>
       <widget class="QTimeEdit" name="timeEdit_Open_Monday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -285,7 +264,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -324,7 +303,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Monday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -337,7 +316,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -356,8 +335,14 @@ color: rgb(255, 255, 255);</string>
          <height>22</height>
         </rect>
        </property>
+       <property name="statusTip">
+        <string notr="true"/>
+       </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+       <property name="keyboardTracking">
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label_6">
@@ -371,6 +356,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Close</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -389,7 +396,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Tuesday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -402,7 +409,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -415,7 +422,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -480,7 +487,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Tuesday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -488,6 +495,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -506,7 +535,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Wednesday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -519,7 +548,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -532,7 +561,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -597,7 +626,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Wednesday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -605,6 +634,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -623,7 +674,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Thursday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -636,7 +687,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -649,7 +700,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -714,7 +765,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Thursday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -722,6 +773,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -740,7 +813,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Frisday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -753,7 +826,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -766,7 +839,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -831,7 +904,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Frisday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -839,6 +912,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_5">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -857,7 +952,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Saturday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -870,7 +965,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_23">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -883,7 +978,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -948,7 +1043,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Saturday1Open_Saturday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -956,6 +1051,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_6">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -974,7 +1091,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Sunday1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>20</y>
          <width>81</width>
          <height>22</height>
@@ -987,7 +1104,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_27">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>0</y>
          <width>51</width>
          <height>16</height>
@@ -1000,7 +1117,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_28">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>50</y>
          <width>51</width>
          <height>16</height>
@@ -1065,7 +1182,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QTimeEdit" name="timeEdit_Open_Sunday2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>70</y>
          <width>81</width>
          <height>22</height>
@@ -1073,6 +1190,28 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: black</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Monday_7">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>20</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -1101,7 +1240,7 @@ color: rgb(225,225,225);</string>
        <x>380</x>
        <y>240</y>
        <width>341</width>
-       <height>151</height>
+       <height>111</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1117,8 +1256,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="pushButton_Create_Store">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>470</y>
+       <x>390</x>
+       <y>480</y>
        <width>151</width>
        <height>51</height>
       </rect>
@@ -1136,9 +1275,243 @@ color: rgb(255, 255, 255);
       <string>Create Store</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_Cancel">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>480</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(20, 100, 246);
+border:1px solid rgb(255, 255, 255);
+border-radius: 6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+
+</string>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>140</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(225,225,225);</string>
+     </property>
+     <property name="text">
+      <string>Address:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>140</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(225,225,225);</string>
+     </property>
+     <property name="text">
+      <string>N°:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_34">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>140</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(225,225,225);</string>
+     </property>
+     <property name="text">
+      <string>Name Shop:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_35">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>370</y>
+       <width>61</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_36">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>370</y>
+       <width>61</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_37">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>370</y>
+       <width>61</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_38">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>370</y>
+       <width>61</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_39">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>370</y>
+       <width>61</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>430</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(179, 179, 179);</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>430</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(179, 179, 179);</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>430</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(179, 179, 179);</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>430</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(179, 179, 179);</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>430</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(179, 179, 179);</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
     <zorder>Name_app_4</zorder>
-    <zorder>Name_app_2</zorder>
-    <zorder>Name_app</zorder>
     <zorder>Name_app_3</zorder>
     <zorder>lineEdit</zorder>
     <zorder>lineEdit_2</zorder>
@@ -1148,6 +1521,20 @@ color: rgb(255, 255, 255);
     <zorder>label_31</zorder>
     <zorder>textEdit</zorder>
     <zorder>pushButton_Create_Store</zorder>
+    <zorder>pushButton_Cancel</zorder>
+    <zorder>label_32</zorder>
+    <zorder>label_33</zorder>
+    <zorder>label_34</zorder>
+    <zorder>label_35</zorder>
+    <zorder>label_36</zorder>
+    <zorder>label_37</zorder>
+    <zorder>label_38</zorder>
+    <zorder>label_39</zorder>
+    <zorder>pushButton</zorder>
+    <zorder>pushButton_2</zorder>
+    <zorder>pushButton_3</zorder>
+    <zorder>pushButton_4</zorder>
+    <zorder>pushButton_5</zorder>
    </widget>
   </widget>
  </widget>

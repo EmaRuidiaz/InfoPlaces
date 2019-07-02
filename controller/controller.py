@@ -178,6 +178,7 @@ class Controller():
 				schedule.register(ventana1.schedule, idShop[0][0], i-1)
 			QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
 		else:
+			QMessageBox.critical(Ventana_Principal, "Error - Register", "The shop wasn't registered!")
 			print("Error - No se ha registrado")
 
 

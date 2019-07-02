@@ -180,6 +180,45 @@ class CreateAccountView(object):
 "")
         self.checkBox_accept_terms.setIconSize(QtCore.QSize(16, 16))
         self.checkBox_accept_terms.setObjectName("checkBox_accept_terms")
+        self.label_FirstName = QtWidgets.QLabel(self.frame)
+        self.label_FirstName.setGeometry(QtCore.QRect(57, 144, 61, 16))
+        self.label_FirstName.setStyleSheet("background: transparent;\n"
+                                            "color: rgb(225,225,225);")
+        self.label_LastName = QtWidgets.QLabel(self.frame)
+        self.label_LastName.setGeometry(QtCore.QRect(407, 144, 61, 16))
+        self.label_LastName.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_LastName.setObjectName("label_LastName")
+        self.label_Username = QtWidgets.QLabel(self.frame)
+        self.label_Username.setGeometry(QtCore.QRect(57, 204, 61, 16))
+        self.label_Username.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_Username.setObjectName("label_Username")
+        self.label_Email = QtWidgets.QLabel(self.frame)
+        self.label_Email.setGeometry(QtCore.QRect(407, 204, 58, 16))
+        self.label_Email.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_Email.setObjectName("label_Email")
+        self.label_Password = QtWidgets.QLabel(self.frame)
+        self.label_Password.setGeometry(QtCore.QRect(57, 264, 61, 16))
+        self.label_Password.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_Password.setObjectName("label_Password")
+        self.label_ConfirmPassword = QtWidgets.QLabel(self.frame)
+        self.label_ConfirmPassword.setGeometry(QtCore.QRect(407, 264, 91, 16))
+        self.label_ConfirmPassword.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_ConfirmPassword.setObjectName("label_ConfirmPassword")
+        self.label_BirthDate = QtWidgets.QLabel(self.frame)
+        self.label_BirthDate.setGeometry(QtCore.QRect(57, 324, 61, 16))
+        self.label_BirthDate.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_BirthDate.setObjectName("label_BirthDate")
+        self.label_PhoneNumber = QtWidgets.QLabel(self.frame)
+        self.label_PhoneNumber.setGeometry(QtCore.QRect(407, 324, 81, 16))
+        self.label_PhoneNumber.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225);")
+        self.label_PhoneNumber.setObjectName("label_PhoneNumber")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.image = "../view/user.PNG"
@@ -198,7 +237,6 @@ class CreateAccountView(object):
         self.campo_phone_number.textChanged.connect(self.validar_PhoneNumber)
         self.campo_password.textChanged.connect(self.validar_Password)
         self.campo_confirm_password.textChanged.connect(self.validar_Confirm_Password)
-
 
     def actualizar(self):
         self.firstname = self.campo_first_name.text()
@@ -224,6 +262,14 @@ class CreateAccountView(object):
         self.pushButton_cancel.setText(_translate("MainWindow", "Cancel"))
         self.pushButton_Create_Account.setText(_translate("MainWindow", "Create Acount"))
         self.checkBox_accept_terms.setText(_translate("MainWindow", " I accept the terms and conditions"))
+        self.label_FirstName.setText(_translate("MainWindow", "First Name"))
+        self.label_LastName.setText(_translate("MainWindow", "Last Name"))
+        self.label_Username.setText(_translate("MainWindow", "Username"))
+        self.label_Email.setText(_translate("MainWindow", "Email"))
+        self.label_Password.setText(_translate("MainWindow", "Password"))
+        self.label_ConfirmPassword.setText(_translate("MainWindow", "Confirm Password"))
+        self.label_BirthDate.setText(_translate("MainWindow", "Birth Date"))
+        self.label_PhoneNumber.setText(_translate("MainWindow", "Phone Number"))
 
     def validar_Firstname(self):
         self.campo_first_name.setMaxLength(30) #Permite limitar la cantidad de caracteres en el campo

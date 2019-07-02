@@ -10,6 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class HomeView(object):
     def __init__(self, MainWindow, user):
+        self.busqueda = ""
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -289,6 +290,12 @@ class HomeView(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+
+        self.pushButton_Search = QtWidgets.QPushButton(self.frame)
+        self.pushButton_Search.setGeometry(QtCore.QRect(638, 94, 50, 20))
+        self.pushButton_Search.setStyleSheet("background-color: rgb(182, 182, 182);")
+        self.pushButton_Search.setObjectName("pushButton")
+
         if user.type != 3:
             self.perfil = QtWidgets.QPushButton(self.frame)
             self.perfil.setGeometry(QtCore.QRect(420, 0, 91, 21))
@@ -329,6 +336,10 @@ class HomeView(object):
         self.pushButton_Log_Out.raise_()
         self.scrollArea.raise_()
         self.comboBox.raise_()
+        self.pushButton_Search.raise_()
+
+        #self.pushButton_Search.clicked.connect(lambda: self.update())
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow,user)
@@ -337,6 +348,10 @@ class HomeView(object):
 
 
         MainWindow.show()
+
+    def update(self):
+        self.busqueda = self.Search.text()
+        print("La busqueda es ",self.busqueda)
 
     def retranslateUi(self, MainWindow,user):
         _translate = QtCore.QCoreApplication.translate
@@ -377,6 +392,7 @@ class HomeView(object):
         self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
+        self.pushButton_Search.setText(_translate("MainWindow", "Search"))
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow","Edit Profile"))
             if user.type == 2:

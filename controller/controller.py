@@ -87,12 +87,20 @@ class Controller():
 
 	def Home(self, Ventana_Principal,user):
 		ventana1 = HomeView(Ventana_Principal, user)
+		search = Shop()
+		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1))
 		try:
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
+
+	def Search(self, search, ventana1):
+		ventana1.update()
+		search.name = ventana1.busqueda
+		resultado = search.searchShop()
+		print(resultado)
 
 	def logOut(self, Ventana_Principal, user):
 		del user

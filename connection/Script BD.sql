@@ -61,3 +61,5 @@ shop	int,
 image	blob);
 
 alter table shop add type varchar(15); #Le faltó a la def de shop.
+
+alter table shop add description text;

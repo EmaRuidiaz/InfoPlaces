@@ -160,10 +160,10 @@ class Controller():
 		self.schedule = Schedule()
 		ventana1 = RegisterStoreView(Ventana_Principal, user, self.shop, self.schedule)
 		#ventana1.pushButton_Create_Store.clicked.connect(lambda: ventana1.actualizar())
-		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule))
+		ventana1.pushButton_Create_Store.clicked.connect(lambda: self.AddStore(self.shop, user, ventana1, self.schedule, Ventana_Principal))
 		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 
-	def AddStore(self, shop, user, ventana1, schedule):
+	def AddStore(self, shop, user, ventana1, schedule, Ventana_Principal):
 		'''shop.name = ventana1.name
 								shop.address = ventana1.address
 								shop.number = ventana1.number
@@ -174,8 +174,9 @@ class Controller():
 			print("Este es el id de la tienda: ",idShop)
 			shop.registerPhoto(idShop[0][0])
 			print("VENTANA1.SCHEDULE: ",ventana1.schedule)
-			schedule.register(ventana1.schedule, idShop[0][0])
-			print("Registro Exitoso")
+			for i in range(1,15):
+				schedule.register(ventana1.schedule, idShop[0][0], i-1)
+			QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
 		else:
 			print("Error - No se ha registrado")
 

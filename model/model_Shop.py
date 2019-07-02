@@ -18,8 +18,8 @@ class Shop:
 		return self.db.insertar(self.query,self.values)
 
 	def getID(self):
-		self.query = "SELECT id FROM shop WHERE name = %s"
-		self.values = (self.name,)
+		self.query = "SELECT id FROM shop WHERE name = %s and street_name = %s and street_num = %s"
+		self.values = (self.name, self.address, self.number)
 		return self.db.ejecutar(self.query, self.values)
 
 	def registerPhoto(self,idShop):

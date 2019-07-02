@@ -304,7 +304,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/4_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/4_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -326,7 +326,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/3_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/3_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -345,7 +345,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/2_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/2_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -364,7 +364,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/1_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/1_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -453,7 +453,7 @@ border-radius: 10px</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="imagen.qrc">:/dfsfsd/Logo.PNG</pixmap>
+      <pixmap>:/dfsfsd/Logo.PNG</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -819,6 +819,22 @@ color: rgb(225,225,225);</string>
       <string>Create Store</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>638</x>
+       <y>94</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(182, 182, 182);</string>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
     <zorder>frame_2</zorder>
     <zorder>groupBox</zorder>
     <zorder>groupBox_2</zorder>
@@ -830,6 +846,7 @@ color: rgb(225,225,225);</string>
     <zorder>scrollArea</zorder>
     <zorder>comboBox</zorder>
     <zorder>pushButton_Create_Store</zorder>
+    <zorder>pushButton</zorder>
    </widget>
   </widget>
  </widget>

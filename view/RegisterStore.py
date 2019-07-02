@@ -15,12 +15,14 @@ class RegisterStoreView(object):
         self.name = ""
         self.address = ""
         self.number = ""
+        self.type = ""
         self.description = ""
         self.streetname = ""
         self.streetnumber = ""
         self.schedule = []
         shop.photos = ["../view/image.png","../view/image.png","../view/image.png","../view/image.png","../view/image.png"]
-        self.flag = False
+        self.flagPhoto = False
+        self.flagType = False
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -398,7 +400,7 @@ class RegisterStoreView(object):
 "color: rgb(255, 255, 255);")
         self.textEdit.setObjectName("textEdit")
         self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Create_Store.setGeometry(QtCore.QRect(390, 480, 151, 51))
+        self.pushButton_Create_Store.setGeometry(QtCore.QRect(390, 530, 151, 51))
         self.pushButton_Create_Store.setStyleSheet("background-color: rgb(20, 100, 246);\n"
 "border:1px solid rgb(255, 255, 255);\n"
 "border-radius: 6px;\n"
@@ -408,7 +410,7 @@ class RegisterStoreView(object):
 "")
         self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
         self.pushButton_Cancel = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Cancel.setGeometry(QtCore.QRect(560, 480, 151, 51))
+        self.pushButton_Cancel.setGeometry(QtCore.QRect(560, 530, 151, 51))
         self.pushButton_Cancel.setStyleSheet("background-color: rgb(20, 100, 246);\n"
 "border:1px solid rgb(255, 255, 255);\n"
 "border-radius: 6px;\n"
@@ -514,6 +516,40 @@ class RegisterStoreView(object):
         self.pushButton_3.raise_()
         self.pushButton_4.raise_()
         self.pushButton_5.raise_()
+
+        self.radioButton_restaurant = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_restaurant.setGeometry(QtCore.QRect(470, 470, 82, 17))
+        self.radioButton_restaurant.setObjectName("radioButton_restaurant")
+        self.radioButton_restaurant.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_kitchen = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_kitchen.setGeometry(QtCore.QRect(560, 470, 82, 17))
+        self.radioButton_kitchen.setObjectName("radioButton_kitchen")
+        self.radioButton_kitchen.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_gardening = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_gardening.setGeometry(QtCore.QRect(650, 470, 82, 17))
+        self.radioButton_gardening.setObjectName("radioButton_gardening")
+        self.radioButton_gardening.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_bookstore = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_bookstore.setGeometry(QtCore.QRect(380, 490, 82, 17))
+        self.radioButton_bookstore.setObjectName("radioButton_bookstore")
+        self.radioButton_bookstore.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_toystore = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_toystore.setGeometry(QtCore.QRect(470, 490, 82, 17))
+        self.radioButton_toystore.setObjectName("radioButton_toystore")
+        self.radioButton_toystore.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_tools = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_tools.setGeometry(QtCore.QRect(560, 490, 82, 17))
+        self.radioButton_tools.setObjectName("radioButton_tools")
+        self.radioButton_tools.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_other = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_other.setGeometry(QtCore.QRect(650, 490, 82, 17))
+        self.radioButton_other.setObjectName("radioButton_other")
+        self.radioButton_other.setStyleSheet("color: rgb(255, 255, 255);")
+        self.radioButton_sports = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_sports.setGeometry(QtCore.QRect(380, 470, 82, 17))
+        self.radioButton_sports.setObjectName("radioButton_sports")
+        self.radioButton_sports.setStyleSheet("color: rgb(255, 255, 255);")
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.pushButton.clicked.connect(lambda: self.openFileNameDialog(MainWindow, shop, 1))
@@ -531,7 +567,7 @@ class RegisterStoreView(object):
         self.fileName, _ = QFileDialog.getOpenFileName(MainWindow,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)")
         print(self.fileName)
         if self.fileName:
-            self.flag = True
+            self.flagPhoto = True
             if i == 1:
                 shop.photos[0] = self.fileName
                 self.label_35.setPixmap(QtGui.QPixmap(shop.photos[0]))
@@ -590,6 +626,27 @@ class RegisterStoreView(object):
         if self.checkBox_Monday_7.isChecked():
             self.schedule.append(["Sunday","Morning",str(self.timeEdit_Open_Sunday1.time().hour()) + ":" + str(self.timeEdit_Open_Sunday1.time().minute()),str(self.timeEdit_Close_Sunday1.time().hour()) + ":" + str(self.timeEdit_Close_Sunday1.time().minute())])
             self.schedule.append(["Sunday","Afternoon",str(self.timeEdit_Open_Sunday2.time().hour()) + ":" + str(self.timeEdit_Open_Sunday2.time().minute()),str(self.timeEdit_Close_Sunday2.time().hour()) + ":" + str(self.timeEdit_Close_Sunday2.time().minute())])
+        
+        if self.radioButton_sports.isChecked() or self.radioButton_restaurant.isChecked() or self.radioButton_kitchen.isChecked() or self.radioButton_gardening.isChecked() or self.radioButton_bookstore.isChecked() or self.radioButton_toystore.isChecked() or self.radioButton_tools.isChecked() or self.radioButton_other.isChecked():
+            self.flagType = True
+            if self.radioButton_sports.isChecked():
+                shop.type = "Sports"
+            if self.radioButton_restaurant.isChecked():
+                shop.type = "Restaurant"
+            if self.radioButton_kitchen.isChecked():
+                shop.type = "Kitchen"
+            if self.radioButton_gardening.isChecked():
+                shop.type = "Gardening"
+            if self.radioButton_bookstore.isChecked():
+                shop.type = "Bookstore"
+            if self.radioButton_toystore.isChecked():
+                shop.type = "Toy Store"
+            if self.radioButton_tools.isChecked():
+                shop.type = "Tools"
+            if self.radioButton_other.isChecked():
+                shop.type = "Other"
+        print("tipo: ",self.type)
+        print("bandera tipo: ",self.flagType)
         print("Schedule:", self.schedule)
         print(shop.name," ",shop.address," ",shop.number," ",shop.description)
 
@@ -650,3 +707,11 @@ class RegisterStoreView(object):
         self.pushButton_3.setText(_translate("MainWindow", "Change"))
         self.pushButton_4.setText(_translate("MainWindow", "Change"))
         self.pushButton_5.setText(_translate("MainWindow", "Change"))
+        self.radioButton_restaurant.setText(_translate("MainWindow", "Restaurant"))
+        self.radioButton_kitchen.setText(_translate("MainWindow", "Kitchen"))
+        self.radioButton_gardening.setText(_translate("MainWindow", "Gardening"))
+        self.radioButton_bookstore.setText(_translate("MainWindow", "Bookstore"))
+        self.radioButton_toystore.setText(_translate("MainWindow", "Toy Store"))
+        self.radioButton_tools.setText(_translate("MainWindow", "Tools"))
+        self.radioButton_other.setText(_translate("MainWindow", "Other"))
+        self.radioButton_sports.setText(_translate("MainWindow", "Sports"))

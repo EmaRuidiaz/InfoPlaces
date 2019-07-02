@@ -291,9 +291,24 @@ class HomeView(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
 
-        self.pushButton_Search = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Search.setGeometry(QtCore.QRect(638, 94, 50, 20))
-        self.pushButton_Search.setStyleSheet("background-color: rgb(182, 182, 182);")
+        self.frame_camu = QtWidgets.QFrame(self.frame)
+        self.frame_camu.setGeometry(QtCore.QRect(640, 50, 51, 41))
+        self.frame_camu.setStyleSheet("background: white;\n"
+"border-radius: 6px")
+        self.frame_camu.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_camu.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_camu.setObjectName("frame_camu")
+        self.label_11 = QtWidgets.QLabel(self.frame_camu)
+        self.label_11.setGeometry(QtCore.QRect(10, 4, 41, 31))
+        self.label_11.setStyleSheet("background: transparent;")
+        self.label_11.setText("")
+        self.label_11.setPixmap(QtGui.QPixmap(":/dfsfsd/buscador.png"))
+        self.label_11.setScaledContents(True)
+        self.label_11.setObjectName("label_11")
+        self.pushButton_Search = QtWidgets.QPushButton(self.frame_camu)
+        self.pushButton_Search.setGeometry(QtCore.QRect(10, 0, 41, 41))
+        self.pushButton_Search.setStyleSheet("background: transparent;")
+        self.pushButton_Search.setText("")
         self.pushButton_Search.setObjectName("pushButton")
 
         if user.type != 3:
@@ -337,6 +352,7 @@ class HomeView(object):
         self.scrollArea.raise_()
         self.comboBox.raise_()
         self.pushButton_Search.raise_()
+        self.frame_camu.raise_()
 
         #self.pushButton_Search.clicked.connect(lambda: self.update())
 
@@ -392,7 +408,7 @@ class HomeView(object):
         self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
-        self.pushButton_Search.setText(_translate("MainWindow", "Search"))
+        self.pushButton_Search.setText(_translate("MainWindow", ""))
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow","Edit Profile"))
             if user.type == 2:

@@ -304,7 +304,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/dfsfsd/4_estrella.PNG</pixmap>
+       <pixmap resource="imagen.qrc">:/dfsfsd/4_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -326,7 +326,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/dfsfsd/3_estrella.PNG</pixmap>
+       <pixmap resource="imagen.qrc">:/dfsfsd/3_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -345,7 +345,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/dfsfsd/2_estrella.PNG</pixmap>
+       <pixmap resource="imagen.qrc">:/dfsfsd/2_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -364,7 +364,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/dfsfsd/1_estrella.PNG</pixmap>
+       <pixmap resource="imagen.qrc">:/dfsfsd/1_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -397,11 +397,16 @@ color: rgb(225,225,225);
     <widget class="QLineEdit" name="Search">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>60</y>
+       <x>170</x>
+       <y>50</y>
        <width>481</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
@@ -453,7 +458,7 @@ border-radius: 10px</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/dfsfsd/Logo.PNG</pixmap>
+      <pixmap resource="imagen.qrc">:/dfsfsd/Logo.PNG</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -504,9 +509,9 @@ color: rgb(225,225,225);
     <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>170</x>
        <y>140</y>
-       <width>571</width>
+       <width>611</width>
        <height>431</height>
       </rect>
      </property>
@@ -522,7 +527,7 @@ border: transprent;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>571</width>
+        <width>611</width>
         <height>431</height>
        </rect>
       </property>
@@ -819,21 +824,63 @@ color: rgb(225,225,225);</string>
       <string>Create Store</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QFrame" name="frame_camu">
      <property name="geometry">
       <rect>
-       <x>638</x>
-       <y>94</y>
-       <width>50</width>
-       <height>20</height>
+       <x>640</x>
+       <y>50</y>
+       <width>51</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(182, 182, 182);</string>
+      <string notr="true">background: white;
+border-radius: 6px</string>
      </property>
-     <property name="text">
-      <string>Search</string>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>4</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="imagen.qrc">:/dfsfsd/buscador.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Buscar">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <zorder>frame_2</zorder>
     <zorder>groupBox</zorder>
@@ -846,7 +893,7 @@ color: rgb(225,225,225);</string>
     <zorder>scrollArea</zorder>
     <zorder>comboBox</zorder>
     <zorder>pushButton_Create_Store</zorder>
-    <zorder>pushButton</zorder>
+    <zorder>frame_camu</zorder>
    </widget>
   </widget>
  </widget>

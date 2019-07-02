@@ -11,6 +11,7 @@
   </qresource>
   <qresource prefix="dfsfsd">
     <file>Logo.PNG</file>
+    <file>buscador.png</file>
     <file>user.PNG</file>
     <file>1_estrella.PNG</file>
     <file>2_estrella.PNG</file>

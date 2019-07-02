@@ -1257,7 +1257,7 @@ color: rgb(255, 255, 255);</string>
      <property name="geometry">
       <rect>
        <x>390</x>
-       <y>480</y>
+       <y>530</y>
        <width>151</width>
        <height>51</height>
       </rect>
@@ -1279,7 +1279,7 @@ color: rgb(255, 255, 255);
      <property name="geometry">
       <rect>
        <x>560</x>
-       <y>480</y>
+       <y>530</y>
        <width>151</width>
        <height>51</height>
       </rect>
@@ -1535,6 +1535,110 @@ color: rgb(225,225,225);</string>
     <zorder>pushButton_3</zorder>
     <zorder>pushButton_4</zorder>
     <zorder>pushButton_5</zorder>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_restaurant">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>470</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Restaurant</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_kitchen">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>470</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kitchen</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_gardening">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>470</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gardening</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_bookstore">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>490</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bookstore</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_toystore">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>490</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Toy Store</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_tools">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>490</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tools</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_other">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>490</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Other</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_sports">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>470</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sports</string>
+    </property>
    </widget>
   </widget>
  </widget>

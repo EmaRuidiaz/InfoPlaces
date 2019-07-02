@@ -168,7 +168,7 @@ class Controller():
 								shop.address = ventana1.address
 								shop.number = ventana1.number
 								shop.description = ventana1.description'''
-		if shop.name and shop.address and shop.number and shop.description and ventana1.flag:
+		if shop.name and shop.address and shop.number and shop.description and ventana1.flagPhoto and ventana1.flagType:
 			shop.register(user)
 			idShop = shop.getID()
 			print("Este es el id de la tienda: ",idShop)

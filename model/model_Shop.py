@@ -8,13 +8,14 @@ class Shop:
 		self.address = ""
 		self.number = ""
 		self.description = ""
+		self.type = ""
 		self.photos = []
 		self.schedule = []
 		self.db = DBconn()
 
 	def register(self, user):
-		self.query = "INSERT INTO shop(name, street_name, street_num, person) VALUES (%s, %s, %s, %s)"
-		self.values = (self.name, self.address, self.number, user.username)
+		self.query = "INSERT INTO shop(name, street_name, street_num, person, type) VALUES (%s, %s, %s, %s, %s)"
+		self.values = (self.name, self.address, self.number, user.username, self.type)
 		return self.db.insertar(self.query,self.values)
 
 	def getID(self):

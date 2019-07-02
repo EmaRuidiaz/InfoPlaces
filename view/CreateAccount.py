@@ -220,6 +220,20 @@ class CreateAccountView(object):
 "color: rgb(225,225,225);")
         self.label_PhoneNumber.setObjectName("label_PhoneNumber")
         MainWindow.setCentralWidget(self.centralwidget)
+        self.label_priority1 = QtWidgets.QLabel(self.frame)
+        self.label_priority1.setGeometry(QtCore.QRect(110,146,16,16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority1.setFont(font)
+        self.label_priority1.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
+        self.label_priority2 = QtWidgets.QLabel(self.frame)
+        self.label_priority2.setGeometry(QtCore.QRect(462, 146, 16, 16))
+        font= QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority2.setFont(font)
+        self.label_priority2.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
 
         self.image = "../view/user.PNG"
 
@@ -270,6 +284,8 @@ class CreateAccountView(object):
         self.label_ConfirmPassword.setText(_translate("MainWindow", "Confirm Password"))
         self.label_BirthDate.setText(_translate("MainWindow", "Birth Date"))
         self.label_PhoneNumber.setText(_translate("MainWindow", "Phone Number"))
+        self.label_priority1.setText(_translate("MainWindow", "*"))
+        self.label_priority2.setText(_translate("MainWindow", "*"))
 
     def validar_Firstname(self):
         self.campo_first_name.setMaxLength(30) #Permite limitar la cantidad de caracteres en el campo

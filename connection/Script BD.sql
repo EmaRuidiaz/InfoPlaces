@@ -61,5 +61,6 @@ shop	int,
 image	blob);
 
 alter table shop add type varchar(15); #Le faltó a la def de shop.
-
 alter table shop add description text;
+INSERT INTO person(user_name, type, first_name, last_name, email, password, birthdate, phone_number) VALUES ('Owner', 2, 'Juan', 'Gonzales', "JuanGonzales@hotmail.com", "123456789", "1998-06-16", null);
+INSERT INTO person(user_name, type, first_name, last_name, email, password, birthdate, phone_number) VALUES ('User', 2, 'Pepe', 'Diaz', "PepeDiaz@hotmail.com", "123456789", "2007-05-02", null);

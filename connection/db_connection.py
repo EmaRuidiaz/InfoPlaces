@@ -1,7 +1,7 @@
 import mysql.connector
 
 class DBconn:
-    def __init__(self, db_host="localhost", db_user="root", db_pass="flechaverde1", db_name="infoplaces"):
+    def __init__(self, db_host="localhost", db_user="root", db_pass="root", db_name="infoplaces"):
         self.db_name = db_name
         self.db_pass = db_pass
         self.db_user = db_user

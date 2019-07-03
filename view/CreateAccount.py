@@ -75,17 +75,6 @@ class CreateAccountView(object):
 "")
         self.campo_last_name.setAlignment(QtCore.Qt.AlignCenter)
         self.campo_last_name.setObjectName("campo_last_name")
-        self.campo_email = QtWidgets.QLineEdit(self.frame)
-        self.campo_email.setPlaceholderText("  Email")
-        self.campo_email.setGeometry(QtCore.QRect(400, 220, 321, 41))
-        self.campo_email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border:1px solid black;\n"
-"border-radius: 6px;\n"
-"font: 14pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);\n"
-"")
-        self.campo_email.setAlignment(QtCore.Qt.AlignCenter)
-        self.campo_email.setObjectName("campo_email")
         self.campo_username = QtWidgets.QLineEdit(self.frame)
         self.campo_username.setPlaceholderText("  Username")
         self.campo_username.setGeometry(QtCore.QRect(50, 220, 321, 41))
@@ -97,6 +86,17 @@ class CreateAccountView(object):
 "")
         self.campo_username.setAlignment(QtCore.Qt.AlignCenter)
         self.campo_username.setObjectName("campo_username")
+        self.campo_email = QtWidgets.QLineEdit(self.frame)
+        self.campo_email.setPlaceholderText("  Email")
+        self.campo_email.setGeometry(QtCore.QRect(400, 220, 321, 41))
+        self.campo_email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+        self.campo_email.setAlignment(QtCore.Qt.AlignCenter)
+        self.campo_email.setObjectName("campo_email")
         self.campo_password = QtWidgets.QLineEdit(self.frame)
         self.campo_password.setGeometry(QtCore.QRect(50, 280, 321, 41))
         self.campo_password.setPlaceholderText("  Password")
@@ -121,17 +121,6 @@ class CreateAccountView(object):
 "")
         self.campo_confirm_password.setAlignment(QtCore.Qt.AlignCenter)
         self.campo_confirm_password.setObjectName("campo_confirm_password")
-        self.campo_phone_number = QtWidgets.QLineEdit(self.frame)
-        self.campo_phone_number.setPlaceholderText("  Phone Number")
-        self.campo_phone_number.setGeometry(QtCore.QRect(400, 340, 321, 41))
-        self.campo_phone_number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border:1px solid black;\n"
-"border-radius: 6px;\n"
-"font: 14pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);\n"
-"")
-        self.campo_phone_number.setAlignment(QtCore.Qt.AlignCenter)
-        self.campo_phone_number.setObjectName("campo_phone_number")
         self.fecha_nacimiento = QtWidgets.QDateEdit(self.frame)
         #self.fecha_nacimiento.setPlaceholderText("  birthdate")
         self.fecha_nacimiento.setGeometry(QtCore.QRect(50, 340, 321, 41))
@@ -144,6 +133,17 @@ class CreateAccountView(object):
         self.fecha_nacimiento.setAlignment(QtCore.Qt.AlignCenter)
         self.fecha_nacimiento.setDate(QtCore.QDate(2019, 6, 17))
         self.fecha_nacimiento.setObjectName("fecha_nacimiento")
+        self.campo_phone_number = QtWidgets.QLineEdit(self.frame)
+        self.campo_phone_number.setPlaceholderText("  Phone Number")
+        self.campo_phone_number.setGeometry(QtCore.QRect(400, 340, 321, 41))
+        self.campo_phone_number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border:1px solid black;\n"
+"border-radius: 6px;\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);\n"
+"")
+        self.campo_phone_number.setAlignment(QtCore.Qt.AlignCenter)
+        self.campo_phone_number.setObjectName("campo_phone_number")
         self.pushButton_cancel = QtWidgets.QPushButton(self.frame)
         self.pushButton_cancel.setGeometry(QtCore.QRect(210, 450, 121, 51))
         self.pushButton_cancel.setStyleSheet("background-color: rgb(20, 100, 246);\n"

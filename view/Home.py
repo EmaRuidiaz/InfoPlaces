@@ -175,7 +175,7 @@ class HomeView(object):
         self.pushButton.setObjectName("pushButton")
 '''
         self.Photo = QtWidgets.QLabel(self.frame)
-        self.Photo.setGeometry(QtCore.QRect(700, 10, 91, 81))
+        self.Photo.setGeometry(QtCore.QRect(700, 10, 88, 78))
         self.Photo.setStyleSheet("background: transparent;\n"
 "")
         self.Photo.setText("")

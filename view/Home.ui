@@ -304,7 +304,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/4_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/4_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -326,7 +326,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/3_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/3_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -345,7 +345,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/2_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/2_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -364,7 +364,7 @@ color: rgb(225,225,225);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imagen.qrc">:/dfsfsd/1_estrella.PNG</pixmap>
+       <pixmap>:/dfsfsd/1_estrella.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -424,8 +424,8 @@ border-radius: 10px</string>
       <rect>
        <x>700</x>
        <y>10</y>
-       <width>91</width>
-       <height>81</height>
+       <width>88</width>
+       <height>76</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -458,7 +458,7 @@ border-radius: 10px</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="imagen.qrc">:/dfsfsd/Logo.PNG</pixmap>
+      <pixmap>:/dfsfsd/Logo.PNG</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>

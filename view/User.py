@@ -199,7 +199,7 @@ class UserProfileView(object):
         self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
         self.lineEdit_Last_Name.setText(_translate("MainWindow", " " + user.lastname))
         self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
-        self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + user.phone_number))
+        self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + str(user.phone_number)))
         self.Email.setText(_translate("MainWindow", "Password:"))
         self.lineEdit_Email.setText(_translate("MainWindow", " " + user.password))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))

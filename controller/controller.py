@@ -71,19 +71,22 @@ class Controller():
 			else:
 				pass
 		
-		if ventana1.terms == 1 and (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 7) and (self.reguser.password == self.confirmuser):
-			
-			if not self.reguser.CheckReg():
-				if self.reguser.Register():
-					self.reguser.RegisterPhoto()
-					QMessageBox.about(Ventana_Principal, "Registro Exitoso", "Usuario Registrado Satisfactoriamente!")
-					self.menuPrincipal(Ventana_Principal)
+		if ventana1.terms:
+			if (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 7) and (self.reguser.password == self.confirmuser):
+				
+				if not self.reguser.CheckReg():
+					if self.reguser.Register():
+						self.reguser.RegisterPhoto()
+						QMessageBox.about(Ventana_Principal, "Registro Exitoso", "Usuario Registrado Satisfactoriamente!")
+						self.menuPrincipal(Ventana_Principal)
+					else:
+						pass
 				else:
-					pass
+					QMessageBox.about(Ventana_Principal, "Error", "Puede que el username o el correo ya esté en uso.")
 			else:
-				QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
+				QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos")
 		else:
-			QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos. O puede que el username y el correo ya esté en uso.")
+			QMessageBox.about(Ventana_Principal, "Terminos y condiciones", "Debes Aceptar los terminos y condiciones.")
 
 	def Home(self, Ventana_Principal,user):
 		ventana1 = HomeView(Ventana_Principal, user)

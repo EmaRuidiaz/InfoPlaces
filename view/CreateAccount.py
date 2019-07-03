@@ -112,7 +112,7 @@ class CreateAccountView(object):
         self.campo_confirm_password = QtWidgets.QLineEdit(self.frame)
         self.campo_confirm_password.setGeometry(QtCore.QRect(400, 280, 321, 41))
         self.campo_confirm_password.setPlaceholderText("  Confirm Password")
-        self.campo_confirm_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.campo_confirm_password.setEchoMode(QtWidgets.QLineEdit.Password) #encripta el texto con puntitos
         self.campo_confirm_password.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border:1px solid black;\n"
 "border-radius: 6px;\n"

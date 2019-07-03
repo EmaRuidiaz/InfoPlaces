@@ -234,6 +234,41 @@ class CreateAccountView(object):
         self.label_priority2.setFont(font)
         self.label_priority2.setStyleSheet("background: transparent;\n"
                                             "color: red;")
+        self.label_priority3 = QtWidgets.QLabel(self.frame)
+        self.label_priority3.setGeometry(QtCore.QRect(108, 206, 61, 16))
+        fotn = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority3.setFont(font)
+        self.label_priority3.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
+        self.label_priority4 = QtWidgets.QLabel(self.frame)
+        self.label_priority4.setGeometry(QtCore.QRect(435, 206, 58, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority4.setFont(font)
+        self.label_priority4.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
+        self.label_priority5 = QtWidgets.QLabel(self.frame)
+        self.label_priority5.setGeometry(QtCore.QRect(105, 264, 61, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority5.setFont(font)
+        self.label_priority5.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
+        self.label_priority6 = QtWidgets.QLabel(self.frame)
+        self.label_priority6.setGeometry(QtCore.QRect(495, 264, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority6.setFont(font)
+        self.label_priority6.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
+        self.label_priority7 = QtWidgets.QLabel(self.frame)
+        self.label_priority7.setGeometry(QtCore.QRect(108, 324, 61, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority7.setFont(font)
+        self.label_priority7.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
 
         self.image = "../view/user.PNG"
 
@@ -286,6 +321,11 @@ class CreateAccountView(object):
         self.label_PhoneNumber.setText(_translate("MainWindow", "Phone Number"))
         self.label_priority1.setText(_translate("MainWindow", "*"))
         self.label_priority2.setText(_translate("MainWindow", "*"))
+        self.label_priority3.setText(_translate("MainWindow", "*"))
+        self.label_priority4.setText(_translate("MainWindow", "*"))
+        self.label_priority5.setText(_translate("MainWindow", "*"))
+        self.label_priority6.setText(_translate("MainWindow", "*"))
+        self.label_priority7.setText(_translate("MainWindow", "*"))
 
     def validar_Firstname(self):
         self.campo_first_name.setMaxLength(30) #Permite limitar la cantidad de caracteres en el campo

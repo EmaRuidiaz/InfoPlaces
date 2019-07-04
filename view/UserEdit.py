@@ -71,36 +71,32 @@ class UserEditView(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.lineEdit_First_Name.setFont(font)
-        self.lineEdit_First_Name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border: transparent;\n"
-"color: rgb(225,225,225)")
+        self.lineEdit_First_Name.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border: transparent;\n")
         self.lineEdit_First_Name.setObjectName("lineEdit_First_Name")
         self.lineEdit_Last_Name = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_Last_Name.setGeometry(QtCore.QRect(430, 190, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.lineEdit_Last_Name.setFont(font)
-        self.lineEdit_Last_Name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border: transparent;\n"
-"color: rgb(225,225,225)")
+        self.lineEdit_Last_Name.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border: transparent;\n")
         self.lineEdit_Last_Name.setObjectName("lineEdit_Last_Name")
         self.lineEdit_Phone_Number = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_Phone_Number.setGeometry(QtCore.QRect(480, 260, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.lineEdit_Phone_Number.setFont(font)
-        self.lineEdit_Phone_Number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border: transparent;\n"
-"color: rgb(225,225,225)")
+        self.lineEdit_Phone_Number.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border: transparent;\n")
         self.lineEdit_Phone_Number.setObjectName("lineEdit_Phone_Number")
         self.lineEdit_Email = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_Email.setGeometry(QtCore.QRect(420, 330, 261, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.lineEdit_Email.setFont(font)
-        self.lineEdit_Email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border: transparent;\n"
-"color: rgb(225,225,225)")
+        self.lineEdit_Email.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border: transparent;\n")
         self.lineEdit_Email.setObjectName("lineEdit_Email")
         self.pushButton_back = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_back.setGeometry(QtCore.QRect(0, 0, 61, 23))

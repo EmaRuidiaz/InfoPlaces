@@ -1,11 +1,11 @@
-mostrar un mensaje distinto si el usuario o la contraseña esta vacio.
+﻿mostrar un mensaje distinto si el usuario o la contraseña esta vacio.
 tener una cuenta standart de usuario para pruebas.
-falta poner que el campo es requerido
+(Listo) -falta poner que el campo es requerido
 mensaje de que la contraseña es demaciado corta.
 investigar por que el largo de la contraseña es de 8.
 informar que campo falta completar.
 informar que falta aceptar los terminos y condiciones.
 Ocultar el tipo de contraseña.
-Volver a hacer la interfaz de edicion de usuario. cambios al apretar edit.
-el numero de telefono no debe dejar ingresar letras.
+(Listo)Volver a hacer la interfaz de edicion de usuario. cambios al apretar edit.
+(Eso es en la parte de editar usuario) el numero de telefono no debe dejar ingresar letras.
 si el schedule no esta habilitado no me tiene que dejar editar.

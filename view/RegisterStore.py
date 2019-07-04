@@ -583,7 +583,7 @@ class RegisterStoreView(object):
             if i == 5:
                 shop.photos[4] = self.fileName
                 self.label_39.setPixmap(QtGui.QPixmap(shop.photos[4]))
-        else:
+        '''else:
             if i == 1:
                 shop.photos[0] = "../view/image.png"
                 self.label_35.setPixmap(QtGui.QPixmap(shop.photos[0]))
@@ -599,7 +599,7 @@ class RegisterStoreView(object):
             if i == 5:
                 shop.photos[4] = "../view/image.png"
                 self.label_39.setPixmap(QtGui.QPixmap(shop.photos[4]))
-
+'''
     def actualizar(self, shop):
         shop.name = self.lineEdit.text()
         shop.address = self.lineEdit_2.text()

@@ -104,10 +104,57 @@ class Controller():
 			pass
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
 
+	def filterShop(self,ventana1, resultado):
+		print("Filtrando....................")
+		if ventana1.radioButton_Sports.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Sports":
+					resultado.pop(i)
+		if ventana1.radioButton_Restaurant.isChecked():
+			print(len(resultado))
+			print(range(len(resultado)))
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Restaurant":
+					print(resultado[i])
+					#resultado.pop(i)
+		if ventana1.radioButton_Kitchen.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Kitchen":
+					resultado.pop(i)
+		if ventana1.radioButton_Gardening.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Gardening":
+					resultado.pop(i)
+		if ventana1.radioButton_Restaurant.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Restaurant":
+					resultado.pop(i)
+		if ventana1.radioButton_Bookstore.isChecked():
+			print("dentro de bookstore ",resultado)
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Bookstore":
+					print(resultado[i])
+					resultado.pop(i)
+		if ventana1.radioButton_Toy_store.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Toy Store":
+					resultado.pop(i)
+		if ventana1.radioButton_Tools.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Tools":
+					resultado.pop(i)
+		if ventana1.radioButton_Other.isChecked():
+			for i in range(len(resultado)):
+				if resultado[i][3] != "Other":
+					resultado.pop(i)
+		if ventana1.radioButton_Restaurant.isChecked():
+			pass
+
 	def Search(self, search, ventana1):
 		ventana1.update()
 		search.name = ventana1.busqueda
 		resultado = search.searchShop()
+		self.filterShop(ventana1,resultado) 
 		print(resultado)
 
 	def logOut(self, Ventana_Principal, user):

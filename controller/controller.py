@@ -72,21 +72,26 @@ class Controller():
 				pass
 		
 		if ventana1.terms:
-			if (ventana1.fechacontrol < 2019) and self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (len(self.reguser.password) > 7) and (self.reguser.password == self.confirmuser):
-				
-				if not self.reguser.CheckReg():
-					if self.reguser.Register():
-						self.reguser.RegisterPhoto()
-						QMessageBox.about(Ventana_Principal, "Registro Exitoso", "Usuario Registrado Satisfactoriamente!")
-						self.menuPrincipal(Ventana_Principal)
+			if self.reguser.firstname and self.reguser.lastname and self.reguser.username and self.reguser.email and self.reguser.password and (self.reguser.password == self.confirmuser):
+				if ventana1.fechacontrol < 2019:
+					if len(self.reguser.password) > 7:
+						if not self.reguser.CheckReg():
+							if self.reguser.Register():
+								self.reguser.RegisterPhoto()
+								QMessageBox.about(Ventana_Principal, "Succefully registered", "User registered!")
+								self.menuPrincipal(Ventana_Principal)
+							else:
+								pass
+						else:
+							QMessageBox.about(Ventana_Principal, "Username or E-Mail invalid.", "The username or email already exist")
 					else:
-						pass
+						QMessageBox.about(Ventana_Principal, "Weak password.", "The password needs to be more than 8 characters")
 				else:
-					QMessageBox.about(Ventana_Principal, "Error", "Puede que el username o el correo ya esté en uso.")
+					QMessageBox.about(Ventana_Principal, "Birthdate invalid.", "birthdate is non-existent")
 			else:
-				QMessageBox.about(Ventana_Principal, "Error", "Puede que hayas ingresado mal los datos")
+				QMessageBox.about(Ventana_Principal, "Error", "You need to complete all the required fields.")
 		else:
-			QMessageBox.about(Ventana_Principal, "Terminos y condiciones", "Debes Aceptar los terminos y condiciones.")
+			QMessageBox.about(Ventana_Principal, "Terms and conditions", "You need to read and accept Terms and conditions")
 
 	def Home(self, Ventana_Principal,user):
 		ventana1 = HomeView(Ventana_Principal, user)
@@ -120,21 +125,28 @@ class Controller():
 			reguser.type = typeu
 			self.validacion = reguser.SignIn()
 			#self.reguser.username, self.reguser.password)
-			if (self.validacion):
-				import sys
-				import imagen_rc
-				reguser.firstname = self.validacion[0][2]
-				reguser.lastname = self.validacion[0][3]
-				reguser.username = self.validacion[0][0]
-				reguser.birthdate = self.validacion[0][6]
-				reguser.email = self.validacion[0][4]
-				reguser.password = self.validacion[0][5]
-				reguser.type = self.validacion[0][1]
-				reguser.phone_number = self.validacion[0][7]
-				reguser.image = self.validacion[0][8]
-				self.Home(Ventana_Principal,reguser)
+			print(type(passwd),type(user))
+			if (user != ""):
+				if passwd != "":
+					if (self.validacion):
+						import sys
+						import imagen_rc
+						reguser.firstname = self.validacion[0][2]
+						reguser.lastname = self.validacion[0][3]
+						reguser.username = self.validacion[0][0]
+						reguser.birthdate = self.validacion[0][6]
+						reguser.email = self.validacion[0][4]
+						reguser.password = self.validacion[0][5]
+						reguser.type = self.validacion[0][1]
+						reguser.phone_number = self.validacion[0][7]
+						reguser.image = self.validacion[0][8]
+						self.Home(Ventana_Principal,reguser)
+					else:
+						msj = QMessageBox.critical(Ventana_Principal, "Incorrect username or password", "Please, try again.\nIf you don't have an account you can create one free!")
+				else:
+					msj = QMessageBox.critical(Ventana_Principal, "No password", "Complete the password field and try again")
 			else:
-				msj = QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+				msj = QMessageBox.critical(Ventana_Principal, "No email or username", "Complete the username or email field and try again")
 		elif typeu == 2:
 			print("Tipo: ", typeu)
 			owner = ShopOwner()
@@ -144,21 +156,28 @@ class Controller():
 			owner.type = typeu
 			self.validacion = owner.SignIn()
 			#self.reguser.username, self.reguser.password)
-			if (self.validacion):
-				import sys
-				import imagen_rc
-				owner.firstname = self.validacion[0][2]
-				owner.lastname = self.validacion[0][3]
-				owner.username = self.validacion[0][0]
-				owner.birthdate = self.validacion[0][6]
-				owner.email = self.validacion[0][4]
-				owner.password = self.validacion[0][5]
-				owner.type = self.validacion[0][1]
-				owner.phone_number = self.validacion[0][7]
-				owner.image = self.validacion[0][8]
-				self.Home(Ventana_Principal,owner)
+			print(self.validacion)
+			if (user != ""):
+				if passwd != "":
+					if (self.validacion):
+						import sys
+						import imagen_rc
+						owner.firstname = self.validacion[0][2]
+						owner.lastname = self.validacion[0][3]
+						owner.username = self.validacion[0][0]
+						owner.birthdate = self.validacion[0][6]
+						owner.email = self.validacion[0][4]
+						owner.password = self.validacion[0][5]
+						owner.type = self.validacion[0][1]
+						owner.phone_number = self.validacion[0][7]
+						owner.image = self.validacion[0][8]
+						self.Home(Ventana_Principal,owner)
+					else:
+						QMessageBox.critical(Ventana_Principal, "Incorrect username or password", "Please, try again.\nIf you don't have an account you can create one free!")
+				else:
+					msj = QMessageBox.critical(Ventana_Principal, "No password", "Complete the password field and try again")
 			else:
-				QMessageBox.critical(Ventana_Principal, "Datos Incorrectos", "Por favor, intente nuevamente. Si no está registrado, puede hacerlo gratuitamente.")
+				msj = QMessageBox.critical(Ventana_Principal, "No email or username", "Complete the username or email field and try again")
 		elif typeu == 3:
 			user = User()
 			self.Home(Ventana_Principal, user)
@@ -198,6 +217,7 @@ class Controller():
 		self.userresguardo = user
 		ventana1 = UserEditView(Ventana_Principal, user)
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: ventana1.actualizar())
+		ventana1.pushButton_cancel.clicked.connect(lambda: self.user(Ventana_Principal, user))
 		ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.UpdateUserEdit(user,self.userresguardo,ventana1, Ventana_Principal))
 		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.Home(Ventana_Principal, user, user.type))
 		#ventana1.pushButton_GuardarCambios.clicked.connect(lambda: self.user(Ventana_Principal, user))

@@ -167,7 +167,16 @@ class UserEditView(object):
                         "")
         self.Cargar_imagen.setObjectName("Cargar_imagen")
         self.Cargar_imagen.clicked.connect(lambda: self.getImage(MainWindow, user))
-                        
+        self.pushButton_cancel = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_cancel.setGeometry(QtCore.QRect(540, 0, 61, 23))
+        self.pushButton_cancel.setAutoFillBackground(False)
+        self.pushButton_cancel.setStyleSheet("background: rgb(225,225,225,60);\n"
+"border: 1px solid rgb(225,225,225,60);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);\n"
+"")
+        self.pushButton_cancel.setObjectName("pushButton_back")
+
         self.Cargar_imagen.raise_()
         self.frame.raise_()
         self.Potho.raise_()
@@ -184,6 +193,7 @@ class UserEditView(object):
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
         self.pushButton_GuardarCambios.raise_()
+        self.pushButton_cancel.raise_()
 
         MainWindow.setCentralWidget(self.centralwidget)
         MainWindow.show()
@@ -239,6 +249,7 @@ class UserEditView(object):
        self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Save Changes"))
        self.Cargar_imagen.setText(_translate("MainWindow", "Upload Image"))
+       self.pushButton_cancel.setText(_translate("MainWindow", "Cancel"))
 
 '''import imagen_rc
 

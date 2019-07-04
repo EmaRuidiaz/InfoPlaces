@@ -144,18 +144,21 @@ class UserProfileView(object):
 "")
         self.pushButton_back_Change_Password.setAlignment(QtCore.Qt.AlignCenter)
         self.pushButton_back_Change_Password.setObjectName("pushButton_back_Change_Password")
-        self.pushButton_Resgister_Store = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Resgister_Store.setGeometry(QtCore.QRect(500, 390, 171, 31))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.pushButton_Resgister_Store.setFont(font)
-        self.pushButton_Resgister_Store.setAutoFillBackground(False)
-        self.pushButton_Resgister_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
+        if user.type == 2:
+            
+            self.pushButton_Resgister_Store = QtWidgets.QPushButton(self.centralwidget)
+            self.pushButton_Resgister_Store.setGeometry(QtCore.QRect(500, 390, 171, 31))
+            font = QtGui.QFont()
+            font.setPointSize(15)
+            self.pushButton_Resgister_Store.setFont(font)
+            self.pushButton_Resgister_Store.setAutoFillBackground(False)
+            self.pushButton_Resgister_Store.setStyleSheet("background: rgb(225,225,225,60);\n"
 "border: 1px solid rgb(225,225,225,60);\n"
 "border-radius: 6px;\n"
 "color: rgb(225,225,225);\n"
 "")
-        self.pushButton_Resgister_Store.setObjectName("pushButton_Resgister_Store")
+            self.pushButton_Resgister_Store.setObjectName("pushButton_Resgister_Store")
+            self.pushButton_Resgister_Store.raise_()
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
         self.frame.setFocusPolicy(QtCore.Qt.ClickFocus)
@@ -178,7 +181,7 @@ class UserProfileView(object):
         #self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
-        self.pushButton_Resgister_Store.raise_()
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow,user)
@@ -201,6 +204,7 @@ class UserProfileView(object):
         #self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         self.Username.setText(_translate("MainWindow", " " + user.username))
         self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
-        self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
+        if user.type==2:
+           self.pushButton_Resgister_Store.setText(_translate("MainWindow", "Register Store"))
 
 

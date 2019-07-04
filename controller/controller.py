@@ -96,7 +96,9 @@ class Controller():
 	def Home(self, Ventana_Principal,user):
 		ventana1 = HomeView(Ventana_Principal, user)
 		search = Shop()
-		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1))
+		resultado = []
+		
+		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1, resultado))
 		try:
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
@@ -105,7 +107,6 @@ class Controller():
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
 
 	def filterShop(self,ventana1, resultado):
-		print("Filtrando....................")
 		if ventana1.radioButton_Sports.isChecked():
 			for i in range(len(resultado),0,-1):
 				if resultado[len(resultado) - i][3] != "Sports":
@@ -127,7 +128,6 @@ class Controller():
 				if resultado[len(resultado) - i][3] != "Restaurant":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Bookstore.isChecked():
-			print("dentro de bookstore ",resultado)
 			for i in range(len(resultado),0,-1):
 				if resultado[len(resultado) - i][3] != "Bookstore":
 					resultado.pop(len(resultado) -i)
@@ -146,12 +146,13 @@ class Controller():
 		elif ventana1.radioButton_Restaurant.isChecked():
 			pass
 
-	def Search(self, search, ventana1):
+	def Search(self, search, ventana1, resultado):
 		ventana1.update()
 		search.name = ventana1.busqueda
 		resultado = search.searchShop()
 		self.filterShop(ventana1,resultado) 
 		print(resultado)
+		return resultado
 
 	def logOut(self, Ventana_Principal, user):
 		del user

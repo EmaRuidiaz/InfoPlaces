@@ -30,5 +30,5 @@ class Shop:
 
 	def searchShop(self):
 		self.query = "SELECT distinct s.id, s.name, s.description, s.type  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id WHERE s.name like %s;"
-		self.values = (self.name,)
+		self.values = ("%"+self.name+"%",)
 		return self.db.ejecutar(self.query, self.values)

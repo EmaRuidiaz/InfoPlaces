@@ -367,7 +367,6 @@ class HomeView(object):
 
     def update(self):
         self.busqueda = self.Search.text()
-        print("La busqueda es ",self.busqueda)
 
     def retranslateUi(self, MainWindow,user):
         _translate = QtCore.QCoreApplication.translate

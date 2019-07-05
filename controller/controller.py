@@ -87,7 +87,7 @@ class Controller():
 					else:
 						QMessageBox.about(Ventana_Principal, "Weak password.", "The password needs to be more than 8 characters")
 				else:
-					QMessageBox.about(Ventana_Principal, "Birthdate invalid.", "birthdate is non-existent")
+					QMessageBox.about(Ventana_Principal, "Birthdate is invalid.", "birthdate is non-existent")
 			else:
 				QMessageBox.about(Ventana_Principal, "Error", "You need to complete all the required fields.")
 		else:
@@ -268,32 +268,37 @@ class Controller():
 		
 
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
-		self.usernameresguardo = user.username
-		self.emailresguardo = user.email
-		user.firstname = ventana1.firstname
-		user.lastname = ventana1.lastname
-		user.username = ventana1.username
-		user.password = ventana1.password
-		user.phone_number = ventana1.phone
-		user.image = ventana1.fileName
-		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
-		if user.firstname and user.lastname and user.password and (len(user.password) > 7):
-			self.var = user.CheckReg()
-			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
-				user.UpdateInfo(self.usernameresguardo)
-				user.UpdatePhoto(self.usernameresguardo)
-				QMessageBox.about(Ventana_Principal, "Update Succefull", "Se ha actualizado correctamente sus datos.")
-				self.user(Ventana_Principal, user)
+		if ventana1.error == 0:
+			self.usernameresguardo = user.username
+			self.emailresguardo = user.email
+			user.firstname = ventana1.firstname
+			user.lastname = ventana1.lastname
+			user.username = ventana1.username
+			user.password = ventana1.password
+			user.phone_number = ventana1.phone
+			user.image = ventana1.fileName
+			print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
+			if user.firstname and user.lastname and user.password and (len(user.password) > 7):
+				self.var = user.CheckReg()
+				if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
+					user.UpdateInfo(self.usernameresguardo)
+					user.UpdatePhoto(self.usernameresguardo)
+					QMessageBox.about(Ventana_Principal, "Update Succefull", "Personal data Updated!")
+					self.user(Ventana_Principal, user)
+				else:
+					QMessageBox.warning(Ventana_Principal, "Error", "Username already exist")
+					user = userresguardo
+					user.username = self.usernameresguardo
+					user.email = self.emailresguardo
+					self.editarUser(Ventana_Principal, user, userresguardo)
 			else:
-				QMessageBox.warning(Ventana_Principal, "Error", "El username, el email ya está en uso")
+				QMessageBox.warning(Ventana_Principal, "Error", "You need to complete all fields")
 				user = userresguardo
-				user.username = self.usernameresguardo
-				user.email = self.emailresguardo
 				self.editarUser(Ventana_Principal, user, userresguardo)
-		else:
-			QMessageBox.critical(Ventana_Principal, "Error", "Datos Incompletos")
-			user = userresguardo
-			self.editarUser(Ventana_Principal, user, userresguardo)
+		elif ventana1.error == 1:
+			QMessageBox.critical(Ventana_Principal, "Error - Register", "Numero de telefono")
+		elif ventana1.error == 2:
+			QMessageBox.critical(Ventana_Principal, "Error - Register", "Contraseña corta")
 
 	def user(self, Ventana_Principal, user):
 		import imagen_rc

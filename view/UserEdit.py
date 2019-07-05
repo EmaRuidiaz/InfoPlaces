@@ -12,6 +12,7 @@ from PyQt5.QtGui import QPixmap
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
+        self.error = 0
         self.firstname = None
         self.lastname = None
         self.username = None
@@ -98,15 +99,6 @@ class UserEditView(object):
         self.lineEdit_Email.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "border: transparent;\n")
         self.lineEdit_Email.setObjectName("lineEdit_Email")
-        self.pushButton_back = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_back.setGeometry(QtCore.QRect(0, 0, 61, 23))
-        self.pushButton_back.setAutoFillBackground(False)
-        self.pushButton_back.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);\n"
-"")
-        self.pushButton_back.setObjectName("pushButton_back")
         '''self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
                                 self.pushButton_Home.setGeometry(QtCore.QRect(370, 0, 61, 23))
                                 self.pushButton_Home.setAutoFillBackground(False)
@@ -188,7 +180,6 @@ class UserEditView(object):
         self.lineEdit_Last_Name.raise_()
         self.lineEdit_Phone_Number.raise_()
         self.lineEdit_Email.raise_()
-        self.pushButton_back.raise_()
         #self.pushButton_Home.raise_()
         self.Username.raise_()
         self.pushButton_back_Change_Password.raise_()
@@ -216,12 +207,19 @@ class UserEditView(object):
             return pixmap
 
     def actualizar(self):
-       self.firstname = self.lineEdit_First_Name.text()
-       self.lastname = self.lineEdit_Last_Name.text()
-       self.username = self.Username.text()
-       self.password = self.lineEdit_Email.text()
-       self.phone = self.lineEdit_Phone_Number.text()
-       #self.fileName = 
+        self.error = 0
+        if self.lineEdit_First_Name.text() != None and self.lineEdit_Last_Name.text() != None and self.Username.text() != None and len(self.lineEdit_Email.text()) > 7:
+            self.firstname = self.lineEdit_First_Name.text()
+            self.lastname = self.lineEdit_Last_Name.text()
+            self.username = self.Username.text()
+            self.password = self.lineEdit_Email.text()
+            try:
+                self.phone = int(self.lineEdit_Phone_Number.text())
+            except:
+                self.error = 1
+        else:
+            self.error = 2
+        #self.fileName = 
 
     def getImage(self, MainWindow, user):
         self.photo = self.openFileNameDialog(MainWindow, user)
@@ -240,10 +238,9 @@ class UserEditView(object):
        self.Last_Name.setText(_translate("MainWindow", "Last Name:"))
        self.lineEdit_Last_Name.setText(_translate("MainWindow", user.lastname))
        self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
-       self.lineEdit_Phone_Number.setText(_translate("MainWindow", user.phone_number))
+       self.lineEdit_Phone_Number.setText(_translate("MainWindow", str(user.phone_number)))
        self.Email.setText(_translate("MainWindow", "Password:"))
        self.lineEdit_Email.setText(_translate("MainWindow", user.password))
-       self.pushButton_back.setText(_translate("MainWindow", "Back"))
        #self.pushButton_Home.setText(_translate("MainWindow", "Home"))
        self.Username.setText(_translate("MainWindow", user.username))
        self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))

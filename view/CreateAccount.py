@@ -269,6 +269,13 @@ class CreateAccountView(object):
         self.label_priority7.setFont(font)
         self.label_priority7.setStyleSheet("background: transparent;\n"
                                             "color: red;")
+        self.label_priority8 = QtWidgets.QLabel(self.frame)
+        self.label_priority8.setGeometry(QtCore.QRect(520, 410, 61, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_priority8.setFont(font)
+        self.label_priority8.setStyleSheet("background: transparent;\n"
+                                            "color: red;")
 
         self.image = "../view/user.PNG"
 
@@ -326,6 +333,7 @@ class CreateAccountView(object):
         self.label_priority5.setText(_translate("MainWindow", "*"))
         self.label_priority6.setText(_translate("MainWindow", "*"))
         self.label_priority7.setText(_translate("MainWindow", "*"))
+        self.label_priority8.setText(_translate("MainWindow", "*"))
 
     def validar_Firstname(self):
         self.campo_first_name.setMaxLength(30) #Permite limitar la cantidad de caracteres en el campo

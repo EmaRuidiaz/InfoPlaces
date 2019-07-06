@@ -250,18 +250,32 @@ class Controller():
 								shop.address = ventana1.address
 								shop.number = ventana1.number
 								shop.description = ventana1.description'''
-		if shop.name and shop.address and shop.number and shop.description and ventana1.flagPhoto and ventana1.flagType:
-			shop.register(user)
-			idShop = shop.getID()
-			print("Este es el id de la tienda: ",idShop)
-			shop.registerPhoto(idShop[0][0])
-			print("VENTANA1.SCHEDULE: ",ventana1.schedule)
-			for i in range(1,15):
-				schedule.register(ventana1.schedule, idShop[0][0], i-1)
-			QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
+		if shop.name:
+			if shop.address:
+				if shop.number: 
+					if shop.description: 
+						if ventana1.flagType: 
+							if ventana1.flagPhoto:
+								shop.register(user)
+								idShop = shop.getID()
+								print("Este es el id de la tienda: ",idShop)
+								shop.registerPhoto(idShop[0][0])
+								print("VENTANA1.SCHEDULE: ",ventana1.schedule)
+								for i in range(1,15):
+									schedule.register(ventana1.schedule, idShop[0][0], i-1)
+								QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
+							else:
+								QMessageBox.warning(Ventana_Principal, "Error", "Photo")
+						else:
+							QMessageBox.warning(Ventana_Principal, "Error", "Type")
+					else:
+						QMessageBox.warning(Ventana_Principal, "Error", "Description")
+				else:
+					QMessageBox.warning(Ventana_Principal, "Error", "Adress Number")
+			else:
+				QMessageBox.warning(Ventana_Principal, "Error", "Adress")
 		else:
-			QMessageBox.critical(Ventana_Principal, "Error - Register", "The shop wasn't registered!")
-			print("Error - No se ha registrado")
+			QMessageBox.warning(Ventana_Principal, "Error", "Name")
 
 
 	def editarUser(self, Ventana_Principal, user, userresguardo):
@@ -285,23 +299,20 @@ class Controller():
 		user.phone_number = ventana1.phone
 		user.image = ventana1.fileName
 		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
-		if user.firstname and user.lastname and user.password and (len(user.password) > 7):
-			self.var = user.CheckReg()
-			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
-				user.UpdateInfo(self.usernameresguardo)
-				user.UpdatePhoto(self.usernameresguardo)
-				QMessageBox.about(Ventana_Principal, "Update Succefull", "Personal data Updated!")
-				self.user(Ventana_Principal, user)
+		if user.firstname and user.lastname and user.password:
+			if (len(user.password) > 7):
+				self.var = user.CheckReg()
+				if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
+						user.UpdateInfo(self.usernameresguardo)
+						user.UpdatePhoto(self.usernameresguardo)
+						self.user(Ventana_Principal, user)
+						QMessageBox.about(Ventana_Principal, "Update Succefull", "Personal data Updated!")
+				else:
+					QMessageBox.warning(Ventana_Principal, "Username already exist", "Try another Username")
 			else:
-				QMessageBox.warning(Ventana_Principal, "Error", "Username already exist")
-				user = userresguardo
-				user.username = self.usernameresguardo
-				user.email = self.emailresguardo
-				self.editarUser(Ventana_Principal, user, userresguardo)
+				QMessageBox.warning(Ventana_Principal, "Weak password.", "The password needs to be more than 8 characters")
 		else:
 			QMessageBox.warning(Ventana_Principal, "Error", "You need to complete all fields")
-			user = userresguardo
-			self.editarUser(Ventana_Principal, user, userresguardo)
 
 	def user(self, Ventana_Principal, user):
 		import imagen_rc

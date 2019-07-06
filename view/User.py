@@ -190,6 +190,9 @@ class UserProfileView(object):
         MainWindow.show()
     def retranslateUi(self, MainWindow, user):
         _translate = QtCore.QCoreApplication.translate
+        self.passwrd = "•"
+        for x in range(1, len(user.password)):
+            self.passwrd += "•"
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.First_Name.setText(_translate("MainWindow", "First Name:"))
         self.lineEdit_First_Name.setText(_translate("MainWindow", " " + user.firstname))
@@ -198,7 +201,7 @@ class UserProfileView(object):
         self.Phone_Number.setText(_translate("MainWindow", "Phone Number:"))
         self.lineEdit_Phone_Number.setText(_translate("MainWindow", " " + str(user.phone_number)))
         self.Email.setText(_translate("MainWindow", "Password:"))
-        self.lineEdit_Email.setText(_translate("MainWindow", " " + user.password))
+        self.lineEdit_Email.setText(_translate("MainWindow", " " + self.passwrd))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_editUser.setText(_translate("MainWindow", "Edit"))
         #self.pushButton_Home.setText(_translate("MainWindow", "Home"))

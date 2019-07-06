@@ -99,9 +99,9 @@ class Controller():
 		print(b)
 		ventana1 = HomeView(Ventana_Principal, user,b)
 		search = Shop()
-		resultado = []
+		#resultado = []
 		
-		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1, resultado))
+		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1, b))
 		try:
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
@@ -146,15 +146,20 @@ class Controller():
 			for i in range(len(resultado),0,-1):
 				if resultado[len(resultado) - i][3] != "Other":
 					resultado.pop(len(resultado) -i)
-		elif ventana1.radioButton_Restaurant.isChecked():
+		elif ventana1.radioButton_All.isChecked():
 			pass
 
 	def Search(self, search, ventana1, resultado):
 		ventana1.update()
+		
 		search.name = ventana1.busqueda
+		print("antes de busqueda primera: ",resultado)
 		resultado = search.searchShop()
+		print("antes de filtrado: ",resultado)
 		self.filterShop(ventana1,resultado) 
-		print(resultado)
+		print("Despues de filtro: ",resultado)
+		ventana1.Cargar_tienda(resultado)
+		print("Despues de busqueda: ",resultado)
 		return resultado
 
 	def logOut(self, Ventana_Principal, user):

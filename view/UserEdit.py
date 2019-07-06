@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication,QPushButton, QVBoxLayout, QFileDialog , QLabel, QTextEdit
 from PyQt5.QtGui import QPixmap
+import re
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
@@ -91,6 +92,7 @@ class UserEditView(object):
         self.lineEdit_Phone_Number.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "border: transparent;\n")
         self.lineEdit_Phone_Number.setObjectName("lineEdit_Phone_Number")
+        self.lineEdit_Phone_Number.textChanged.connect(self.validar_PhoneNumber)
         self.lineEdit_Email = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_Email.setGeometry(QtCore.QRect(420, 330, 261, 31))
         font = QtGui.QFont()
@@ -160,7 +162,7 @@ class UserEditView(object):
         self.Cargar_imagen.setObjectName("Cargar_imagen")
         self.Cargar_imagen.clicked.connect(lambda: self.getImage(MainWindow, user))
         self.pushButton_cancel = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_cancel.setGeometry(QtCore.QRect(540, 0, 61, 23))
+        self.pushButton_cancel.setGeometry(QtCore.QRect(547, 0, 61, 23))
         self.pushButton_cancel.setAutoFillBackground(False)
         self.pushButton_cancel.setStyleSheet("background: rgb(225,225,225,60);\n"
 "border: 1px solid rgb(225,225,225,60);\n"
@@ -191,6 +193,11 @@ class UserEditView(object):
 
         self.retranslateUi(MainWindow, user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def validar_PhoneNumber(self):
+        self.lineEdit_Phone_Number.setMaxLength(13)
+        phone = self.lineEdit_Phone_Number.text()
+        validar = re.match('^[0-9]{10,13}$',phone)
 
     def openFileNameDialog(self, MainWindow, user):
         #options = QFileDialog.Options()

@@ -94,7 +94,10 @@ class Controller():
 			QMessageBox.about(Ventana_Principal, "Terms and conditions", "You need to read and accept Terms and conditions")
 
 	def Home(self, Ventana_Principal,user):
-		ventana1 = HomeView(Ventana_Principal, user)
+		a = Shop()
+		b = a.TraerTiendas()
+		print(b)
+		ventana1 = HomeView(Ventana_Principal, user,b)
 		search = Shop()
 		resultado = []
 		

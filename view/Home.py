@@ -5,11 +5,14 @@
 # Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
-
+import sys
+sys.path.append('../model')
 from PyQt5 import QtCore, QtGui, QtWidgets
+from db_connection import DBconn
+from model_Shop import Shop
 
 class HomeView(object):
-    def __init__(self, MainWindow, user):
+    def __init__(self, MainWindow, user,b):
         self.busqueda = ""
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -204,82 +207,49 @@ class HomeView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_Log_Out.setObjectName("pushButton_Log_Out")
-        self.scrollArea = QtWidgets.QScrollArea(self.frame)
-        self.scrollArea.setGeometry(QtCore.QRect(170, 140, 611, 431))
-        self.scrollArea.setStyleSheet("background:transparent;\n"
-"border: transprent;")
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 611, 431))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.label_8 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_8.setGeometry(QtCore.QRect(10, 10, 181, 131))
-        self.label_8.setText("")
-        self.label_8.setPixmap(QtGui.QPixmap(":/Tienda/Adidas-Splau-650.jpg"))
-        self.label_8.setScaledContents(True)
-        self.label_8.setObjectName("label_8")
-        self.label_9 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_9.setGeometry(QtCore.QRect(10, 150, 181, 131))
-        self.label_9.setText("")
-        self.label_9.setPixmap(QtGui.QPixmap(":/Tienda/image_content_7298511_20160625221849.jpg"))
-        self.label_9.setScaledContents(True)
-        self.label_9.setObjectName("label_9")
-        self.label_10 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_10.setGeometry(QtCore.QRect(10, 290, 181, 131))
-        self.label_10.setText("")
-        self.label_10.setPixmap(QtGui.QPixmap(":/Tienda/resizeimg.jpg"))
-        self.label_10.setScaledContents(True)
-        self.label_10.setObjectName("label_10")
-        self.frame_3 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        self.frame_3.setGeometry(QtCore.QRect(210, 10, 391, 131))
-        self.frame_3.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.titulo_tienda1 = QtWidgets.QLabel(self.frame_3)
-        self.titulo_tienda1.setGeometry(QtCore.QRect(10, 10, 51, 16))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.titulo_tienda1.setFont(font)
-        self.titulo_tienda1.setObjectName("titulo_tienda1")
-        self.textBrowser_Descripcion1 = QtWidgets.QTextBrowser(self.frame_3)
-        self.textBrowser_Descripcion1.setGeometry(QtCore.QRect(10, 30, 371, 71))
-        self.textBrowser_Descripcion1.setObjectName("textBrowser_Descripcion1")
-        self.frame_4 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        self.frame_4.setGeometry(QtCore.QRect(210, 290, 391, 131))
-        self.frame_4.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_4.setObjectName("frame_4")
-        self.titulo_tienda3 = QtWidgets.QLabel(self.frame_4)
-        self.titulo_tienda3.setGeometry(QtCore.QRect(10, 10, 51, 16))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.titulo_tienda3.setFont(font)
-        self.titulo_tienda3.setObjectName("titulo_tienda3")
-        self.textBrowser_Descripcion3 = QtWidgets.QTextBrowser(self.frame_4)
-        self.textBrowser_Descripcion3.setGeometry(QtCore.QRect(10, 30, 371, 71))
-        self.textBrowser_Descripcion3.setObjectName("textBrowser_Descripcion3")
-        self.frame_5 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        self.frame_5.setGeometry(QtCore.QRect(210, 150, 391, 131))
-        self.frame_5.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_5.setObjectName("frame_5")
-        self.titulo_tienda2 = QtWidgets.QLabel(self.frame_5)
-        self.titulo_tienda2.setGeometry(QtCore.QRect(10, 10, 51, 16))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.titulo_tienda2.setFont(font)
-        self.titulo_tienda2.setObjectName("titulo_tienda2")
-        self.textBrowser_Descripcion2 = QtWidgets.QTextBrowser(self.frame_5)
-        self.textBrowser_Descripcion2.setGeometry(QtCore.QRect(10, 30, 371, 71))
-        self.textBrowser_Descripcion2.setObjectName("textBrowser_Descripcion2")
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        
+        self.tableWidget = QtWidgets.QTableWidget(self.frame)
+        self.tableWidget.setGeometry(QtCore.QRect(180, 143, 601, 451))
+        self.tableWidget.setAutoFillBackground(False)
+        self.tableWidget.setStyleSheet("background: transparent;\n"
+"border: transparent;")
+        self.tableWidget.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableWidget.setLineWidth(1)
+        self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.tableWidget.setAutoScroll(True)
+        self.tableWidget.setTabKeyNavigation(True)
+        self.tableWidget.setProperty("showDropIndicator", True)
+        self.tableWidget.setDragEnabled(False)
+        self.tableWidget.setAlternatingRowColors(False)
+        self.tableWidget.setTextElideMode(QtCore.Qt.ElideRight)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setGridStyle(QtCore.Qt.NoPen)
+        self.tableWidget.setWordWrap(True)
+        self.tableWidget.setCornerButtonEnabled(True)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidget.horizontalHeader().setVisible(False)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(131)
+        self.tableWidget.horizontalHeader().setHighlightSections(True)
+        self.tableWidget.verticalHeader().setVisible(False)
+        
+
+
+
+
+
+
+
+
+
+
+
         self.comboBox = QtWidgets.QComboBox(self.frame)
         self.comboBox.setGeometry(QtCore.QRect(570, 120, 211, 22))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -349,10 +319,11 @@ class HomeView(object):
         self.Photo.raise_()
         self.label_7.raise_()
         self.pushButton_Log_Out.raise_()
-        self.scrollArea.raise_()
+        #self.scrollArea.raise_()
         self.comboBox.raise_()
         self.pushButton_Search.raise_()
         self.frame_camu.raise_()
+        self.tableWidget.raise_()
 
         #self.pushButton_Search.clicked.connect(lambda: self.update())
 
@@ -360,7 +331,7 @@ class HomeView(object):
 
         self.retranslateUi(MainWindow,user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        
+        self.Cargar_tienda(b)
 
 
         MainWindow.show()
@@ -368,6 +339,91 @@ class HomeView(object):
     def update(self):
         self.busqueda = self.Search.text()
 
+    
+    def Cargar_tienda(self,consulta):
+        tiendas = consulta
+        print("entre a la funcion Cargar_tienda")
+        self.tableWidget.setRowCount(len(tiendas))
+        self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
+
+
+        for i in range(len(tiendas)):
+            tienda = tiendas[i]
+            imagen = tienda[0]
+            nombre = tienda[1]
+            descripcion = tienda[2]
+            caja = QtWidgets.QHBoxLayout()
+            # Crea las imagenes de la tiendas
+            imagen_tienda = QtWidgets.QLabel(self.tableWidget)
+            imagen_tienda.setGeometry(QtCore.QRect(0,0,100,50))
+            imagen_tienda.setText("")
+            imagen_tienda.setPixmap(QtGui.QPixmap(imagen))
+            imagen_tienda.setScaledContents(True)
+            imagen_tienda.setObjectName("imagen_tienda")
+            imagen_tienda.setMaximumSize(181,131)
+            print("inserte imagen")
+
+            caja.addWidget(imagen_tienda)
+            celda = QtWidgets.QWidget()
+            #celda.setStyleSheet("background: green")
+            celda.setLayout(caja)
+            print("cree celda")
+
+            textBrowser = QtWidgets.QTextBrowser(self.tableWidget)
+            textBrowser.setGeometry(QtCore.QRect(0, 0, 368, 131))
+            textBrowser.setMinimumSize(368,131)
+            textBrowser.setMaximumSize(368,131)
+            textBrowser.setStyleSheet("background: rgb(225,225,225,60);\n"
+    "border: 1px solid rgb(225,225,225,60);\n"
+    "border-radius: 6px;\n"
+    "color: rgb(225,225,225);")
+            textBrowser.setPlaceholderText("")
+
+            _translate = QtCore.QCoreApplication.translate
+            textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">nombre</p></body></html>"))
+
+
+            textBrowser.setObjectName("textBrowser")
+            caja2 = QtWidgets.QHBoxLayout()
+            caja2.addWidget(textBrowser)
+            celda2 = QtWidgets.QWidget()
+            #celda2.setBaseSize(371,151)
+            #celda2.setStyleSheet("background: red;")
+            celda2.setLayout(caja2)
+            self.tableWidget.setCellWidget(i,1,celda2)
+            self.tableWidget.resizeRowsToContents()
+            self.tableWidget.resizeColumnsToContents()
+
+            # agregar el texto de la descripcion de la tienda y el nombre en el momento que se crea la tienda.
+
+            self.tableWidget.setCellWidget(i,0,celda)
+            self.tableWidget.resizeRowsToContents()
+            self.tableWidget.resizeColumnsToContents()
+
+            
+            
+            columna = 0
+            '''for x in tienda:
+            #imagen = tienda[i][0]
+            #self.imagenshop1 = QtWidgets.QLabel(self.tableWidget)
+            item = QtWidgets.QTableWidgetItem(str(x))
+            self.tableWidget.setItem(i,columna,item)
+            columna = columna + 1
+
+            for x in tienda:
+            #imagen = tienda[i][0]
+            #self.imagenshop1 = QtWidgets.QLabel(self.tableWidget)
+                if columna != 0:
+                    item = QtWidgets.QTableWidgetItem(str(x))
+                self.tableWidget.setItem(i,columna,item)
+                columna = columna + 1
+            '''
+
+    
     def retranslateUi(self, MainWindow,user):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -384,6 +440,8 @@ class HomeView(object):
         self.groupBox_2.setTitle(_translate("MainWindow", "Valoración"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
+        
+        '''
         self.titulo_tienda1.setText(_translate("MainWindow", "Store_1"))
         self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                             "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -402,11 +460,17 @@ class HomeView(object):
                                                     "p, li { white-space: pre-wrap; }\n"
                                                     "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_2</p></body></html>"))
+        '''
         self.comboBox.setItemText(0, _translate("MainWindow", "Sort by"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Descendent Rate"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
+        self.pushButton_Search.setText(_translate("MainWindow", ""))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Imagen"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Description"))
         self.pushButton_Search.setText(_translate("MainWindow", ""))
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow","Edit Profile"))

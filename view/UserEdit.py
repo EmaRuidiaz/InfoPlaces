@@ -13,7 +13,6 @@ import re
 
 class UserEditView(object):
     def __init__(self, MainWindow, user):
-        self.error = 0
         self.firstname = None
         self.lastname = None
         self.username = None
@@ -115,9 +114,8 @@ class UserEditView(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.Username.setFont(font)
-        self.Username.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
-"border: transparent;\n"
-"color: rgb(225,225,225)")
+        self.Username.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border: transparent;\n")
         self.Username.setAlignment(QtCore.Qt.AlignCenter)
         self.Username.setObjectName("Username")
         self.pushButton_back_Change_Password = QtWidgets.QLabel(self.centralwidget)
@@ -132,6 +130,7 @@ class UserEditView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_back_Change_Password.setObjectName("pushButton_back_Change_Password")
+        self.pushButton_back_Change_Password.setAlignment(QtCore.Qt.AlignCenter)
         self.pushButton_GuardarCambios = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_GuardarCambios.setGeometry(QtCore.QRect(500, 390, 171, 31))
         font = QtGui.QFont()
@@ -214,18 +213,11 @@ class UserEditView(object):
             return pixmap
 
     def actualizar(self):
-        self.error = 0
-        if self.lineEdit_First_Name.text() != None and self.lineEdit_Last_Name.text() != None and self.Username.text() != None and len(self.lineEdit_Email.text()) > 7:
             self.firstname = self.lineEdit_First_Name.text()
             self.lastname = self.lineEdit_Last_Name.text()
             self.username = self.Username.text()
             self.password = self.lineEdit_Email.text()
-            try:
-                self.phone = int(self.lineEdit_Phone_Number.text())
-            except:
-                self.error = 1
-        else:
-            self.error = 2
+            self.phone = self.lineEdit_Phone_Number.text()
         #self.fileName = 
 
     def getImage(self, MainWindow, user):

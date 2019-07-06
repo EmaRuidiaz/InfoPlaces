@@ -276,37 +276,32 @@ class Controller():
 		
 
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
-		if ventana1.error == 0:
-			self.usernameresguardo = user.username
-			self.emailresguardo = user.email
-			user.firstname = ventana1.firstname
-			user.lastname = ventana1.lastname
-			user.username = ventana1.username
-			user.password = ventana1.password
-			user.phone_number = ventana1.phone
-			user.image = ventana1.fileName
-			print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
-			if user.firstname and user.lastname and user.password and (len(user.password) > 7):
-				self.var = user.CheckReg()
-				if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
-					user.UpdateInfo(self.usernameresguardo)
-					user.UpdatePhoto(self.usernameresguardo)
-					QMessageBox.about(Ventana_Principal, "Update Succefull", "Personal data Updated!")
-					self.user(Ventana_Principal, user)
-				else:
-					QMessageBox.warning(Ventana_Principal, "Error", "Username already exist")
-					user = userresguardo
-					user.username = self.usernameresguardo
-					user.email = self.emailresguardo
-					self.editarUser(Ventana_Principal, user, userresguardo)
+		self.usernameresguardo = user.username
+		self.emailresguardo = user.email
+		user.firstname = ventana1.firstname
+		user.lastname = ventana1.lastname
+		user.username = ventana1.username
+		user.password = ventana1.password
+		user.phone_number = ventana1.phone
+		user.image = ventana1.fileName
+		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
+		if user.firstname and user.lastname and user.password and (len(user.password) > 7):
+			self.var = user.CheckReg()
+			if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
+				user.UpdateInfo(self.usernameresguardo)
+				user.UpdatePhoto(self.usernameresguardo)
+				QMessageBox.about(Ventana_Principal, "Update Succefull", "Personal data Updated!")
+				self.user(Ventana_Principal, user)
 			else:
-				QMessageBox.warning(Ventana_Principal, "Error", "You need to complete all fields")
+				QMessageBox.warning(Ventana_Principal, "Error", "Username already exist")
 				user = userresguardo
+				user.username = self.usernameresguardo
+				user.email = self.emailresguardo
 				self.editarUser(Ventana_Principal, user, userresguardo)
-		elif ventana1.error == 1:
-			QMessageBox.critical(Ventana_Principal, "Error - Register", "Numero de telefono")
-		elif ventana1.error == 2:
-			QMessageBox.critical(Ventana_Principal, "Error - Register", "Contraseña corta")
+		else:
+			QMessageBox.warning(Ventana_Principal, "Error", "You need to complete all fields")
+			user = userresguardo
+			self.editarUser(Ventana_Principal, user, userresguardo)
 
 	def user(self, Ventana_Principal, user):
 		import imagen_rc

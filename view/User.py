@@ -102,7 +102,7 @@ class UserProfileView(object):
 
 
         self.pushButton_editUser = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_editUser.setGeometry(QtCore.QRect(540, 0, 61, 23))
+        self.pushButton_editUser.setGeometry(QtCore.QRect(547, 0, 61, 23))
         self.pushButton_editUser.setAutoFillBackground(False)
         self.pushButton_editUser.setStyleSheet("background: rgb(225,225,225,60);\n"
 "border: 1px solid rgb(225,225,225,60);\n"

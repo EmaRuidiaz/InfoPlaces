@@ -29,11 +29,26 @@ class Shop:
 		return self.db.insertar(self.query, self.values)
 
 	def searchShop(self):
-		self.query = "SELECT distinct p.image, s.name, s.description, s.type, s.id  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id WHERE s.name like %s GROUP BY s.id;"
+		self.query = "SELECT distinct p.image, s.name, s.description, s.id, s.type  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id WHERE s.name like %s GROUP BY s.id;"
 		self.values = ("%"+self.name+"%",)
 		return self.db.ejecutar(self.query, self.values)
 
 	def TraerTiendas(self):
-		self.query = "SELECT p.image, s.name, s.description FROM shop s INNER JOIN photo p on s.id = p.shop GROUP BY s.name;"
+		self.query = "SELECT p.image, s.name, s.description, s.id FROM shop s INNER JOIN photo p on s.id = p.shop GROUP BY s.id;"
 		self.values = ()
+		return self.db.ejecutar(self.query, self.values)
+
+	def getShopDescription(self, ide):
+		self.query = "SELECT * FROM shop WHERE id = %s"
+		self.values = (ide,)
+		return self.db.ejecutar(self.query, self.values)
+
+	def getShopSchedule(self, ide):
+		self.query = "SELECT id, shop, day, turn, hour(opening), minute(opening),hour(closing), minute(closing) FROM schedule WHERE shop = %s"
+		self.values = (ide,)
+		return self.db.ejecutar(self.query, self.values)
+
+	def getShopPhotos(self, ide):
+		self.query = "SELECT * FROM photo WHERE shop = %s"
+		self.values = (ide,)
 		return self.db.ejecutar(self.query, self.values)

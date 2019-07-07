@@ -8,8 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class StoreDescriptionView(object):
+    def __init__(self, MainWindow, description, images, schedule, user):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.338983, y1:0.631, x2:1, y2:0, stop:0.361582 rgba(61, 139, 247, 255), stop:0.977401 rgba(3, 123, 179, 255));")
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.ImagenShop.setGeometry(QtCore.QRect(20, 70, 211, 141))
         self.ImagenShop.setStyleSheet("background: transparent;")
         self.ImagenShop.setText("")
-        self.ImagenShop.setPixmap(QtGui.QPixmap(":/Tienda/Adidas-Splau-650.jpg"))
+        self.ImagenShop.setPixmap(QtGui.QPixmap(images[0][3]))
         self.ImagenShop.setScaledContents(True)
         self.ImagenShop.setObjectName("ImagenShop")
         self.Photo = QtWidgets.QLabel(self.frame)
@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.Photo.setStyleSheet("background: transparent;\n"
 "")
         self.Photo.setText("")
-        self.Photo.setPixmap(QtGui.QPixmap(":/dfsfsd/user.PNG"))
+        self.Photo.setPixmap(QtGui.QPixmap(user.image))
         self.Photo.setScaledContents(True)
         self.Photo.setObjectName("Photo")
         self.textBrowser_DescripctioShop = QtWidgets.QTextBrowser(self.frame)
@@ -137,19 +137,19 @@ class Ui_MainWindow(object):
         self.tableWidget_Galeria.verticalHeader().setDefaultSectionSize(139)
         MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow, description, images, schedule)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow, description, images, schedule):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.textBrowser_DescripctioShop.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Here you can add a description shop</p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+description[0][2]+"</p></body></html>"))
         self.label_Description.setText(_translate("MainWindow", "Description:"))
-        self.Label_Name_Shop.setText(_translate("MainWindow", "NombreApp"))
+        self.Label_Name_Shop.setText(_translate("MainWindow", description[0][1]))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
         self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         item = self.tableWidget_Comments.horizontalHeaderItem(0)
@@ -164,7 +164,7 @@ class Ui_MainWindow(object):
         item = self.tableWidget_Galeria.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "Img"))
 
-import imagen_rc
+'''
 
 if __name__ == "__main__":
     import sys
@@ -173,5 +173,5 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())'''
 

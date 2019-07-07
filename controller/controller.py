@@ -3,6 +3,7 @@ sys.path.append('../connection')
 sys.path.append('../model')
 sys.path.append('../view')
 #from model import ShopOwner, Shop, Schedule
+from Store import StoreDescriptionView
 from model_RegisteredUser import RegisteredUser
 from model_User import User
 from model_ShopOwner import ShopOwner
@@ -102,10 +103,10 @@ class Controller():
 		#resultado = []
 		for button in ventana1.buttonList:
 			try:
-				button.clicked.connect(lambda: self.shopDescription(b, ventana1.shopPosition))
+				button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, b[ventana1.shopPosition], a, user))
 			except:
 				pass
-		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b))
+		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b, Ventana_Principal, user))
 		try:
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
@@ -116,44 +117,44 @@ class Controller():
 	def filterShop(self,ventana1, resultado):
 		if ventana1.radioButton_Sports.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Sports":
+				if resultado[len(resultado) - i][4] != "Sports":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Restaurant.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Restaurant":
+				if resultado[len(resultado) - i][4] != "Restaurant":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Kitchen.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Kitchen":
+				if resultado[len(resultado) - i][4] != "Kitchen":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Gardening.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Gardening":
+				if resultado[len(resultado) - i][4] != "Gardening":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Restaurant.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Restaurant":
+				if resultado[len(resultado) - i][4] != "Restaurant":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Bookstore.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Bookstore":
+				if resultado[len(resultado) - i][4] != "Bookstore":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Toy_store.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Toy Store":
+				if resultado[len(resultado) - i][4] != "Toy Store":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Tools.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Tools":
+				if resultado[len(resultado) - i][4] != "Tools":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_Other.isChecked():
 			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][3] != "Other":
+				if resultado[len(resultado) - i][4] != "Other":
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_All.isChecked():
 			pass
 
-	def Search(self, search, ventana1, resultado):
+	def Search(self, search, ventana1, resultado, Ventana_Principal, user):
 		ventana1.update()
 		
 		search.name = ventana1.busqueda
@@ -166,13 +167,18 @@ class Controller():
 		print("Despues de busqueda: ",resultado)
 		for button in ventana1.buttonList:
 			try:
-				button.clicked.connect(lambda: self.shopDescription(resultado, ventana1.shopPosition))
+				button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, resultado[ventana1.shopPosition], search, user))
 			except:
 				pass
 		return resultado
 
-	def shopDescription(self, resultado, shopPosition):
-		print("Aprete sobre: ",resultado[shopPosition])
+	def shopDescription(self, Ventana_Principal, shop, shopComplete, user):
+		schedule = shopComplete.getShopSchedule(shop[3])
+		description = shopComplete.getShopDescription(shop[3])
+		images = shopComplete.getShopPhotos(shop[3])
+		print(description, images, schedule)
+		store = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
+		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
 
 	def logOut(self, Ventana_Principal, user):

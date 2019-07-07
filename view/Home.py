@@ -221,6 +221,7 @@ class HomeView(object):
         self.tableWidget.setProperty("showDropIndicator", True)
         self.tableWidget.setDragEnabled(False)
         self.tableWidget.setAlternatingRowColors(False)
+        self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         self.tableWidget.setTextElideMode(QtCore.Qt.ElideRight)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(QtCore.Qt.NoPen)
@@ -345,7 +346,7 @@ class HomeView(object):
         print("entre a la funcion Cargar_tienda")
         self.tableWidget.setRowCount(len(tiendas))
         self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
-
+        columna = 0
 
         for i in range(len(tiendas)):
             tienda = tiendas[i]
@@ -368,6 +369,8 @@ class HomeView(object):
             #celda.setStyleSheet("background: green")
             celda.setLayout(caja)
             print("cree celda")
+
+            self.boton_Tienda(i,imagen_tienda)
 
             textBrowser = QtWidgets.QTextBrowser(self.tableWidget)
             textBrowser.setGeometry(QtCore.QRect(0, 0, 368, 131))
@@ -407,7 +410,7 @@ class HomeView(object):
 
             
             
-            columna = 0
+            columna = columna + 1
             '''for x in tienda:
             #imagen = tienda[i][0]
             #self.imagenshop1 = QtWidgets.QLabel(self.tableWidget)
@@ -423,6 +426,44 @@ class HomeView(object):
                 self.tableWidget.setItem(i,columna,item)
                 columna = columna + 1
             '''
+
+    def clickedo(self,boton):
+        #if pushButton_tienda0:
+            print("me hiciste click",boton)
+            fila = self.tableWidget.currentRow()
+            print(fila)
+        #elif pushButton_tienda1:
+            #print("me hiciste click 1")
+
+    
+    def boton_Tienda(self,posicion,img):
+        '''
+        pushButton_tienda = QtWidgets.QPushButton(self.tableWidget)
+        pushButton_tienda.setGeometry(QtCore.QRect(0,0,181,131))
+        pushButton_tienda.setAutoFillBackground(False)
+        pushButton_tienda.setStyleSheet("background: red;")
+        pushButton_tienda.setObjectName("pushButton_tienda")
+'''
+        nombreboton = "pushButton_tienda" + str(posicion)
+        print(nombreboton)
+        pushButton_tienda = QtWidgets.QPushButton(img)
+        pushButton_tienda.setGeometry(QtCore.QRect(0,0,181,131))
+        pushButton_tienda.setAutoFillBackground(False)
+        pushButton_tienda.setStyleSheet("background: transparent;")
+        pushButton_tienda.setObjectName(nombreboton)
+        #print(pushButton_tienda)
+        pushButton_tienda.clicked.connect(lambda: self.clickedo(pushButton_tienda))
+
+
+
+
+        '''pushButton_tienda.clicked.connect(self.clickedo)
+                        caja = QtWidgets.QHBoxLayout()
+                        caja.addWidget(pushButton_tienda)
+                        celda = QtWidgets.QWidget()
+                        celda.setLayout(caja)
+                        self.tableWidget.setCellWidget(posicion,0,celda)'''
+        print('Entre a la funcion boton_Tienda')
 
     
     def retranslateUi(self, MainWindow,user):

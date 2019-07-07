@@ -13,6 +13,8 @@ from model_Shop import Shop
 
 class HomeView(object):
     def __init__(self, MainWindow, user,b):
+        self.shopPosition = None
+        self.buttonList = []
         self.busqueda = ""
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -427,9 +429,10 @@ class HomeView(object):
                 columna = columna + 1
             '''
 
-    def clickedo(self,boton):
+    def clickedo(self,boton, posicion):
         #if pushButton_tienda0:
-            print("me hiciste click",boton)
+            self.shopPosition = posicion
+            print("me hiciste click",boton, " posicion: ",posicion)
             fila = self.tableWidget.currentRow()
             print(fila)
         #elif pushButton_tienda1:
@@ -447,12 +450,13 @@ class HomeView(object):
         nombreboton = "pushButton_tienda" + str(posicion)
         print(nombreboton)
         pushButton_tienda = QtWidgets.QPushButton(img)
+        self.buttonList.append(pushButton_tienda)
         pushButton_tienda.setGeometry(QtCore.QRect(0,0,181,131))
         pushButton_tienda.setAutoFillBackground(False)
         pushButton_tienda.setStyleSheet("background: transparent;")
         pushButton_tienda.setObjectName(nombreboton)
         #print(pushButton_tienda)
-        pushButton_tienda.clicked.connect(lambda: self.clickedo(pushButton_tienda))
+        pushButton_tienda.clicked.connect(lambda: self.clickedo(pushButton_tienda, posicion))
 
 
 

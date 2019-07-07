@@ -98,10 +98,14 @@ class Controller():
 		b = a.TraerTiendas()
 		print(b)
 		ventana1 = HomeView(Ventana_Principal, user,b)
-		search = Shop()
+		#search = Shop()
 		#resultado = []
-		
-		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(search, ventana1, b))
+		for button in ventana1.buttonList:
+			try:
+				button.clicked.connect(lambda: self.shopDescription(b, ventana1.shopPosition))
+			except:
+				pass
+		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b))
 		try:
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
@@ -160,7 +164,16 @@ class Controller():
 		print("Despues de filtro: ",resultado)
 		ventana1.Cargar_tienda(resultado)
 		print("Despues de busqueda: ",resultado)
+		for button in ventana1.buttonList:
+			try:
+				button.clicked.connect(lambda: self.shopDescription(resultado, ventana1.shopPosition))
+			except:
+				pass
 		return resultado
+
+	def shopDescription(self, resultado, shopPosition):
+		print("Aprete sobre: ",resultado[shopPosition])
+
 
 	def logOut(self, Ventana_Principal, user):
 		del user

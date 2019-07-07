@@ -177,7 +177,8 @@ class Controller():
 		description = shopComplete.getShopDescription(shop[3])
 		images = shopComplete.getShopPhotos(shop[3])
 		print(description, images, schedule)
-		store = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
+		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
+		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
 

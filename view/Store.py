@@ -74,15 +74,6 @@ class StoreDescriptionView(object):
 "\n"
 "")
         self.pushButton_back.setObjectName("pushButton_back")
-        self.pushButton_Home = QtWidgets.QPushButton(self.frame)
-        self.pushButton_Home.setGeometry(QtCore.QRect(380, 0, 61, 23))
-        self.pushButton_Home.setAutoFillBackground(False)
-        self.pushButton_Home.setStyleSheet("background-color: rgb(20,100,246);\n"
-"border: 1px solid rgb(225,225,225);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);\n"
-"")
-        self.pushButton_Home.setObjectName("pushButton_Home")
         self.tableWidget_Comments = QtWidgets.QTableWidget(self.frame)
         self.tableWidget_Comments.setGeometry(QtCore.QRect(250, 220, 511, 151))
         self.tableWidget_Comments.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
@@ -151,7 +142,6 @@ class StoreDescriptionView(object):
         self.label_Description.setText(_translate("MainWindow", "Description:"))
         self.Label_Name_Shop.setText(_translate("MainWindow", description[0][1]))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))
-        self.pushButton_Home.setText(_translate("MainWindow", "Home"))
         item = self.tableWidget_Comments.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget_Comments.horizontalHeaderItem(1)

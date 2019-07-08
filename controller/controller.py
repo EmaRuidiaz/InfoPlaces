@@ -9,6 +9,7 @@ from model_User import User
 from model_ShopOwner import ShopOwner
 from model_Shop import Shop
 from model_Schedule import Schedule
+from model_Comment import Comment
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
 from UserEdit import UserEditView
@@ -190,8 +191,24 @@ class Controller():
 		print(description, images, schedule)
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
+		try:
+			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1.textEdit.toPlainText(), user, description[0][0]))
+		except:
+			pass
 		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
+
+	def regComment(self, com, user, idshop):
+		comment = Comment()
+		comment.content = com
+		comment.date = '3333-11-11'
+		comment.person = user.username
+		comment.shop = idshop
+		if len(com) < 200:
+			comment.register()
+			print("Comentario registrado: ", com)
+		else:
+			print("NO SE REGISTRO EL COMENTARIO!")
 
 	def logOut(self, Ventana_Principal, user):
 		del user

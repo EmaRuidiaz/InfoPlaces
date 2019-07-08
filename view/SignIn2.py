@@ -150,6 +150,8 @@ class IniciarSesionView(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.campo_email_or_user.setMaxLength(20)
+        self.campo_password.setMaxLength(20)
 
     def actualizar(self):
         #if self.lineEdit.is

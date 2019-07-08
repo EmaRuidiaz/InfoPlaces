@@ -32,6 +32,7 @@ class IniciarSesionView(object):
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setEnabled(True)
         self.lineEdit.setGeometry(QtCore.QRect(250, 230, 281, 41))
+
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setItalic(False)

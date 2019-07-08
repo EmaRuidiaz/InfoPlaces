@@ -169,6 +169,11 @@ class UserEditView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_cancel.setObjectName("pushButton_back")
+        self.lineEdit_First_Name.setMaxLength(20)
+        self.lineEdit_Last_Name.setMaxLength(20)
+        self.lineEdit_Phone_Number.setMaxLength(13)
+        self.lineEdit_Email.setMaxLength(20)
+        self.Username.setMaxLength(20)
 
         self.Cargar_imagen.raise_()
         self.frame.raise_()

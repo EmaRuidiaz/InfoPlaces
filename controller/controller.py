@@ -19,6 +19,7 @@ from RegisterStore import RegisterStoreView
 from Home import HomeView
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
+from datetime import datetime
 import os
 
 class ControllerUsuario:
@@ -201,7 +202,9 @@ class Controller():
 	def regComment(self, com, user, idshop):
 		comment = Comment()
 		comment.content = com
-		comment.date = '3333-11-11'
+		datee = datetime.today()
+		comment.date = datee
+		print(comment.date)
 		comment.person = user.username
 		comment.shop = idshop
 		if len(com) < 200:

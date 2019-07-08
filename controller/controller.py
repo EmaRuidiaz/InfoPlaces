@@ -108,11 +108,19 @@ class Controller():
 				pass
 		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b, Ventana_Principal, user))
 		try:
+			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b))
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
+
+	def myShops(self, Ventana_Principal, user, b):
+		print("Crear Vista")
+		b = user.myShops()
+		print(b)
+
+
 
 	def filterShop(self,ventana1, resultado):
 		if ventana1.radioButton_Sports.isChecked():

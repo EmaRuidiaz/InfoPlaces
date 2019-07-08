@@ -8,6 +8,11 @@ class ShopOwner(RegisteredUser):
 	def __init__(self):
 		RegisteredUser.__init__(self)
 
+	def myShops(self):
+		self.query = "SELECT * FROM shop WHERE person = %s"
+		self.values = (self.username,)
+		return self.db.ejecutar(self.query, self.values)
+
 	def answer(self):
 		pass
 

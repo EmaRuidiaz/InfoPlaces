@@ -297,6 +297,17 @@ class HomeView(object):
             self.perfil.setObjectName("perfil")
             self.perfil.raise_()
             if user.type == 2:
+                self.misTiendas = QtWidgets.QPushButton(self.frame)
+                self.misTiendas.setGeometry(QtCore.QRect(35,175,91,21))
+                font = QtGui.QFont()
+                font.setPointSize(11)
+                self.misTiendas.setFont(font)
+                self.misTiendas.setStyleSheet("background: rgb(225,225,225,60);\n"
+                                             "border: 1px solid rgb(225,225,225,60);\n"
+                                            "border-radius: 6px;\n"
+                                            "color: rgb(225,225,225);")
+                self.misTiendas.setObjectName("misTiendas")
+                self.misTiendas.raise_()
                 self.pushButton_Create_Store = QtWidgets.QPushButton(self.frame)
                 self.pushButton_Create_Store.setGeometry(QtCore.QRect(317, 0, 101, 21))
                 font = QtGui.QFont()
@@ -521,6 +532,7 @@ class HomeView(object):
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow","Edit Profile"))
             if user.type == 2:
+                self.misTiendas.setText(_translate("MainWindow", "My Shops"))
                 self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
 
 

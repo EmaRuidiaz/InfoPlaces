@@ -165,7 +165,7 @@ class IniciarSesionView(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.Name_app.setText(_translate("MainWindow", "InfoPlaces"))
         self.Name_app2.setText(_translate("MainWindow", "InfoPlaces"))
-        self.pushButton_Create_Account.setText(_translate("MainWindow", "Create Acount"))
+        self.pushButton_Create_Account.setText(_translate("MainWindow", "Create Account"))
         self.pushButton_Sign_In.setText(_translate("MainWindow", "Sign In"))
         self.pushButton_Anonymous_access.setText(_translate("MainWindow", "Anonymous access"))
         MainWindow.show()

@@ -105,6 +105,14 @@ class StoreDescriptionView(object):
 "border-top-right-radius: 0px 0px;\n"
 "")
         self.textEdit.setObjectName("textEdit")
+        self.pushButton_SendComent = QtWidgets.QPushButton(self.frame)
+        self.pushButton_SendComent.setGeometry(QtCore.QRect(700, 430, 61, 20))
+        self.pushButton_SendComent.setStyleSheet("background-color: rgb(20,100,246);\n"
+"border: 1px solid rgb(225,225,225);\n"
+"border-radius: 6px;\n"
+"color: rgb(225,225,225);\n"
+"")
+        self.pushButton_SendComent.setObjectName("pushButton_SendComent")
         self.textBrowser_SheduleShop = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser_SheduleShop.setGeometry(QtCore.QRect(20, 241, 211, 181))
         self.textBrowser_SheduleShop.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
@@ -146,6 +154,67 @@ class StoreDescriptionView(object):
                 item = QTableWidgetItem(str(x))
                 self.tableWidget_Comments.setItem(i,columna,item)
 
+    # Opción 2
+    def Cargar_Comentarios(self,consulta):
+        comentario = consulta
+        self.tableWidget_Comments.setRowCount(comentario)
+        self.tableWidget_Comments.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
+        columna = 0
+        for i in range(len(comentario)):
+            # foto, nombre y contenido tienen la posición "i" temporalmente hasta que sepa en que posición se hubica cada uno en la base de datos.
+            coment = comentario[i]
+            foto = coment[i]
+            nombre = coment[i]
+            contenido = coment[i]
+            caja = QtWidgets.QHBoxLayout()
+            foto_usuario = QtWidgets.QLabel(self.tableWidget_Comments)
+            foto_usuario.setGeometry(QtCore.QRect(0,0,61,65))
+            foto_usuario.setText("")
+            foto_usuario.setPixmap(QtGui.QPixmap(foto))
+            foto_usuario.setScaledContents(True)
+            foto_usuario.setObjectName("imagen_tienda")
+            foto_usuario.setMaximumSize(61,65)
+            caja.addWidget(foto_usuario)
+            celda = QtWidgets.QWidget()
+            celda.setLayout(caja)
+
+            textBrowser = QtWidgets.QTextBrowser(self.tableWidget_Comments)
+            textBrowser.setGeometry(QtCore.QRect(0, 0, 451, 61))
+            textBrowser.setMinimumSize(451,61)
+            textBrowser.setMaximumSize(451,61)
+            textBrowser.setStyleSheet("background: transparent;\n"
+                                        "border-radius: 20px solid;")
+            textBrowser.setPlaceholderText("")
+
+            _translate = QtCore.QCoreApplication.translate
+            textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"<b style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(nombre)+"</b>"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(contenido)+"</p></body></html>"))
+
+            textBrowser.setObjectName("textBrowser")
+            caja2 = QtWidgets.QHBoxLayout()
+            caja2.addWidget(textBrowser)
+            celda2 = QtWidgets.QWidget()
+            #celda2.setBaseSize(371,151)
+            #celda2.setStyleSheet("background: red;")
+            celda2.setLayout(caja2)
+            self.tableWidget_Comments.setCellWidget(i,1,celda2)
+            self.tableWidget_Comments.resizeRowsToContents()
+            self.tableWidget_Comments.resizeColumnsToContents()
+
+            # agregar el texto de la descripcion de la tienda y el nombre en el momento que se crea la tienda.
+
+            self.tableWidget_Comments.setCellWidget(i,0,celda)
+            self.tableWidget_Comments.resizeRowsToContents()
+            self.tableWidget_Comments.resizeColumnsToContents()
+
+            
+            
+            columna = columna + 1
 
 
     def retranslateUi(self, MainWindow, description, images, schedule):
@@ -178,6 +247,13 @@ class StoreDescriptionView(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario+"</p></body></html>"))
         item = self.tableWidget_Galeria.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "Img"))
+        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.textEdit.setPlaceholderText(_translate("MainWindow", "Deje su comentario en este cuadrito =D"))
+        self.pushButton_SendComent.setText(_translate("MainWindow", "Send"))
 
 '''
 

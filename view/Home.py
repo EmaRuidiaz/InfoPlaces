@@ -16,6 +16,7 @@ class HomeView(object):
         self.shopPosition = None
         self.buttonList = []
         self.busqueda = ""
+        self.numeroResultados = str(len(b))
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -26,6 +27,12 @@ class HomeView(object):
         self.label.setPixmap(QtGui.QPixmap(":/Inicio/mapa.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
+
+        self.results = QtWidgets.QLabel(self.centralwidget)
+        self.results.setGeometry(QtCore.QRect(500, 120, 211, 22))
+        self.results.setObjectName("results")
+        self.results.setStyleSheet("color: rgb(0,0,0);")
+
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
         font = QtGui.QFont()
@@ -356,6 +363,9 @@ class HomeView(object):
     
     def Cargar_tienda(self,consulta):
         tiendas = consulta
+        self.numeroResultados = str(len(tiendas))
+        self.results.setText("Results: "+self.numeroResultados)
+        print("numero de resultados: ", self.numeroResultados)
         print("entre a la funcion Cargar_tienda")
         self.tableWidget.setRowCount(len(tiendas))
         self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
@@ -524,6 +534,7 @@ class HomeView(object):
         self.comboBox.setItemText(3, _translate("MainWindow", "A-Z"))
         self.comboBox.setItemText(4, _translate("MainWindow", "A-A"))
         self.pushButton_Search.setText(_translate("MainWindow", ""))
+        self.results.setText(_translate("MainWindow", "Results: "+self.numeroResultados))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Imagen"))
         item = self.tableWidget.horizontalHeaderItem(1)

@@ -108,19 +108,22 @@ class Controller():
 				pass
 		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b, Ventana_Principal, user))
 		try:
-			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b))
+			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b, ventana1, a))
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
 
-	def myShops(self, Ventana_Principal, user, b):
+	def myShops(self, Ventana_Principal, user, b, ventana1, a):
 		print("Crear Vista")
 		b = user.myShops()
-		print(b)
-
-
+		ventana1.Cargar_tienda(b)
+		for button in ventana1.buttonList:
+			try:
+				button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, b[ventana1.shopPosition], a, user))
+			except:
+				pass
 
 	def filterShop(self,ventana1, resultado):
 		if ventana1.radioButton_Sports.isChecked():
@@ -289,8 +292,10 @@ class Controller():
 								print("Este es el id de la tienda: ",idShop)
 								shop.registerPhoto(idShop[0][0])
 								print("VENTANA1.SCHEDULE: ",ventana1.schedule)
-								for i in range(1,15):
+								print("SCHEDULE CANTIDAD: ",len(ventana1.schedule))
+								for i in range(1,len(ventana1.schedule)+1):
 									schedule.register(ventana1.schedule, idShop[0][0], i-1)
+									print(ventana1.schedule, idShop[0][0], i-1)
 								QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
 							else:
 								QMessageBox.warning(Ventana_Principal, "Error", "Photo")

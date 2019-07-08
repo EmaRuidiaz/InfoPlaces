@@ -9,7 +9,7 @@ class ShopOwner(RegisteredUser):
 		RegisteredUser.__init__(self)
 
 	def myShops(self):
-		self.query = "SELECT * FROM shop WHERE person = %s"
+		self.query = "SELECT p.image, s.name, s.description, s.id FROM shop s INNER JOIN photo p ON s.id = p.shop WHERE s.person = %s GROUP BY s.id"
 		self.values = (self.username,)
 		return self.db.ejecutar(self.query, self.values)
 

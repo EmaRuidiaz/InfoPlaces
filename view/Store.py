@@ -96,20 +96,21 @@ class StoreDescriptionView(object):
         self.tableWidget_Comments.horizontalHeader().setVisible(False)
         self.tableWidget_Comments.horizontalHeader().setDefaultSectionSize(100)
         self.tableWidget_Comments.verticalHeader().setVisible(False)
-        self.textComentario = QtWidgets.QTextBrowser(self.frame)
-        self.textComentario.setGeometry(QtCore.QRect(250, 371, 511, 61))
-        self.textComentario.setStyleSheet("background-color: rgb(255, 255, 255,200);\n"
+        self.textEdit = QtWidgets.QTextEdit(self.frame)
+        self.textEdit.setGeometry(QtCore.QRect(250, 371, 511, 61))
+        self.textEdit.setStyleSheet("background-color: rgb(255, 255, 255,200);\n"
 "border: transparent;\n"
 "border-radius: 5px;\n"
 "border-top-left-radius: 0px 0px;\n"
 "border-top-right-radius: 0px 0px;\n"
-"color: rgb(225,225,225);")
-        self.textComentario.setObjectName("textComentario")
+"")
+        self.textEdit.setObjectName("textEdit")
         self.textBrowser_SheduleShop = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser_SheduleShop.setGeometry(QtCore.QRect(20, 241, 211, 181))
         self.textBrowser_SheduleShop.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border: transparent;\n"
-"border-radius: 3px")
+"border-radius: 3px;\n"
+"color: rgb(225,225,225)")
         self.textBrowser_SheduleShop.setObjectName("textBrowser_SheduleShop")
         self.tableWidget_Galeria = QtWidgets.QTableWidget(self.frame)
         self.tableWidget_Galeria.setGeometry(QtCore.QRect(250, 450, 511, 141))
@@ -131,7 +132,31 @@ class StoreDescriptionView(object):
         self.retranslateUi(MainWindow, description, images, schedule)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
+    # Carga los comentarios
+    def Cargar_Comentarios(self,consulta):
+        comentario = consulta
+        self.tableWidget_Comments.setRowCount(len(comentario))
+        self.tableWidget_Comments.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
+        columna = 1
+        for i in range(len(comentario)):
+            coment = comentario[i]
+            
+            for x in coment:
+                item = QTableWidgetItem(str(x))
+                self.tableWidget_Comments.setItem(i,columna,item)
+
+
+
     def retranslateUi(self, MainWindow, description, images, schedule):
+        p = int(len(schedule))
+        horario = ''
+        for i in range(p//2):
+            a = str(schedule[i][2]) + ': ' + str(schedule[i][4]) + ':' + str(schedule[i][5]) + 'hs. to ' + str(schedule[i][6]) + ':' + str(schedule[i][7]) + 'hs. '
+            horario = horario + a
+            #print(horario) muestra la hora en la consola
+
+
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.textBrowser_DescripctioShop.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -146,11 +171,11 @@ class StoreDescriptionView(object):
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget_Comments.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "coments"))
-        self.textComentario.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.textBrowser_SheduleShop.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario+"</p></body></html>"))
         item = self.tableWidget_Galeria.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "Img"))
 

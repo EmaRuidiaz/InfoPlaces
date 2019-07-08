@@ -28,8 +28,13 @@ opening	time,
 closing	time,
 foreign key(shop) references shop(id));
 
+
+-- EJECUTAR DESDE ACÁ
+drop table answer;
+drop table comment;
+
 create table comment(
-id	int primary key,
+id	int auto_increment primary key,
 content varchar(150),
 datetime	datetime,
 idperson	varchar(20),
@@ -45,6 +50,8 @@ idperson	varchar(20),
 idcomment	int,
 foreign key(idperson) references person(user_name),
 foreign key(idcomment) references comment(id));
+
+-- HASTA ACÁ
 
 create table rating(
 id	int auto_increment primary key,

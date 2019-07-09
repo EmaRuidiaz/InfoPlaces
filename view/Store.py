@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class StoreDescriptionView(object):
-    def __init__(self, MainWindow, description, images, schedule, user):
+    def __init__(self, MainWindow, description, images, schedule, user, com):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.338983, y1:0.631, x2:1, y2:0, stop:0.361582 rgba(61, 139, 247, 255), stop:0.977401 rgba(3, 123, 179, 255));")
@@ -140,6 +140,9 @@ class StoreDescriptionView(object):
         self.retranslateUi(MainWindow, description, images, schedule)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.Cargar_Comentarios(com)
+
+
 
     # Carga los comentarios
     def Cargar_Comentarios(self,consulta):
@@ -160,15 +163,15 @@ class StoreDescriptionView(object):
     # Opción 2
     def Cargar_Comentarios(self,consulta):
         comentario = consulta
-        self.tableWidget_Comments.setRowCount(comentario)
+        self.tableWidget_Comments.setRowCount(len(comentario))
         self.tableWidget_Comments.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
         columna = 0
         for i in range(len(comentario)):
             # foto, nombre y contenido tienen la posición "i" temporalmente hasta que sepa en que posición se hubica cada uno en la base de datos.
             coment = comentario[i]
-            foto = coment[i]
-            nombre = coment[i]
-            contenido = coment[i]
+            foto = coment[0]
+            nombre = coment[1]
+            contenido = coment[2]
             caja = QtWidgets.QHBoxLayout()
             foto_usuario = QtWidgets.QLabel(self.tableWidget_Comments)
             foto_usuario.setGeometry(QtCore.QRect(0,0,61,65))
@@ -182,9 +185,9 @@ class StoreDescriptionView(object):
             celda.setLayout(caja)
 
             textBrowser = QtWidgets.QTextBrowser(self.tableWidget_Comments)
-            textBrowser.setGeometry(QtCore.QRect(0, 0, 451, 61))
-            textBrowser.setMinimumSize(451,61)
-            textBrowser.setMaximumSize(451,61)
+            textBrowser.setGeometry(QtCore.QRect(0, 0, 393, 61))
+            textBrowser.setMinimumSize(393,61)
+            textBrowser.setMaximumSize(393,61)
             textBrowser.setStyleSheet("background: transparent;\n"
                                         "border-radius: 20px solid;")
             textBrowser.setPlaceholderText("")
@@ -193,7 +196,7 @@ class StoreDescriptionView(object):
             textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<b style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(nombre)+"</b>"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(contenido)+"</p></body></html>"))

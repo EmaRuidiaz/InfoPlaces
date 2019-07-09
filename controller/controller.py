@@ -231,7 +231,10 @@ class Controller():
 		description = shopComplete.getShopDescription(shop[3])
 		images = shopComplete.getShopPhotos(shop[3])
 		print(description, images, schedule)
-		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
+		c = Comment()
+		com = c.TraerComentario()
+		print(com)
+		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
 			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0]))

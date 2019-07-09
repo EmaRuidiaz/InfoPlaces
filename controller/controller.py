@@ -394,17 +394,17 @@ class Controller():
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
 		self.usernameresguardo = user.username
 		self.emailresguardo = user.email
-		user.firstname = ventana1.firstname
-		user.lastname = ventana1.lastname
-		user.username = ventana1.username
-		user.password = ventana1.password
-		user.phone_number = ventana1.phone
-		user.image = ventana1.fileName
 		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
-		if user.firstname and user.lastname and user.password:
+		if ventana1.firstname and ventana1.lastname and ventana1.password:
 			if (len(user.password) > 7):
+				user.username = ventana1.username
 				self.var = user.CheckReg()
 				if len(self.var) == 0 or self.var[0][0] == self.usernameresguardo:
+						user.firstname = ventana1.firstname
+						user.lastname = ventana1.lastname
+						user.password = ventana1.password
+						user.phone_number = ventana1.phone
+						user.image = ventana1.fileName
 						user.UpdateInfo(self.usernameresguardo)
 						user.UpdatePhoto(self.usernameresguardo)
 						self.user(Ventana_Principal, user)

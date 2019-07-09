@@ -10,6 +10,7 @@ from model_ShopOwner import ShopOwner
 from model_Shop import Shop
 from model_Schedule import Schedule
 from model_Comment import Comment
+from model_Rating import Rating
 from SignIn2 import IniciarSesionView
 from User import UserProfileView
 from UserEdit import UserEditView
@@ -167,6 +168,46 @@ class Controller():
 		elif ventana1.radioButton_All.isChecked():
 			pass
 
+		'''resultadoParcial = []
+		if ventana1.checkBox_5estrella.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] == "Sports":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Restaurant.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Restaurant":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Kitchen.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Kitchen":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Gardening.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Gardening":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Restaurant.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Restaurant":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Bookstore.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Bookstore":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Toy_store.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Toy Store":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Tools.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Tools":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_Other.isChecked():
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado) - i][5] != "Other":
+					resultado.pop(len(resultado) -i)
+		if ventana1.radioButton_All.isChecked():
+			pass'''
+
 	def Search(self, search, ventana1, resultado, Ventana_Principal, user):
 		ventana1.update()
 		
@@ -193,23 +234,24 @@ class Controller():
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
-			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1.textEdit.toPlainText(), user, description[0][0]))
+			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0]))
 		except:
 			pass
 		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
 
-	def regComment(self, com, user, idshop):
+	def regComment(self, ventana1, user, idshop):
 		comment = Comment()
-		comment.content = com
+		comment.content = ventana1.textEdit.toPlainText()
 		datee = datetime.today()
 		comment.date = datee
 		print(comment.date)
 		comment.person = user.username
 		comment.shop = idshop
-		if len(com) < 200:
+		if len(comment.content) < 200 and len(comment.content) > 0:
 			comment.register()
-			print("Comentario registrado: ", com)
+			print("Comentario registrado: ", comment.content)
+			ventana1.setComment()
 		else:
 			print("NO SE REGISTRO EL COMENTARIO!")
 
@@ -311,8 +353,12 @@ class Controller():
 								idShop = shop.getID()
 								print("Este es el id de la tienda: ",idShop)
 								shop.registerPhoto(idShop[0][0])
-								print("VENTANA1.SCHEDULE: ",ventana1.schedule)
-								print("SCHEDULE CANTIDAD: ",len(ventana1.schedule))
+
+								#shopRating = Rating()
+								#shopRating.id_shop = idShop[0][0]
+								#shopRating.rating = 3
+								#shopRating.registerInitialRate()
+
 								for i in range(1,len(ventana1.schedule)+1):
 									schedule.register(ventana1.schedule, idShop[0][0], i-1)
 									print(ventana1.schedule, idShop[0][0], i-1)

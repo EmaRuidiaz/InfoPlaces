@@ -154,6 +154,9 @@ class StoreDescriptionView(object):
                 item = QTableWidgetItem(str(x))
                 self.tableWidget_Comments.setItem(i,columna,item)
 
+    def setComment(self):
+        self.textEdit.clear()
+
     # Opción 2
     def Cargar_Comentarios(self,consulta):
         comentario = consulta

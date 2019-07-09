@@ -121,7 +121,7 @@ class StoreDescriptionView(object):
 "color: rgb(225,225,225)")
         self.textBrowser_SheduleShop.setObjectName("textBrowser_SheduleShop")
         self.tableWidget_Galeria = QtWidgets.QTableWidget(self.frame)
-        self.tableWidget_Galeria.setGeometry(QtCore.QRect(250, 450, 511, 141))
+        self.tableWidget_Galeria.setGeometry(QtCore.QRect(250, 446, 511, 154))
         self.tableWidget_Galeria.setStyleSheet("background: transparent;\n"
 "border: transparent;")
         self.tableWidget_Galeria.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -132,6 +132,7 @@ class StoreDescriptionView(object):
         self.tableWidget_Galeria.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_Galeria.setVerticalHeaderItem(0, item)
+        self.tableWidget_Galeria.horizontalHeader().setVisible(False)
         self.tableWidget_Galeria.horizontalHeader().setMinimumSectionSize(42)
         self.tableWidget_Galeria.verticalHeader().setVisible(False)
         self.tableWidget_Galeria.verticalHeader().setDefaultSectionSize(139)
@@ -141,10 +142,11 @@ class StoreDescriptionView(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.Cargar_Comentarios(com)
-
+        self.Cargar_imagenes(images)
 
 
     # Carga los comentarios
+    '''
     def Cargar_Comentarios(self,consulta):
         comentario = consulta
         self.tableWidget_Comments.setRowCount(len(comentario))
@@ -156,7 +158,7 @@ class StoreDescriptionView(object):
             for x in coment:
                 item = QTableWidgetItem(str(x))
                 self.tableWidget_Comments.setItem(i,columna,item)
-
+    '''
     def setComment(self):
         self.textEdit.clear()
 
@@ -185,9 +187,9 @@ class StoreDescriptionView(object):
             celda.setLayout(caja)
 
             textBrowser = QtWidgets.QTextBrowser(self.tableWidget_Comments)
-            textBrowser.setGeometry(QtCore.QRect(0, 0, 393, 61))
-            textBrowser.setMinimumSize(393,61)
-            textBrowser.setMaximumSize(393,61)
+            textBrowser.setGeometry(QtCore.QRect(0, 0, 393, 40))
+            textBrowser.setMinimumSize(393,40)
+            textBrowser.setMaximumSize(393,40)
             textBrowser.setStyleSheet("background: transparent;\n"
                                         "border-radius: 20px solid;")
             textBrowser.setPlaceholderText("")
@@ -221,6 +223,34 @@ class StoreDescriptionView(object):
             
             
             columna = columna + 1
+
+    def Cargar_imagenes(self, consulta):
+        imagenes = consulta
+        print('estoy imprimiendo las imagenes de prueba: ',imagenes)
+        self.tableWidget_Galeria.setColumnCount(len(imagenes))
+        self.tableWidget_Galeria.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
+        columna = 0
+
+        for i in range(len(imagenes)):
+            imag = imagenes[i]
+            img = imag[3]
+            imagen_predeterminada = "../view/image.png"
+            if img != imagen_predeterminada:
+                caja = QtWidgets.QHBoxLayout()
+                imagen_tienda = QtWidgets.QLabel(self.tableWidget_Galeria)
+                imagen_tienda.setGeometry(QtCore.QRect(0,0,100,60))
+                imagen_tienda.setText("")
+                imagen_tienda.setPixmap(QtGui.QPixmap(img))
+                imagen_tienda.setScaledContents(True)
+                imagen_tienda.setObjectName("imagen_tienda")
+                imagen_tienda.setMaximumSize(181,128)
+                caja.addWidget(imagen_tienda)
+                celda = QtWidgets.QWidget()
+                celda.setLayout(caja)
+                self.tableWidget_Galeria.setCellWidget(0,columna,celda)
+                self.tableWidget_Galeria.resizeRowsToContents()
+                self.tableWidget_Galeria.resizeColumnsToContents()
+                columna = columna + 1
 
 
     def retranslateUi(self, MainWindow, description, images, schedule):

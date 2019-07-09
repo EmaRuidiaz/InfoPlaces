@@ -111,8 +111,8 @@ class Controller():
 				pass
 		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b, Ventana_Principal, user))
 		try:
-			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b, ventana1, a))
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
+			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b, ventana1, a))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
 		except:
 			pass

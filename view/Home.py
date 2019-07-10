@@ -303,6 +303,17 @@ class HomeView(object):
                                         "border-radius: 6px;\n"
                                         "color: rgb(225,225,225);")
             self.perfil.setObjectName("perfil")
+            self.ver_favoritos = QtWidgets.QPushButton(self.frame)
+            self.ver_favoritos.setGeometry(QtCore.QRect(187, 120,75,21))
+            font = QtGui.QFont()
+            font.setPointSize(11)
+            self.ver_favoritos.setFont(font)
+            self.ver_favoritos.setStyleSheet("background: rgb(225,225,225,60);\n"
+                                        "border: 1px solid rgb(225,225,225,60);\n"
+                                        "border-radius: 6px;\n"
+                                        "color: rgb(225,225,225);")
+            self.ver_favoritos.setObjectName("ver_favoritos")
+            self.ver_favoritos.raise_()
             self.perfil.raise_()
             if user.type == 2:
                 self.misTiendas = QtWidgets.QPushButton(self.frame)
@@ -545,6 +556,7 @@ class HomeView(object):
         self.pushButton_Search.setText(_translate("MainWindow", ""))
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow","Edit Profile"))
+            self.ver_favoritos.setText(_translate("MainWindow","Favourite"))
             if user.type == 2:
                 self.misTiendas.setText(_translate("MainWindow", "My Shops"))
                 self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))

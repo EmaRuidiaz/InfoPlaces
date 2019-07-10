@@ -67,6 +67,13 @@ user_name	varchar(20),
 shop	int,
 image	blob);
 
+create table favorite(
+idperson	varchar(20),
+idshop	int(11),
+primary key (idperson, idshop),
+foreign key(idperson) references person(user_name),
+foreign key (idshop) references shop(id));
+
 alter table shop add type varchar(15); #Le faltó a la def de shop.
 alter table shop add description text;
 INSERT INTO person(user_name, type, first_name, last_name, email, password, birthdate, phone_number) VALUES ('Owner', 2, 'Juan', 'Gonzales', "JuanGonzales@hotmail.com", "123456789", "1998-06-16", null);

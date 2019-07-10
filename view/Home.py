@@ -366,6 +366,7 @@ class HomeView(object):
         tiendas = consulta
         self.numeroResultados = str(len(tiendas))
         self.results.setText("Results: "+self.numeroResultados)
+        self.results.setStyleSheet("background: transparent;")
         print("numero de resultados: ", self.numeroResultados)
         print("entre a la funcion Cargar_tienda")
         self.tableWidget.setRowCount(len(tiendas))

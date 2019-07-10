@@ -113,6 +113,14 @@ class StoreDescriptionView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_SendComent.setObjectName("pushButton_SendComent")
+        self.favorito = QtWidgets.QLabel(self.frame)
+        self.favorito.setGeometry(QtCore.QRect(168, 210, 30, 30))
+        self.favorito.setStyleSheet("background: transparent;")
+        self.favorito.setText("")
+        self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        self.favorito.setScaledContents(True)
+        self.favorito.setObjectName("favorito")
+        # La estrella negra cambia x una estrella amarilla para indicar que es favorito
         self.textBrowser_SheduleShop = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser_SheduleShop.setGeometry(QtCore.QRect(20, 241, 211, 181))
         self.textBrowser_SheduleShop.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
@@ -278,7 +286,7 @@ class StoreDescriptionView(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+description[0][2]+"</p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+description[0][2] +" "+ description[0][3] +" "+ description[0][6] +"</p></body></html>"))
         self.label_Description.setText(_translate("MainWindow", "Description:"))
         self.Label_Name_Shop.setText(_translate("MainWindow", description[0][1]))
         self.pushButton_back.setText(_translate("MainWindow", "Back"))

@@ -232,7 +232,7 @@ class Controller():
 		images = shopComplete.getShopPhotos(shop[3])
 		print(description, images, schedule)
 		c = Comment()
-		com = c.TraerComentario()
+		com = c.TraerComentario(description[0][0])
 		print(com)
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))

@@ -16,7 +16,7 @@ class Comment:
 		return self.db.insertar(self.query, self.values)
 
 
-	def TraerComentario(self):
-		self.query = "SELECT ph.image, p.user_name, c.content FROM comment c INNER JOIN person p ON c.idperson = p.user_name INNER JOIN photo ph ON p.user_name = ph.user_name group by c.id;"
-		self.values = ()
+	def TraerComentario(self, id):
+		self.query = "SELECT ph.image, p.user_name, c.content FROM comment c INNER JOIN person p ON c.idperson = p.user_name INNER JOIN photo ph ON p.user_name = ph.user_name WHERE c.idshop = %s;"
+		self.values = (id,)
 		return self.db.ejecutar(self.query, self.values)

@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="Inicio">
+    <file>1_estrella - copia.PNG</file>
+    <file>estrella_negra.png</file>
     <file>descarga1.png</file>
     <file>Captura.PNG</file>
     <file>mapa.jpg</file>

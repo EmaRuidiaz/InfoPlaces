@@ -39,6 +39,12 @@ class Shop:
 		self.values = ()
 		return self.db.ejecutar(self.query, self.values)
 
+	def getFavoriteShops(self, username):
+		self.query = "SELECT distinct p.image, s.name, s.description, s.id, s.type, Rate.RatingShop  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id LEFT JOIN  (SELECT rating.idshop, ROUND(AVG(rating)) AS RatingShop FROM rating GROUP BY rating.idshop) as Rate ON s.id = Rate.idshop INNER JOIN favorite f ON s.id = f.idshop WHERE f.idperson = %s GROUP BY s.id;"
+		# "SELECT p.image, s.name, s.description, s.id FROM shop s INNER JOIN photo p on s.id = p.shop GROUP BY s.id;"
+		self.values = (username,)
+		return self.db.ejecutar(self.query, self.values)
+
 	def getShopDescription(self, ide):
 		self.query = "SELECT * FROM shop WHERE id = %s"
 		self.values = (ide,)

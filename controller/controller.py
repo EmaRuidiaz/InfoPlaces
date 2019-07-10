@@ -112,6 +112,7 @@ class Controller():
 				pass
 		ventana1.pushButton_Search.clicked.connect(lambda: self.Search(a, ventana1, b, Ventana_Principal, user))
 		try:
+			ventana1.ver_favoritos.clicked.connect(lambda: self.favorites(a, ventana1, b, Ventana_Principal, user))
 			ventana1.perfil.clicked.connect(lambda: self.user(Ventana_Principal, user))
 			ventana1.misTiendas.clicked.connect(lambda: self.myShops(Ventana_Principal, user, b, ventana1, a))
 			ventana1.pushButton_Create_Store.clicked.connect(lambda: self.crearStore(Ventana_Principal, user))
@@ -219,7 +220,6 @@ class Controller():
 
 	def Search(self, search, ventana1, resultado, Ventana_Principal, user):
 		ventana1.update()
-		
 		search.name = ventana1.busqueda
 		print("antes de busqueda primera: ",resultado)
 		if ventana1.busqueda != "":
@@ -238,6 +238,10 @@ class Controller():
 				pass
 		return resultado
 
+	def favorites(self, search, ventana1, resultado, Ventana_Principal, user):
+		resultado = search.getFavoriteShops(user.username)
+		ventana1.Cargar_tienda(resultado)
+
 	def shopDescription(self, Ventana_Principal, shop, shopComplete, user):
 		schedule = shopComplete.getShopSchedule(shop[3])
 		description = shopComplete.getShopDescription(shop[3])
@@ -253,7 +257,7 @@ class Controller():
 			ventana1.pushButton_favorito.clicked.connect(lambda: self.addFavorite(description[0][0], user.username))
 		except:
 			pass
-			
+
 	def addFavorite(self, idshop, idperson):
 		fav = Favorite()
 		fav.id_person = idperson

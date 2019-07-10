@@ -73,6 +73,7 @@ class UserEditView(object):
         font.setPointSize(15)
         self.lineEdit_First_Name.setFont(font)
         self.lineEdit_First_Name.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n")
         self.lineEdit_First_Name.setObjectName("lineEdit_First_Name")
         self.lineEdit_Last_Name = QtWidgets.QLineEdit(self.centralwidget)
@@ -81,6 +82,7 @@ class UserEditView(object):
         font.setPointSize(15)
         self.lineEdit_Last_Name.setFont(font)
         self.lineEdit_Last_Name.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n")
         self.lineEdit_Last_Name.setObjectName("lineEdit_Last_Name")
         self.lineEdit_Phone_Number = QtWidgets.QLineEdit(self.centralwidget)
@@ -89,6 +91,7 @@ class UserEditView(object):
         font.setPointSize(15)
         self.lineEdit_Phone_Number.setFont(font)
         self.lineEdit_Phone_Number.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n")
         self.lineEdit_Phone_Number.setObjectName("lineEdit_Phone_Number")
         self.lineEdit_Phone_Number.textChanged.connect(self.validar_PhoneNumber)
@@ -98,6 +101,7 @@ class UserEditView(object):
         font.setPointSize(15)
         self.lineEdit_Email.setFont(font)
         self.lineEdit_Email.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n")
         self.lineEdit_Email.setObjectName("lineEdit_Email")
         '''self.pushButton_Home = QtWidgets.QPushButton(self.centralwidget)
@@ -115,6 +119,7 @@ class UserEditView(object):
         font.setPointSize(15)
         self.Username.setFont(font)
         self.Username.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n")
         self.Username.setAlignment(QtCore.Qt.AlignCenter)
         self.Username.setObjectName("Username")
@@ -159,7 +164,7 @@ class UserEditView(object):
 
         
         self.Cargar_imagen = QtWidgets.QPushButton(self.label)
-        self.Cargar_imagen.setGeometry(QtCore.QRect(25, 100, 75, 23))
+        self.Cargar_imagen.setGeometry(QtCore.QRect(25, 100, 120, 23))
         self.Cargar_imagen.setStyleSheet("background: rgb(225,225,225,60);\n"
                         "border: 1px solid rgb(225,225,225,60);\n"
                         "border-radius: 6px;\n"
@@ -257,7 +262,7 @@ class UserEditView(object):
        self.Username.setText(_translate("MainWindow", user.username))
        self.pushButton_back_Change_Password.setText(_translate("MainWindow", user.email))
        self.pushButton_GuardarCambios.setText(_translate("MainWindow", "Save Changes"))
-       self.Cargar_imagen.setText(_translate("MainWindow", "Upload Image"))
+       self.Cargar_imagen.setText(_translate("MainWindow", "Change Profile Picture"))
        self.pushButton_cancel.setText(_translate("MainWindow", "Cancel"))
 
 '''import imagen_rc

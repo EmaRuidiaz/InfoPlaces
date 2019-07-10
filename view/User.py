@@ -67,6 +67,7 @@ class UserProfileView(object):
         font.setPointSize(15)
         self.lineEdit_First_Name.setFont(font)
         self.lineEdit_First_Name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_First_Name.setObjectName("lineEdit_First_Name")
@@ -76,6 +77,7 @@ class UserProfileView(object):
         font.setPointSize(15)
         self.lineEdit_Last_Name.setFont(font)
         self.lineEdit_Last_Name.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
+"border-radius: 6px;\n"
 "border: transparent;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_Last_Name.setObjectName("lineEdit_Last_Name")
@@ -86,6 +88,7 @@ class UserProfileView(object):
         self.lineEdit_Phone_Number.setFont(font)
         self.lineEdit_Phone_Number.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border: transparent;\n"
+"border-radius: 6px;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_Phone_Number.setObjectName("lineEdit_Phone_Number")
         self.lineEdit_Email = QtWidgets.QLabel(self.centralwidget)
@@ -95,6 +98,7 @@ class UserProfileView(object):
         self.lineEdit_Email.setFont(font)
         self.lineEdit_Email.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border: transparent;\n"
+"border-radius: 6px;\n"
 "color: rgb(225,225,225)")
         self.lineEdit_Email.setObjectName("lineEdit_Email")
         self.pushButton_back = QtWidgets.QPushButton(self.centralwidget)
@@ -135,6 +139,7 @@ class UserProfileView(object):
         self.Username.setFont(font)
         self.Username.setStyleSheet("background-color: rgb(254, 252, 224,60);\n"
 "border: transparent;\n"
+"border-radius: 6px;\n"
 "color: rgb(225,225,225)")
         self.Username.setAlignment(QtCore.Qt.AlignCenter)
         self.Username.setObjectName("Username")

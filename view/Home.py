@@ -556,7 +556,7 @@ class HomeView(object):
         self.pushButton_Search.setText(_translate("MainWindow", ""))
         if user.type != 3:
             self.perfil.setText(_translate("MainWindow",""))
-            self.ver_favoritos.setText(_translate("MainWindow","Favourite"))
+            self.ver_favoritos.setText(_translate("MainWindow","Favorites"))
             if user.type == 2:
                 self.misTiendas.setText(_translate("MainWindow", "My Shops"))
                 self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))

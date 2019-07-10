@@ -167,29 +167,37 @@ class Controller():
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_All.isChecked():
 			pass
-		'''
-		resultadoParcial = []
-		if ventana1.checkBox_5estrella.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] == "Sports":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Restaurant.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Restaurant":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Kitchen.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Kitchen":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Gardening.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Gardening":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Restaurant.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Restaurant":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Bookstore.isChecked():
+				
+		if ventana1.checkBox_5estrella.isChecked() or ventana1.checkBox_4estrella.isChecked() or ventana1.checkBox_3estrella.isChecked() or ventana1.checkBox_2_estrella.isChecked() or ventana1.checkBox_1estrella.isChecked():
+			resultadoParcial = []	
+			print("FILTRANDO POR ESTRELLAS")
+			if ventana1.checkBox_5estrella.isChecked():
+				for i in range(len(resultado)):
+					if resultado[i][5] == '5':
+						print("5 ESTRELLAS")
+						resultadoParcial.append(resultado[i])
+			if ventana1.checkBox_4estrella.isChecked():
+				for i in range(len(resultado)):
+					if resultado[i][5] == '4':
+						resultadoParcial.append(resultado[i])
+			if ventana1.checkBox_3estrella.isChecked():
+				for i in range(len(resultado)):
+					if resultado[i][5] == '3':
+						resultadoParcial.append(resultado[i])
+			if ventana1.checkBox_2_estrella.isChecked():
+				for i in range(len(resultado)):
+					if resultado[i][5] == '2':
+						resultadoParcial.append(resultado[i])
+			if ventana1.checkBox_1estrella.isChecked():
+				for i in range(len(resultado)):
+					if resultado[i][5] == '1':
+						resultadoParcial.append(resultado[i])
+			print(resultadoParcial)
+			for i in range(len(resultado),0,-1):
+				if resultado[len(resultado)-i] not in resultadoParcial:
+					resultado.pop(len(resultado)-i)
+			print(resultado)
+		'''if ventana1.radioButton_Bookstore.isChecked():
 			for i in range(len(resultado)):
 				if resultado[i][5] != "Bookstore":
 					resultado.pop(len(resultado) -i)
@@ -213,7 +221,10 @@ class Controller():
 		
 		search.name = ventana1.busqueda
 		print("antes de busqueda primera: ",resultado)
-		resultado = search.searchShop()
+		if ventana1.busqueda != "":
+			resultado = search.searchShop()
+		else:
+			resultado = search.TraerTiendas()
 		print("antes de filtrado: ",resultado)
 		self.filterShop(ventana1,resultado) 
 		print("Despues de filtro: ",resultado)

@@ -107,7 +107,7 @@ class HomeView(object):
         self.checkBox_5estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_5estrella.setGeometry(QtCore.QRect(11, 24, 19, 16))
         self.checkBox_5estrella.setText("")
-        self.checkBox_5estrella.toggle()
+        #self.checkBox_5estrella.toggle()
         self.checkBox_5estrella.setObjectName("checkBox_5estrella")
         self.checkBox_4estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_4estrella.setGeometry(QtCore.QRect(11, 46, 16, 16))
@@ -377,6 +377,7 @@ class HomeView(object):
             tienda = tiendas[i]
             imagen = tienda[0]
             nombre = tienda[1]
+            rating = tienda[5]
             descripcion = tienda[2]
             caja = QtWidgets.QHBoxLayout()
             # Crea las imagenes de la tiendas
@@ -412,7 +413,7 @@ class HomeView(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
-"<b style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(nombre)+"</b>"
+"<b style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(nombre)+" Rating: "+str(rating)+"</b>"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+str(descripcion)+"</p></body></html>"))
 

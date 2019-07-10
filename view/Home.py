@@ -31,7 +31,8 @@ class HomeView(object):
         self.results = QtWidgets.QLabel(self.centralwidget)
         self.results.setGeometry(QtCore.QRect(500, 120, 211, 22))
         self.results.setObjectName("results")
-        self.results.setStyleSheet("color: rgb(0,0,0);")
+        self.results.setStyleSheet("background: transparent;\n"
+            "color: rgb(0,0,0);")
 
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))

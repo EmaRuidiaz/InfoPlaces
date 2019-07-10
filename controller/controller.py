@@ -237,26 +237,30 @@ class Controller():
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
-			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0]))
+			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, com))
 		except:
 			pass
 		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
 
-	def regComment(self, ventana1, user, idshop):
-		comment = Comment()
-		comment.content = ventana1.textEdit.toPlainText()
-		datee = datetime.today()
-		comment.date = datee
-		print(comment.date)
-		comment.person = user.username
-		comment.shop = idshop
-		if len(comment.content) < 200 and len(comment.content) > 0:
-			comment.register()
-			print("Comentario registrado: ", comment.content)
-			ventana1.setComment()
+	def regComment(self, ventana1, user, idshop, Ventana_Principal, com):
+		if user.type != 3:
+			comment = Comment()
+			comment.content = ventana1.textEdit.toPlainText()
+			datee = datetime.today()
+			comment.date = datee
+			print(comment.date)
+			comment.person = user.username
+			comment.shop = idshop
+			if len(comment.content) < 200 and len(comment.content) > 0:
+				comment.register()
+				print("Comentario registrado: ", comment.content)
+				ventana1.setComment()
+				ventana1.Cargar_Comentarios(com)
+			else:
+				print("NO SE REGISTRO EL COMENTARIO!")
 		else:
-			print("NO SE REGISTRO EL COMENTARIO!")
+			QMessageBox.warning(Ventana_Principal,"comment shop","Login or register to post a comment")
 
 	def logOut(self, Ventana_Principal, user):
 		del user

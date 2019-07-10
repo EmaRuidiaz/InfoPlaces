@@ -120,6 +120,16 @@ class StoreDescriptionView(object):
 "border-radius: 3px;\n"
 "color: rgb(225,225,225)")
         self.textBrowser_SheduleShop.setObjectName("textBrowser_SheduleShop")
+        self.Gallery = QtWidgets.QLabel(self.frame)
+        self.Gallery.setGeometry(QtCore.QRect(254, 434, 91, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Gallery.setFont(font)
+        self.Gallery.setStyleSheet("background: transparent;\n"
+"color: rgb(225,225,225)")
+        self.Gallery.setObjectName("Gallery")
         self.tableWidget_Galeria = QtWidgets.QTableWidget(self.frame)
         self.tableWidget_Galeria.setGeometry(QtCore.QRect(250, 446, 511, 154))
         self.tableWidget_Galeria.setStyleSheet("background: transparent;\n"
@@ -290,6 +300,7 @@ class StoreDescriptionView(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.textEdit.setPlaceholderText(_translate("MainWindow", "Deje su comentario en este cuadrito =D"))
         self.pushButton_SendComent.setText(_translate("MainWindow", "Send"))
+        self.Gallery.setText(_translate("MainWindow","Gallery"))
 
 '''
 

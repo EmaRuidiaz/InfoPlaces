@@ -278,10 +278,10 @@ class StoreDescriptionView(object):
 
     def retranslateUi(self, MainWindow, description, images, schedule):
         p = int(len(schedule))
-        horario = ''
+        horario = []
         for i in range(p//2):
             a = str(schedule[i][2]) + ': ' + str(schedule[i][4]) + ':' + str(schedule[i][5]) + 'hs. to ' + str(schedule[i][6]) + ':' + str(schedule[i][7]) + 'hs. '
-            horario = horario + a
+            horario.append(a)
             #print(horario) muestra la hora en la consola
 
 
@@ -303,7 +303,13 @@ class StoreDescriptionView(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario+"</p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[0]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[1]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[2]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[3]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[4]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[5]+"</p></body></html>"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"+horario[6]+"</p></body></html>"))
         item = self.tableWidget_Galeria.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "Img"))
         self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

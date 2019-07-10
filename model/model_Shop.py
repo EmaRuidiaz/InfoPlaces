@@ -29,7 +29,7 @@ class Shop:
 		return self.db.insertar(self.query, self.values)
 
 	def searchShop(self):
-		self.query = "SELECT distinct p.image, s.name, s.description, s.id, s.type, Rate.RatingShop  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id LEFT JOIN  (SELECT rating.idshop, AVG(rating) AS RatingShop FROM rating) as Rate ON s.id = Rate.idshop WHERE s.name like %s GROUP BY s.id;"
+		self.query = "SELECT distinct p.image, s.name, s.description, s.id, s.type, Rate.RatingShop  FROM shop s INNER JOIN schedule sc on s.id = sc.shop INNER JOIN photo p on p.shop = s.id LEFT JOIN  (SELECT rating.idshop, AVG(rating) AS RatingShop FROM rating GROUP BY rating.idshop) as Rate ON s.id = Rate.idshop WHERE s.name like %s GROUP BY s.id;"
 		self.values = ("%"+self.name+"%",)
 		return self.db.ejecutar(self.query, self.values)
 

@@ -167,43 +167,43 @@ class Controller():
 					resultado.pop(len(resultado) -i)
 		elif ventana1.radioButton_All.isChecked():
 			pass
-
-		'''resultadoParcial = []
+		'''
+		resultadoParcial = []
 		if ventana1.checkBox_5estrella.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] == "Sports":
+			for i in range(len(resultado)):
+				if resultado[i][5] == "Sports":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Restaurant.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Restaurant":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Restaurant":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Kitchen.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Kitchen":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Kitchen":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Gardening.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Gardening":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Gardening":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Restaurant.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Restaurant":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Restaurant":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Bookstore.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Bookstore":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Bookstore":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Toy_store.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Toy Store":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Toy Store":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Tools.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Tools":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Tools":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_Other.isChecked():
-			for i in range(len(resultado),0,-1):
-				if resultado[len(resultado) - i][5] != "Other":
+			for i in range(len(resultado)):
+				if resultado[i][5] != "Other":
 					resultado.pop(len(resultado) -i)
 		if ventana1.radioButton_All.isChecked():
 			pass'''
@@ -237,13 +237,13 @@ class Controller():
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
-			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, com))
+			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, c))
 		except:
 			pass
 		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
 
 
-	def regComment(self, ventana1, user, idshop, Ventana_Principal, com):
+	def regComment(self, ventana1, user, idshop, Ventana_Principal, c):
 		if user.type != 3:
 			comment = Comment()
 			comment.content = ventana1.textEdit.toPlainText()
@@ -254,13 +254,13 @@ class Controller():
 			comment.shop = idshop
 			if len(comment.content) < 200 and len(comment.content) > 0:
 				comment.register()
-				print("Comentario registrado: ", comment.content)
 				ventana1.setComment()
+				com = c.TraerComentario(idshop)
 				ventana1.Cargar_Comentarios(com)
 			else:
-				print("NO SE REGISTRO EL COMENTARIO!")
+				QMessageBox.warning(Ventana_Principal,"Comment shop","This comment wasn't registered")
 		else:
-			QMessageBox.warning(Ventana_Principal,"comment shop","Login or register to post a comment")
+			QMessageBox.warning(Ventana_Principal,"Comment shop","Login or register to post a comment")
 
 	def logOut(self, Ventana_Principal, user):
 		del user

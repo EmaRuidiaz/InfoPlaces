@@ -361,15 +361,17 @@ class Controller():
 								print("Este es el id de la tienda: ",idShop)
 								shop.registerPhoto(idShop[0][0])
 
-								#shopRating = Rating()
-								#shopRating.id_shop = idShop[0][0]
-								#shopRating.rating = 3
-								#shopRating.registerInitialRate()
+								shopRating = Rating()
+								shopRating.id_person = 'administrador'
+								shopRating.id_shop = idShop[0][0]
+								shopRating.rating = 3
+								shopRating.registerInitialRate()
 
 								for i in range(1,len(ventana1.schedule)+1):
 									schedule.register(ventana1.schedule, idShop[0][0], i-1)
 									print(ventana1.schedule, idShop[0][0], i-1)
 								QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
+								self.Home(Ventana_Principal, user)
 							else:
 								QMessageBox.warning(Ventana_Principal, "Error", "Photo")
 						else:

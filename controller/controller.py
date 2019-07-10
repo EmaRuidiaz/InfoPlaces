@@ -8,6 +8,7 @@ from model_RegisteredUser import RegisteredUser
 from model_User import User
 from model_ShopOwner import ShopOwner
 from model_Shop import Shop
+from model_Favorite import  Favorite
 from model_Schedule import Schedule
 from model_Comment import Comment
 from model_Rating import Rating
@@ -249,10 +250,19 @@ class Controller():
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
 			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, c))
+			ventana1.pushButton_favorito.clicked.connect(lambda: self.addFavorite(description[0][0], user.username))
 		except:
 			pass
-		#print("Aprete sobre: ",resultado[ventana1.shopPosition])
-
+			
+	def addFavorite(self, idshop, idperson):
+		fav = Favorite()
+		fav.id_person = idperson
+		fav.id_shop = idshop
+		if fav.checkFav():
+			fav.deleteFav()
+		else:
+			fav.insertFav()
+		print("FAVORITESsSSsSsSsSsS")
 
 	def regComment(self, ventana1, user, idshop, Ventana_Principal, c):
 		if user.type != 3:

@@ -153,8 +153,8 @@ class UserProfileView(object):
         self.pushButton_back_Change_Password.setObjectName("pushButton_back_Change_Password")
         if user.type == 2:
             
-            self.pushButton_Resgister_Store = QtWidgets.QPushButton(self.centralwidget)
-            self.pushButton_Resgister_Store.setGeometry(QtCore.QRect(500, 390, 171, 31))
+            self.pushButton_Resgister_Store = QtWidgets.QPushButton(self.label)
+            self.pushButton_Resgister_Store.setGeometry(QtCore.QRect(545, 390, 171, 31))
             font = QtGui.QFont()
             font.setPointSize(15)
             self.pushButton_Resgister_Store.setFont(font)

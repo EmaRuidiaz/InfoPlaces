@@ -120,6 +120,11 @@ class StoreDescriptionView(object):
         self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
         self.favorito.setScaledContents(True)
         self.favorito.setObjectName("favorito")
+        self.pushButton_favorito = QtWidgets.QPushButton(self.frame)
+        self.pushButton_favorito.setGeometry(QtCore.QRect(168, 210, 30, 30))
+        self.pushButton_favorito.setStyleSheet("background: transparent;")
+        self.pushButton_favorito.setText("")
+        self.pushButton_favorito.setObjectName("pushButton_favorito")
         # La estrella negra cambia x una estrella amarilla para indicar que es favorito
         self.textBrowser_SheduleShop = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser_SheduleShop.setGeometry(QtCore.QRect(20, 241, 211, 181))

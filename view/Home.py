@@ -292,16 +292,31 @@ class HomeView(object):
         self.pushButton_Search.setText("")
         self.pushButton_Search.setObjectName("pushButton")
 
+        
+        self.frame_2.raise_()
+        self.groupBox.raise_()
+        self.groupBox_2.raise_()
+        #self.pushButton_back.raise_()
+        self.Search.raise_()
+        self.Photo.raise_()
+        self.label_7.raise_()
+        self.pushButton_Log_Out.raise_()
+        #self.scrollArea.raise_()
+        self.comboBox.raise_()
+        self.pushButton_Search.raise_()
+        self.frame_camu.raise_()
+        self.tableWidget.raise_()
+        #self.perfil.raise_()
+
+        #self.pushButton_Search.clicked.connect(lambda: self.update())
+
         if user.type != 3:
             self.perfil = QtWidgets.QPushButton(self.frame)
-            self.perfil.setGeometry(QtCore.QRect(420, 0, 91, 21))
+            self.perfil.setGeometry(QtCore.QRect(700, 10, 88, 78))
             font = QtGui.QFont()
             font.setPointSize(11)
             self.perfil.setFont(font)
-            self.perfil.setStyleSheet("background: rgb(225,225,225,60);\n"
-                                        "border: 1px solid rgb(225,225,225,60);\n"
-                                        "border-radius: 6px;\n"
-                                        "color: rgb(225,225,225);")
+            self.perfil.setStyleSheet("background: transparent;")
             self.perfil.setObjectName("perfil")
             self.ver_favoritos = QtWidgets.QPushButton(self.frame)
             self.ver_favoritos.setGeometry(QtCore.QRect(187, 120,75,21))
@@ -344,21 +359,6 @@ class HomeView(object):
                                                         "color: rgb(225,225,225);")
                 self.pushButton_Create_Store.setObjectName("pushButton_Create_Store")
                 self.pushButton_Create_Store.raise_()
-        self.frame_2.raise_()
-        self.groupBox.raise_()
-        self.groupBox_2.raise_()
-        #self.pushButton_back.raise_()
-        self.Search.raise_()
-        self.Photo.raise_()
-        self.label_7.raise_()
-        self.pushButton_Log_Out.raise_()
-        #self.scrollArea.raise_()
-        self.comboBox.raise_()
-        self.pushButton_Search.raise_()
-        self.frame_camu.raise_()
-        self.tableWidget.raise_()
-
-        #self.pushButton_Search.clicked.connect(lambda: self.update())
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -555,7 +555,7 @@ class HomeView(object):
         item.setText(_translate("MainWindow", "Description"))
         self.pushButton_Search.setText(_translate("MainWindow", ""))
         if user.type != 3:
-            self.perfil.setText(_translate("MainWindow","Edit Profile"))
+            self.perfil.setText(_translate("MainWindow",""))
             self.ver_favoritos.setText(_translate("MainWindow","Favourite"))
             if user.type == 2:
                 self.misTiendas.setText(_translate("MainWindow", "My Shops"))

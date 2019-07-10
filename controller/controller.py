@@ -231,12 +231,15 @@ class Controller():
 		print("Despues de filtro: ",resultado)
 		ventana1.Cargar_tienda(resultado)
 		print("Despues de busqueda: ",resultado)
-		for button in ventana1.buttonList:
-			try:
-				button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, resultado[ventana1.shopPosition], search, user))
-			except:
-				pass
-		return resultado
+		if not resultado:
+			QMessageBox.warning(Ventana_Principal,"Search Failed","There is no a shop with that name")
+		else:
+			for button in ventana1.buttonList:
+				try:
+					button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, resultado[ventana1.shopPosition], search, user))
+				except:
+					pass
+			return resultado
 
 	def favorites(self, search, ventana1, resultado, Ventana_Principal, user):
 		resultado = search.getFavoriteShops(user.username)

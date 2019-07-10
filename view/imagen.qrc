@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="Inicio">
+    <file>17266.jpg</file>
+    <file>vista-ciudad-bangkok-al-atardecer_53876-13277.jpg</file>
     <file>1_estrella - copia.PNG</file>
     <file>estrella_negra.png</file>
     <file>descarga1.png</file>
@@ -7,6 +9,7 @@
     <file>mapa.jpg</file>
   </qresource>
   <qresource prefix="Tienda">
+    <file>edificio1.jpg</file>
     <file>Adidas-Splau-650.jpg</file>
     <file>image_content_7298511_20160625221849.jpg</file>
     <file>resizeimg.jpg</file>

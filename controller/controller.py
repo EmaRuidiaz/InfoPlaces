@@ -253,6 +253,9 @@ class Controller():
 		c = Comment()
 		com = c.TraerComentario(description[0][0])
 		print(com)
+		fav = Favorite()
+		fav.id_person = user.username
+		fav.id_shop = description[0][0]
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:

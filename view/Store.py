@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class StoreDescriptionView(object):
-    def __init__(self, MainWindow, description, images, schedule, user, com):
+    def __init__(self, MainWindow, description, images, schedule, user, com, estrella):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.338983, y1:0.631, x2:1, y2:0, stop:0.361582 rgba(61, 139, 247, 255), stop:0.977401 rgba(3, 123, 179, 255));")
@@ -117,12 +117,7 @@ class StoreDescriptionView(object):
         self.favorito.setGeometry(QtCore.QRect(168, 210, 30, 30))
         self.favorito.setStyleSheet("background: transparent;")
         self.favorito.setText("")
-        if estrella:
-            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
-            print('favorito')
-        else:
-            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
-            print('no favoritoo')
+        self.setImage(estrella)
         self.favorito.setScaledContents(True)
         self.favorito.setObjectName("favorito")
         self.pushButton_favorito = QtWidgets.QPushButton(self.frame)
@@ -171,6 +166,14 @@ class StoreDescriptionView(object):
 
         self.Cargar_Comentarios(com)
         self.Cargar_imagenes(images)
+
+    def setImage(self, estrella):
+        if estrella:
+            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            print('favorito')
+        else:
+            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            print('no favoritoo')
 
 
     # Carga los comentarios

@@ -26,7 +26,7 @@ import os
 
 class ControllerUsuario:
 	def imp(self):
-		print("Controlador de usuario")
+		pass
 
 
 class Controller():
@@ -101,10 +101,7 @@ class Controller():
 	def Home(self, Ventana_Principal,user):
 		a = Shop()
 		b = a.TraerTiendas()
-		print(b)
 		ventana1 = HomeView(Ventana_Principal, user,b)
-		#search = Shop()
-		#resultado = []
 		for button in ventana1.buttonList:
 			try:
 				button.clicked.connect(lambda: self.shopDescription(Ventana_Principal, b[ventana1.shopPosition], a, user))
@@ -121,7 +118,6 @@ class Controller():
 		ventana1.pushButton_Log_Out.clicked.connect(lambda: self.logOut(Ventana_Principal, user))
 
 	def myShops(self, Ventana_Principal, user, b, ventana1, a):
-		print("Crear Vista")
 		b = user.myShops()
 		ventana1.Cargar_tienda(b)
 		for button in ventana1.buttonList:
@@ -172,11 +168,9 @@ class Controller():
 				
 		if ventana1.checkBox_5estrella.isChecked() or ventana1.checkBox_4estrella.isChecked() or ventana1.checkBox_3estrella.isChecked() or ventana1.checkBox_2_estrella.isChecked() or ventana1.checkBox_1estrella.isChecked():
 			resultadoParcial = []	
-			print("FILTRANDO POR ESTRELLAS")
 			if ventana1.checkBox_5estrella.isChecked():
 				for i in range(len(resultado)):
 					if resultado[i][5] == '5':
-						print("5 ESTRELLAS")
 						resultadoParcial.append(resultado[i])
 			if ventana1.checkBox_4estrella.isChecked():
 				for i in range(len(resultado)):
@@ -194,43 +188,19 @@ class Controller():
 				for i in range(len(resultado)):
 					if resultado[i][5] == '1':
 						resultadoParcial.append(resultado[i])
-			print(resultadoParcial)
 			for i in range(len(resultado),0,-1):
 				if resultado[len(resultado)-i] not in resultadoParcial:
 					resultado.pop(len(resultado)-i)
-			print(resultado)
-		'''if ventana1.radioButton_Bookstore.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Bookstore":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Toy_store.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Toy Store":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Tools.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Tools":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_Other.isChecked():
-			for i in range(len(resultado)):
-				if resultado[i][5] != "Other":
-					resultado.pop(len(resultado) -i)
-		if ventana1.radioButton_All.isChecked():
-			pass'''
 
 	def Search(self, search, ventana1, resultado, Ventana_Principal, user):
 		ventana1.update()
 		search.name = ventana1.busqueda
-		print("antes de busqueda primera: ",resultado)
 		if ventana1.busqueda != "":
 			resultado = search.searchShop()
 		else:
 			resultado = search.TraerTiendas()
-		print("antes de filtrado: ",resultado)
 		self.filterShop(ventana1,resultado) 
-		print("Despues de filtro: ",resultado)
 		ventana1.Cargar_tienda(resultado)
-		print("Despues de busqueda: ",resultado)
 		if not resultado:
 			QMessageBox.warning(Ventana_Principal,"Search Failed","There is no a shop with that name")
 		else:
@@ -249,22 +219,20 @@ class Controller():
 		schedule = shopComplete.getShopSchedule(shop[3])
 		description = shopComplete.getShopDescription(shop[3])
 		images = shopComplete.getShopPhotos(shop[3])
-		print(description, images, schedule)
 		c = Comment()
 		com = c.TraerComentario(description[0][0])
-		print(com)
 		fav = Favorite()
 		fav.id_person = user.username
 		fav.id_shop = description[0][0]
-		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com)
+		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com, fav.checkFav())
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
 			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, c))
-			ventana1.pushButton_favorito.clicked.connect(lambda: self.addFavorite(description[0][0], user.username))
+			ventana1.pushButton_favorito.clicked.connect(lambda: self.addFavorite(description[0][0], user.username, ventana1))
 		except:
 			pass
 
-	def addFavorite(self, idshop, idperson):
+	def addFavorite(self, idshop, idperson, ventana1):
 		fav = Favorite()
 		fav.id_person = idperson
 		fav.id_shop = idshop
@@ -272,7 +240,7 @@ class Controller():
 			fav.deleteFav()
 		else:
 			fav.insertFav()
-		print("FAVORITESsSSsSsSsSsS")
+		ventana1.setImage(fav.checkFav())
 
 	def regComment(self, ventana1, user, idshop, Ventana_Principal, c):
 		if user.type != 3:
@@ -280,7 +248,6 @@ class Controller():
 			comment.content = ventana1.textEdit.toPlainText()
 			datee = datetime.today()
 			comment.date = datee
-			print(comment.date)
 			comment.person = user.username
 			comment.shop = idshop
 			if len(comment.content) < 200 and len(comment.content) > 0:
@@ -296,19 +263,15 @@ class Controller():
 	def logOut(self, Ventana_Principal, user):
 		del user
 		self.menuPrincipal(Ventana_Principal)
-		#self.Iniciar(Ventana_Principal)
 
 	def sign(self, passwd=None, user=None, typeu=None, Ventana_Principal=None):
 		if typeu == 1:
-			print("Tipo: ", typeu)
 			reguser = RegisteredUser()
 			reguser.username = user
 			reguser.email = user
 			reguser.password = passwd
 			reguser.type = typeu
 			self.validacion = reguser.SignIn()
-			#self.reguser.username, self.reguser.password)
-			print(type(passwd),type(user))
 			if (user != ""):
 				if passwd != "":
 					if (self.validacion):
@@ -331,15 +294,12 @@ class Controller():
 			else:
 				msj = QMessageBox.critical(Ventana_Principal, "No email or username", "Complete the username or email field and try again")
 		elif typeu == 2:
-			print("Tipo: ", typeu)
 			owner = ShopOwner()
 			owner.username = user
 			owner.email = user
 			owner.password = passwd
 			owner.type = typeu
 			self.validacion = owner.SignIn()
-			#self.reguser.username, self.reguser.password)
-			print(self.validacion)
 			if (user != ""):
 				if passwd != "":
 					if (self.validacion):
@@ -363,10 +323,7 @@ class Controller():
 				msj = QMessageBox.critical(Ventana_Principal, "No email or username", "Complete the username or email field and try again")
 		elif typeu == 3:
 			user = User()
-			self.Home(Ventana_Principal, user)
-			#ventana1.pushButton_Log_Out.clicked.connect(lambda: self.menuPrincipal(Ventana_Principal))
-
-	
+			self.Home(Ventana_Principal, user)	
 
 	def crearStore(self, Ventana_Principal, user):
 		self.shop = Shop()
@@ -389,9 +346,7 @@ class Controller():
 							if ventana1.flagPhoto:
 								shop.register(user)
 								idShop = shop.getID()
-								print("Este es el id de la tienda: ",idShop)
 								shop.registerPhoto(idShop[0][0])
-
 								shopRating = Rating()
 								shopRating.id_person = 'administrador'
 								shopRating.id_shop = idShop[0][0]
@@ -400,7 +355,6 @@ class Controller():
 
 								for i in range(1,len(ventana1.schedule)+1):
 									schedule.register(ventana1.schedule, idShop[0][0], i-1)
-									print(ventana1.schedule, idShop[0][0], i-1)
 								QMessageBox.about(Ventana_Principal, "Register", "The shop was registered succefully!")
 								self.Home(Ventana_Principal, user)
 							else:
@@ -431,7 +385,6 @@ class Controller():
 	def UpdateUserEdit(self, user, userresguardo, ventana1, Ventana_Principal):
 		self.usernameresguardo = user.username
 		self.emailresguardo = user.email
-		print("Username: ",user.username, " Username Resguardo: ",userresguardo.username)
 		if ventana1.firstname and ventana1.lastname and ventana1.password:
 			if (len(user.password) > 7):
 				user.username = ventana1.username

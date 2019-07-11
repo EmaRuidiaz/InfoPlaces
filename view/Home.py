@@ -27,13 +27,11 @@ class HomeView(object):
         self.label.setPixmap(QtGui.QPixmap(":/Inicio/mapa.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
-
         self.results = QtWidgets.QLabel(self.centralwidget)
         self.results.setGeometry(QtCore.QRect(500, 120, 211, 22))
         self.results.setObjectName("results")
         self.results.setStyleSheet("background: transparent;\n"
             "color: rgb(0,0,0);")
-
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 800, 600))
         font = QtGui.QFont()
@@ -107,7 +105,6 @@ class HomeView(object):
         self.checkBox_5estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_5estrella.setGeometry(QtCore.QRect(11, 24, 19, 16))
         self.checkBox_5estrella.setText("")
-        #self.checkBox_5estrella.toggle()
         self.checkBox_5estrella.setObjectName("checkBox_5estrella")
         self.checkBox_4estrella = QtWidgets.QCheckBox(self.groupBox_2)
         self.checkBox_4estrella.setGeometry(QtCore.QRect(11, 46, 16, 16))
@@ -157,15 +154,6 @@ class HomeView(object):
         self.label_6.setPixmap(QtGui.QPixmap(":/dfsfsd/1_estrella.PNG"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
-        '''self.pushButton_back = QtWidgets.QPushButton(self.frame)
-                                self.pushButton_back.setGeometry(QtCore.QRect(0, 0, 61, 23))
-                                self.pushButton_back.setAutoFillBackground(False)
-                                self.pushButton_back.setStyleSheet("background: rgb(225,225,225,60);\n"
-                        "border: 1px solid rgb(225,225,225,60);\n"
-                        "border-radius: 6px;\n"
-                        "color: rgb(225,225,225);\n"
-                        "")
-                                self.pushButton_back.setObjectName("pushButton_back")'''
         self.Search = QtWidgets.QLineEdit(self.frame)
         self.Search.setGeometry(QtCore.QRect(170, 50, 521, 41))
         font = QtGui.QFont()
@@ -175,18 +163,6 @@ class HomeView(object):
 "border-radius: 10px")
         self.Search.setCursorPosition(0)
         self.Search.setObjectName("Search")
-
-        
-        #self.perfil.setText("")
-        '''
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(420, 0, 75, 21))
-        self.pushButton.setStyleSheet("background: rgb(225,225,225,60);\n"
-"border: 1px solid rgb(225,225,225,60);\n"
-"border-radius: 6px;\n"
-"color: rgb(225,225,225);")
-        self.pushButton.setObjectName("pushButton")
-'''
         self.Photo = QtWidgets.QLabel(self.frame)
         self.Photo.setGeometry(QtCore.QRect(700, 10, 88, 78))
         self.Photo.setStyleSheet("background: transparent;\n"
@@ -217,7 +193,6 @@ class HomeView(object):
 "color: rgb(225,225,225);\n"
 "")
         self.pushButton_Log_Out.setObjectName("pushButton_Log_Out")
-        
         self.tableWidget = QtWidgets.QTableWidget(self.frame)
         self.tableWidget.setGeometry(QtCore.QRect(180, 143, 601, 451))
         self.tableWidget.setAutoFillBackground(False)
@@ -249,18 +224,6 @@ class HomeView(object):
         self.tableWidget.horizontalHeader().setDefaultSectionSize(131)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setVisible(False)
-        
-
-
-
-
-
-
-
-
-
-
-
         self.comboBox = QtWidgets.QComboBox(self.frame)
         self.comboBox.setGeometry(QtCore.QRect(570, 120, 211, 22))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -271,7 +234,6 @@ class HomeView(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-
         self.frame_camu = QtWidgets.QFrame(self.frame)
         self.frame_camu.setGeometry(QtCore.QRect(640, 50, 51, 41))
         self.frame_camu.setStyleSheet("background: white;\n"
@@ -290,25 +252,18 @@ class HomeView(object):
         self.pushButton_Search.setGeometry(QtCore.QRect(10, 0, 41, 41))
         self.pushButton_Search.setStyleSheet("background: transparent;")
         self.pushButton_Search.setText("")
-        self.pushButton_Search.setObjectName("pushButton")
-
-        
+        self.pushButton_Search.setObjectName("pushButton")        
         self.frame_2.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
-        #self.pushButton_back.raise_()
         self.Search.raise_()
         self.Photo.raise_()
         self.label_7.raise_()
         self.pushButton_Log_Out.raise_()
-        #self.scrollArea.raise_()
         self.comboBox.raise_()
         self.pushButton_Search.raise_()
         self.frame_camu.raise_()
         self.tableWidget.raise_()
-        #self.perfil.raise_()
-
-        #self.pushButton_Search.clicked.connect(lambda: self.update())
 
         if user.type != 3:
             self.perfil = QtWidgets.QPushButton(self.frame)
@@ -361,25 +316,19 @@ class HomeView(object):
                 self.pushButton_Create_Store.raise_()
 
         MainWindow.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(MainWindow,user)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.Cargar_tienda(b)
-
-
         MainWindow.show()
 
     def update(self):
         self.busqueda = self.Search.text()
 
-    
     def Cargar_tienda(self,consulta):
         tiendas = consulta
         self.numeroResultados = str(len(tiendas))
         self.results.setText("Results: "+self.numeroResultados)
         self.results.setStyleSheet("background: transparent;")
-        print("numero de resultados: ", self.numeroResultados)
-        print("entre a la funcion Cargar_tienda")
         self.tableWidget.setRowCount(len(tiendas))
         self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
         columna = 0
@@ -399,13 +348,11 @@ class HomeView(object):
             imagen_tienda.setScaledContents(True)
             imagen_tienda.setObjectName("imagen_tienda")
             imagen_tienda.setMaximumSize(181,131)
-            print("inserte imagen")
 
             caja.addWidget(imagen_tienda)
             celda = QtWidgets.QWidget()
             #celda.setStyleSheet("background: green")
             celda.setLayout(caja)
-            print("cree celda")
 
             self.boton_Tienda(i,imagen_tienda)
 
@@ -432,8 +379,6 @@ class HomeView(object):
             caja2 = QtWidgets.QHBoxLayout()
             caja2.addWidget(textBrowser)
             celda2 = QtWidgets.QWidget()
-            #celda2.setBaseSize(371,151)
-            #celda2.setStyleSheet("background: red;")
             celda2.setLayout(caja2)
             self.tableWidget.setCellWidget(i,1,celda2)
             self.tableWidget.resizeRowsToContents()
@@ -444,66 +389,21 @@ class HomeView(object):
             self.tableWidget.setCellWidget(i,0,celda)
             self.tableWidget.resizeRowsToContents()
             self.tableWidget.resizeColumnsToContents()
-
-            
-            
             columna = columna + 1
-            '''for x in tienda:
-            #imagen = tienda[i][0]
-            #self.imagenshop1 = QtWidgets.QLabel(self.tableWidget)
-            item = QtWidgets.QTableWidgetItem(str(x))
-            self.tableWidget.setItem(i,columna,item)
-            columna = columna + 1
-
-            for x in tienda:
-            #imagen = tienda[i][0]
-            #self.imagenshop1 = QtWidgets.QLabel(self.tableWidget)
-                if columna != 0:
-                    item = QtWidgets.QTableWidgetItem(str(x))
-                self.tableWidget.setItem(i,columna,item)
-                columna = columna + 1
-            '''
 
     def clickedo(self,boton, posicion):
-        #if pushButton_tienda0:
             self.shopPosition = posicion
-            print("me hiciste click",boton, " posicion: ",posicion)
             fila = self.tableWidget.currentRow()
-            print(fila)
-        #elif pushButton_tienda1:
-            #print("me hiciste click 1")
-
     
     def boton_Tienda(self,posicion,img):
-        '''
-        pushButton_tienda = QtWidgets.QPushButton(self.tableWidget)
-        pushButton_tienda.setGeometry(QtCore.QRect(0,0,181,131))
-        pushButton_tienda.setAutoFillBackground(False)
-        pushButton_tienda.setStyleSheet("background: red;")
-        pushButton_tienda.setObjectName("pushButton_tienda")
-'''
         nombreboton = "pushButton_tienda" + str(posicion)
-        print(nombreboton)
         pushButton_tienda = QtWidgets.QPushButton(img)
         self.buttonList.append(pushButton_tienda)
         pushButton_tienda.setGeometry(QtCore.QRect(0,0,181,131))
         pushButton_tienda.setAutoFillBackground(False)
         pushButton_tienda.setStyleSheet("background: transparent;")
         pushButton_tienda.setObjectName(nombreboton)
-        #print(pushButton_tienda)
         pushButton_tienda.clicked.connect(lambda: self.clickedo(pushButton_tienda, posicion))
-
-
-
-
-        '''pushButton_tienda.clicked.connect(self.clickedo)
-                        caja = QtWidgets.QHBoxLayout()
-                        caja.addWidget(pushButton_tienda)
-                        celda = QtWidgets.QWidget()
-                        celda.setLayout(caja)
-                        self.tableWidget.setCellWidget(posicion,0,celda)'''
-        print('Entre a la funcion boton_Tienda')
-
     
     def retranslateUi(self, MainWindow,user):
         _translate = QtCore.QCoreApplication.translate
@@ -521,27 +421,6 @@ class HomeView(object):
         self.groupBox_2.setTitle(_translate("MainWindow", "Valoración"))
         self.Search.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.pushButton_Log_Out.setText(_translate("MainWindow", "Log Out"))
-        
-        '''
-        self.titulo_tienda1.setText(_translate("MainWindow", "Store_1"))
-        self.textBrowser_Descripcion1.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                            "p, li { white-space: pre-wrap; }\n"
-                                                            "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                            "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_1</p></body></html>"))
-        self.titulo_tienda3.setText(_translate("MainWindow", "Store_3"))
-        self.textBrowser_Descripcion3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                        "p, li { white-space: pre-wrap; }\n"
-                                                        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_3</p></body></html>"))
-        self.titulo_tienda2.setText(_translate("MainWindow", "Store_2"))
-        self.textBrowser_Descripcion2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                    "p, li { white-space: pre-wrap; }\n"
-                                                    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Description_2</p></body></html>"))
-        '''
         self.comboBox.setItemText(0, _translate("MainWindow", "Sort by"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Descendent Rate"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Ascendent Rate"))
@@ -560,18 +439,3 @@ class HomeView(object):
             if user.type == 2:
                 self.misTiendas.setText(_translate("MainWindow", "My Shops"))
                 self.pushButton_Create_Store.setText(_translate("MainWindow", "Create Store"))
-
-
-'''
-import imagen_rc
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    
-    sys.exit(app.exec_())
-
-'''

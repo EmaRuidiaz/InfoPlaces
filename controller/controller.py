@@ -222,15 +222,36 @@ class Controller():
 		c = Comment()
 		com = c.TraerComentario(description[0][0])
 		fav = Favorite()
-		fav.id_person = user.username
-		fav.id_shop = description[0][0]
+		if user.type != 3:
+			fav.id_person = user.username
+			fav.id_shop = description[0][0]
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com, fav.checkFav())
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
 			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, c))
 			ventana1.pushButton_favorito.clicked.connect(lambda: self.addFavorite(description[0][0], user.username, ventana1))
+			ventana1.pushButton_estrella1.clicked.connect(lambda: self.regRating(description[0][0], user, 1))
+			ventana1.pushButton_estrella2.clicked.connect(lambda: self.regRating(description[0][0], user, 2))
+			ventana1.pushButton_estrella3.clicked.connect(lambda: self.regRating(description[0][0], user, 3))
+			ventana1.pushButton_estrella4.clicked.connect(lambda: self.regRating(description[0][0], user, 4))
+			ventana1.pushButton_estrella5.clicked.connect(lambda: self.regRating(description[0][0], user, 5))
 		except:
 			pass
+
+	def regRating(self, idShop, user, estrellas):
+		rating = Rating()
+		rating.id_person = user.username
+		rating.id_shop = idShop
+		rating.rating = estrellas
+		print(rating.id_person, rating.id_shop)
+		print("CHECKEANDO ..... ",rating.checkRate())
+		if rating.checkRate():
+			print("POR ACTUALIZAR RATING")
+			rating.updateRate()
+		else:
+			print("POR INSERTAR RATING")
+			rating.registerRate()
+		print("Voté con: ",estrellas, " estrellas")
 
 	def addFavorite(self, idshop, idperson, ventana1):
 		fav = Favorite()
@@ -334,10 +355,6 @@ class Controller():
 		ventana1.pushButton_Cancel.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 
 	def AddStore(self, shop, user, ventana1, schedule, Ventana_Principal):
-		'''shop.name = ventana1.name
-								shop.address = ventana1.address
-								shop.number = ventana1.number
-								shop.description = ventana1.description'''
 		if shop.name:
 			if shop.address:
 				if shop.number: 
@@ -351,7 +368,7 @@ class Controller():
 								shopRating.id_person = 'administrador'
 								shopRating.id_shop = idShop[0][0]
 								shopRating.rating = 3
-								shopRating.registerInitialRate()
+								shopRating.registerRate()
 
 								for i in range(1,len(ventana1.schedule)+1):
 									schedule.register(ventana1.schedule, idShop[0][0], i-1)

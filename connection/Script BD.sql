@@ -53,12 +53,13 @@ foreign key(idcomment) references comment(id));
 
 -- HASTA ACÁ
 
+drop table rating;
 create table rating(
-id	int auto_increment primary key,
-id_person	varchar(20),
-idshop	int,
+idperson	varchar(20),
+idshop	int(11),
 rating	int(1),
-foreign key(id_person) references person(user_name),
+primary key(idperson, idshop),
+foreign key(idperson) references person(user_name),
 foreign key(idshop) references shop(id));
 
 create table photo(

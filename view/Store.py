@@ -244,6 +244,38 @@ class StoreDescriptionView(object):
             self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
             print('no favoritoo')
 
+    def setEstrella(self, estrella):
+        if estrella == 1:
+            self.estrella1.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella2.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella3.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella4.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella5.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        elif estrella == 2:
+            self.estrella1.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella2.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella3.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella4.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella5.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        elif estrella == 3:
+            self.estrella1.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella2.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella3.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella4.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            self.estrella5.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        elif estrella == 4:
+            self.estrella1.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella2.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella3.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella4.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella5.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        else:
+            self.estrella1.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella2.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella3.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella4.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            self.estrella5.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+
 
     # Carga los comentarios
     '''

@@ -30,8 +30,7 @@ foreign key(shop) references shop(id));
 
 
 -- EJECUTAR DESDE ACÁ
-drop table answer;
-drop table comment;
+
 
 create table comment(
 id	int auto_increment primary key,
@@ -53,7 +52,6 @@ foreign key(idcomment) references comment(id));
 
 -- HASTA ACÁ
 
-drop table rating;
 create table rating(
 idperson	varchar(20),
 idshop	int(11),

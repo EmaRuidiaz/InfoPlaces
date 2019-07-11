@@ -117,7 +117,12 @@ class StoreDescriptionView(object):
         self.favorito.setGeometry(QtCore.QRect(168, 210, 30, 30))
         self.favorito.setStyleSheet("background: transparent;")
         self.favorito.setText("")
-        self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+        if estrella:
+            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/1_estrella - copia.PNG"))
+            print('favorito')
+        else:
+            self.favorito.setPixmap(QtGui.QPixmap(":/Inicio/estrella_negra.png"))
+            print('no favoritoo')
         self.favorito.setScaledContents(True)
         self.favorito.setObjectName("favorito")
         self.pushButton_favorito = QtWidgets.QPushButton(self.frame)

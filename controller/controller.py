@@ -223,17 +223,18 @@ class Controller():
 		com = c.TraerComentario(description[0][0])
 		fav = Favorite()
 		rating = Rating()
+		'''
 		rating.id_person = user.username
 		rating.id_shop = description[0][0]
 		result = rating.checkRate()
 		rating.rating = result[0][0]
-		
+		'''
 		if user.type != 3:
 			fav.id_person = user.username
 			fav.id_shop = description[0][0]
 		ventana1 = StoreDescriptionView(Ventana_Principal, description, images, schedule, user, com, fav.checkFav())
 		# Esoy hay que verificar.. esta mal, bueno no tan mal
-		ventana1.setEstrella(rating.rating)
+			#ventana1.setEstrella(rating.rating)
 		ventana1.pushButton_back.clicked.connect(lambda: self.Home(Ventana_Principal, user))
 		try:
 			ventana1.pushButton_SendComent.clicked.connect(lambda: self.regComment(ventana1, user, description[0][0], Ventana_Principal, c))

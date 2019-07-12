@@ -280,7 +280,7 @@ class Controller():
 			comment.date = datee
 			comment.person = user.username
 			comment.shop = idshop
-			if len(comment.content) < 200 and len(comment.content) > 0:
+			if len(comment.content) < 150 and len(comment.content) > 0:
 				comment.register()
 				ventana1.setComment()
 				com = c.TraerComentario(idshop)
